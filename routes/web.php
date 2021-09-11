@@ -24,3 +24,7 @@ Route::get('/pindah_memilih/home', [App\Http\Controllers\HomeController::class, 
 Auth::routes();
 
 Route::get('/pindah_memilih/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/pindah_memilih/Surat/Masuk', [App\Http\Controllers\SuratController::class, 'index1'])->name('SuratMasuk');
+
+Route::get('/pindah_memilih/Surat/Keluar', [App\Http\Controllers\SuratController::class, 'index2'])->name('SuratKeluar');
