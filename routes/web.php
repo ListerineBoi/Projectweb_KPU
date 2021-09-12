@@ -13,14 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/pindah_memilih', function () {
+Route::get('/', function () {
     return view('welcome');
 });
 
 Auth::routes();
 
-Route::get('/pindah_memilih/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
 
-Route::get('/pindah_memilih/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
