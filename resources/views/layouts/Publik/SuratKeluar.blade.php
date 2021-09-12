@@ -13,7 +13,7 @@
 
   <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
-  <a class="navbar-brand" href="#"><img src="/image/logoKPU.png" width="30" height="30" class="d-inline-block align-top" alt="">KPU Kota Yogyakarta</a>
+  <a class="navbar-brand" href="#"><img src="/image/logoKPU.png" width="30" height="30" class="d-inline-block align-top" alt="">KPU Kota Yogyakarta (Surat Keluar)</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -30,7 +30,7 @@
         <a class="nav-link" href="#">Tata Cara Pindah Pemilih</a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Pengajuan Surat
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -77,7 +77,7 @@
 <div class="jumbotron jumbotron-fluid text-center">
   <div class="container">
     <h1 class="display-4">Halo! User!</h1>
-    <p class="lead">Kamu Sudah Berhasil Login Ke Sistem Pindah Pemilih KPU Kota Yogyakarta :)</p>
+    <p class="lead">Kamu Di Halaman Pengajuan Surat Keluar</p>
   </div>
 </div>
 
