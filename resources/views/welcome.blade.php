@@ -8,15 +8,20 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>KPU Kota Yogyakarta</title>
+    <title>Sistem Pindah Pemilih KPU Kota Yogyakarta</title>
   </head>
 <body>
 <!-- Image and text -->
 <nav class="navbar navbar-light bg-danger">
-  <a class="navbar-brand text-light" href="#">
+  <a class="navbar-brand text-light" href="https://kota-yogyakarta.kpu.go.id/">
     <img src="/image/logoKPU.png" width="30" height="30" class="d-inline-block align-top" alt="">
     KPU Kota Yogyakarta
   </a>
+  <a class="navbar-brand text-light ml-auto" href="/Publik/Home">
+  Halaman Publik 
+  </a>
+  
+  <a class="navbar-brand text-light"> | </a>
 
   <div class="items-top justify-center ">
             @if (Route::has('login'))
@@ -24,10 +29,7 @@
                     @auth
                         <button type="Submit" href="{{ url('/home') }}" class="btn btn-dark">Home</button>
                     @else
-                    <a href="{{ route('login') }}" class="navbar-brand text-light">Log in</a>
-                        @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="navbar-brand text-light">Register</a>
-                        @endif
+                    <a href="{{ route('login') }}" class="navbar-brand text-light">Log in (Admin)</a>
                     @endauth
                 </div>
                 @endif

@@ -2,14 +2,6 @@
 
 @section('content') 
 
-<div class="jumbotron jumbotron-fluid text-center">
-  <div class="container">
-    <h1 class="display-4">Halo! User!</h1>
-    <p class="lead">Kamu Di Halaman Pengajuan Surat Masuk</p>
-  </div>
-</div>
-
-</br>
 <form method="GET" action="/transaksi/view/simpan">
 <div class="row h-100 justify-content-center align-items-center bg-info">
     <div class="col-md-10">
@@ -140,7 +132,8 @@
             </br>
 </div>
             <button type="button" class="btn btn-danger" class="text-right" style="float: right;">Kirim Formulir</button>
-            <button type="button" class="btn btn-dark" class="text-right" style="float: right;">Kembali</button>
+            <a href="/Surat/Masuk" type="button" class="btn btn-dark" class="text-right" style="float: right;">Kembali</a>
     </form>
 
-    @endsection   
+
+@endsection  

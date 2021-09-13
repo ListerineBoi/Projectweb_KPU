@@ -13,7 +13,7 @@
 
   <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
-  <a class="navbar-brand" href="#"><img src="/image/logoKPU.png" width="30" height="30" class="d-inline-block align-top" alt="">KPU Kota Yogyakarta (Surat Keluar)</a>
+  <a class="navbar-brand" href="#"><img src="/image/logoKPU.png" width="30" height="30" class="d-inline-block align-top" alt="">KPU Kota Yogyakarta (Halaman Admin)</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -21,13 +21,10 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link" href="#">TPS</a>
+        <a class="nav-link" href="#"></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Jumlah Pemilih</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Tata Cara Pindah Pemilih</a>
+        <a class="nav-link active" href="/TPS/Admin">TPS</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -67,6 +64,9 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
+                                    <div class="dropdown-divider"></div>
+                                      <a class="dropdown-item" href="{{route('SuratKeluar')}}">Profil</a>
+                                    </div>
                                 </div>
                             </li>
                         @endguest
