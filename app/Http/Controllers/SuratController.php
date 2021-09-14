@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\SuratM;
+use Auth;
 
 class SuratController extends Controller
 {
@@ -23,7 +25,19 @@ class SuratController extends Controller
      */
     public function index1()
     {
-        return view('/layouts/Admin/SuratMasuk');
+        $list=SuratM::where('penerima','=',null)->get();
+        return view('/layouts/Admin/SuratMasuk',compact('list'));
+    }
+    public function verif(Request $request)
+    {
+        $id=Auth::user()->id;
+        if($request->get('type')=="0"){
+            SuratM::where('id', $request->get('id'))->update(['penerima' => $id , 'tps_jog' => "1"]);
+        }else{
+            SuratM::where('id', $request->get('id'))->delete();
+        
+        }
+        return redirect()->route('SuratMasuk');
     }
 
     public function index2()

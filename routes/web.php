@@ -36,3 +36,11 @@ Route::get('/Informasi/TCP', [App\Http\Controllers\PublikController::class, 'tcp
 Route::get('/Input/SM', [App\Http\Controllers\SuratController::class, 'ism'])->name('InputSM');
 
 Route::get('/TPS/Admin', [App\Http\Controllers\SuratController::class, 'tpsadm'])->name('tpsadmin');
+
+
+
+//////////////////////
+Route::post('/PengajuanSurat/Masuk/simpan', [App\Http\Controllers\PublikController::class, 'savePengajuan'])->name('simpanM');
+Route::post('/Surat/Masuk/ver', [App\Http\Controllers\SuratController::class, 'verif'])->name('verif');
+
+

@@ -14,40 +14,36 @@
 	<thead>
 		<tr>
 			<th class="text-center">No</th>
+			<th class="text-center">NIK</th>
 			<th class="text-center">Nama</th>
 			<th class="text-center">Detail</th>
 			<th class="text-center">Aksi</th>
 		</tr>
 	</thead>
 	<tbody>
+		@foreach($list as $row)
 		<tr>
-			<td>1</td>
-			<td>Jhony Ahmad</td>
+			<td>{{$loop->iteration}}</td>
+			<td>{{$row->nik}}</td>
+			<td>{{$row->nama}}</td>
 			<td><button type="button" class="btn text-center btn-primary">Cek Detail</button></td>
-			<td><a type="button" class="btn text-center btn-success">Setuju</a>	|
-			<a type="button" class="btn text-center btn-danger">Tolak</a></td>
+			<td>
+			<form method="post" action="{{route('verif')}}" enctype='multipart/form-data'>
+                @csrf
+                <input type="hidden" class="form-control" name="id" value="{{$row->id}}">
+				<input type="hidden" class="form-control" name="type" value="0">    
+                <button type="submit" class="btn btn-primary">Setuju</button>
+            </form>	
+			<br>
+			<form method="post" action="{{route('verif')}}" enctype='multipart/form-data'>
+                @csrf
+                <input type="hidden" class="form-control" name="id" value="{{$row->id}}">   
+				<input type="hidden" class="form-control" name="type" value="1">    
+                <button type="submit" class="btn btn-warning">Tolak</button>
+            </form>	
+			</td>
 		</tr>
-		<tr>
-			<td>2</td>
-			<td>Rafrafil Jumadil</td>
-			<td><button type="button" class="btn text-center btn-primary">Cek Detail</button></td>
-			<td><a type="button" class="btn text-center btn-success">Setuju</a>	|
-			<a type="button" class="btn text-center btn-danger">Tolak</a></td>
-		</tr>
-		<tr>
-			<td>3</td>
-			<td>Diki Alfarabi Hadi</td>
-			<td><button type="button" class="btn text-center btn-primary">Cek Detail</button></td>
-			<td><a type="button" class="btn text-center btn-success">Setuju</a>	|
-			<a type="button" class="btn text-center btn-danger">Tolak</a></td>
-		</tr>
-		<tr>
-			<td>4</td>
-			<td>Ma'un Syah</td>
-			<td><button type="button" class="btn text-center btn-primary">Cek Detail</button></td>
-			<td><a type="button" class="btn text-center btn-success">Setuju</a>	|
-			<a type="button" class="btn text-center btn-danger">Tolak</a></td>
-		</tr>
+		@endforeach
 	</tbody>
 </table>
 
