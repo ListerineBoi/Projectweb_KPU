@@ -1,52 +1,89 @@
 <?php
-
+   
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\SuratM;
+use App\Models\SuratK;
+use App\Models\Tps;
+use App\Models\Kecamatan;
+use Auth;
 
-class PublikController extends Controller
+class SuratController extends Controller
 {
     /**
      * Create a new controller instance.
      *
      * @return void
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Show the application dashboard.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function homepub()
+    public function index1()
     {
-        return view('/layouts/Publik/homePublik');
+        $lok=Auth::user()->lokasi;
+        $tps=Tps::all();
+        $list=SuratM::where([
+            ['penerima','=',null],
+            ['kec_jog','=',$lok]
+        ])->get();
+        return view('/layouts/Admin/SuratMasuk',compact('list'));
+    }
+    public function verif(Request $request)
+    {
+        $id=Auth::user()->id;
+        if($request->get('type')=="0"){
+            SuratM::where('id', $request->get('id'))->update(['penerima' => $id , 'tps_jog' => $request->get('tps_jog')]);
+        }else{
+            SuratM::where('id', $request->get('id'))->delete();
+        
+        }
+        return redirect()->route('SuratMasuk');
     }
 
-    public function smpub()
+    public function index2()
     {
+        $lok=Auth::user()->lokasi;
+        $tps=Tps::all();
+        $list=SuratK::where([
+            ['penerima','=',null],
+            ['kec_jog','=',$lok]
+        ])->get();
+        return view('/layouts/Admin/SuratKeluar',compact('list'));
+    }
+
+    public function verifK(Request $request)
+    {
+        $id=Auth::user()->id;
+        if($request->get('type')=="0"){
+            SuratK::where('id', $request->get('id'))->update(['penerima' => $id]);
+        }else{
+            SuratK::where('id', $request->get('id'))->delete();
+        
+        }
+        return redirect()->route('SuratKeluar');
+    }
+
+
+    public function ism()
+    {
+        $tps=Tps::all();
         $kec=Kecamatan::all();
-        return view('/layouts/Publik/SMPublik');
+        return view('/layouts/Admin/InputSM');
     }
 
-    public function skpub()
-    {
-        $kec=Kecamatan::all();
-        return view('/layouts/Publik/SKPublik');
-    }
-
-    public function tps()
-    {
-        return view('/layouts/Publik/tps');
-    }
-
-    public function tcp()
-    {
-        return view('/layouts/Publik/TCP');
-    }
-
-    public function savePengajuan(Request $request)
+    public function saveIsm()
     {
         $this->validate($request, [
+            'tps_jog' => 'required',
+            'penerima' => 'required',
             'kecamatan_jog' => 'required',
             'nokk' => 'required',
             'nik' => 'required',
@@ -55,7 +92,6 @@ class PublikController extends Controller
             'kabukot' => 'required',
             'kecamatan' => 'required',
             'keldes' => 'required',
-            'tps' => 'required',
             'disabil' => 'required',
             'alasan' => 'required',
             'keldes_jog' => 'required',
@@ -76,6 +112,8 @@ class PublikController extends Controller
             //$path = $request->file('img')->storeAs('public/homestay', $final);
 
         $SuratM= new SuratM([
+            'tps_jog' => $request->tps_jog,
+            'penerima' => $request->penerima,
             'kec_jog' => $request->kecamatan_jog,
             'no_kk' => $request->nokk,
             'nama' => $request->nama,
@@ -87,6 +125,7 @@ class PublikController extends Controller
             'tps' => $request->tps,
             'dis' => $request->disabil,
             'alasan' => $request->alasan,
+            'kec_jog' => $request->kecamatan_jog,
             'kel_jog' => $request->keldes_jog,
             'email' => $request->email,
             'No_hp' => $request->nohp,
@@ -95,14 +134,21 @@ class PublikController extends Controller
             
         ]);
         $SuratM->save();
-        return redirect()->route('SMPublik');
-       
+        return redirect()->route('InputSM');
     }
 
-    public function savePengajuanK(Request $request)
+    public function isk()
+    {
+        $tps=Tps::all();
+        $kec=Kecamatan::all();
+        return view('/layouts/Admin/InputSK');
+    }
+
+    public function saveIsk()
     {
         $this->validate($request, [
             'tps_jog' => 'required',
+            'penerima' => 'required',
             'kecamatan_jog' => 'required',
             'nokk' => 'required',
             'nik' => 'required',
@@ -131,6 +177,7 @@ class PublikController extends Controller
 
         $SuratK= new SuratK([
             'tps_jog' => $request->tps_jog,
+            'penerima' => $request->penerima,
             'kec_jog' => $request->kecamatan_jog,
             'no_kk' => $request->nokk,
             'nama' => $request->nama,
@@ -148,7 +195,12 @@ class PublikController extends Controller
             
         ]);
         $SuratK->save();
-        return redirect()->route('SKPublik');
-       
+        return redirect()->route('InputSK');
+    }
+
+    public function tpsadm()
+    {
+        $tps=Tps::all();
+        return view('/layouts/Admin/tpsadmin');
     }
 }

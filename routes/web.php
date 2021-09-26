@@ -19,28 +19,37 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::get('/Surat/Masuk', [App\Http\Controllers\SuratController::class, 'index1'])->name('SuratMasuk');
-
-Route::get('/Surat/Keluar', [App\Http\Controllers\SuratController::class, 'index2'])->name('SuratKeluar');
-
+//publik//
 Route::get('/Publik/Home', [App\Http\Controllers\PublikController::class, 'homepub'])->name('homePublik');
 
+    ///pengajuan masuk///
 Route::get('/PengajuanSurat/Masuk', [App\Http\Controllers\PublikController::class, 'smpub'])->name('SMPublik');
+Route::post('/PengajuanSurat/Masuk/simpan', [App\Http\Controllers\PublikController::class, 'savePengajuan'])->name('simpanM');
 
+    ///pengajuan keluar///
+Route::get('/PengajuanSurat/Keluar', [App\Http\Controllers\PublikController::class, 'skpub'])->name('SKPublik');
+Route::post('/PengajuanSurat/Keluar/simpan', [App\Http\Controllers\PublikController::class, 'savePengajuanK'])->name('simpanK');
+
+    ///informasi///
 Route::get('/Informasi/TPS', [App\Http\Controllers\PublikController::class, 'tps'])->name('tps');
-
 Route::get('/Informasi/TCP', [App\Http\Controllers\PublikController::class, 'tcp'])->name('TCP');
 
-Route::get('/Input/SM', [App\Http\Controllers\SuratController::class, 'ism'])->name('InputSM');
-
-Route::get('/TPS/Admin', [App\Http\Controllers\SuratController::class, 'tpsadm'])->name('tpsadmin');
-
-
-
 //////////////////////
-Route::post('/PengajuanSurat/Masuk/simpan', [App\Http\Controllers\PublikController::class, 'savePengajuan'])->name('simpanM');
-Route::post('/Surat/Masuk/ver', [App\Http\Controllers\SuratController::class, 'verif'])->name('verif');
 
+//admin//
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+    //surat masuk//
+Route::get('/Surat/Masuk', [App\Http\Controllers\AdminController::class, 'index1'])->name('SuratMasuk');
+Route::post('/Surat/Masuk/ver', [App\Http\Controllers\AdminController::class, 'verif'])->name('verif');
+Route::get('/Input/SM', [App\Http\Controllers\AdminController::class, 'ism'])->name('InputSM');
+Route::post('/Input/SM/simpan', [App\Http\Controllers\AdminController::class, 'saveIsm'])->name('saveIsm');
+
+    //surat keluar//
+Route::get('/Surat/Keluar', [App\Http\Controllers\AdminController::class, 'index2'])->name('SuratKeluar');
+Route::post('/Surat/Keluar/ver', [App\Http\Controllers\AdminController::class, 'verifK'])->name('verifK');
+Route::get('/Input/SK', [App\Http\Controllers\AdminController::class, 'isk'])->name('InputSK');
+Route::post('/Input/SK/simpan', [App\Http\Controllers\AdminController::class, 'saveIsk'])->name('saveIsk');
+
+    //informasi admin//
+Route::get('/TPS/Admin', [App\Http\Controllers\AdminController::class, 'tpsadm'])->name('tpsadmin');
