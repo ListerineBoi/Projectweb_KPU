@@ -9,7 +9,7 @@ use App\Models\Tps;
 use App\Models\Kecamatan;
 use Auth;
 
-class SuratController extends Controller
+class AdminController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -202,5 +202,15 @@ class SuratController extends Controller
     {
         $tps=Tps::all();
         return view('/layouts/Admin/tpsadmin');
+    }
+
+    public function profiladm()
+    {
+        return view('/layouts/Admin/ProfilAdm');
+    }
+
+    public function setting()
+    {
+        return view('/layouts/Admin/Setting');
     }
 }

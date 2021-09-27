@@ -8,21 +8,18 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>Publik</title>
+    <title>Admin</title>
   </head>
 
   <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
-  <a class="navbar-brand" href="#"><img src="/image/logoKPU.png" width="30" height="30" class="d-inline-block align-top" alt="">KPU Kota Yogyakarta (Halaman Admin)</a>
+  <a class="navbar-brand" href="/home"><img src="/image/logoKPU.png" width="30" height="30" class="d-inline-block align-top" alt="">KPU Kota Yogyakarta (Halaman Admin)</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="#"></a>
-      </li>
       <li class="nav-item">
         <a class="nav-link active" href="/TPS/Admin">TPS</a>
       </li>
@@ -41,16 +38,16 @@
   <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-                            <li class="nav-item">
+                            <li class="nav-item active">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
-                                <li class="nav-item">
+                                <li class="nav-item active">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item dropdown">
+                            <li class="nav-item active dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>|
                                 </a>
@@ -60,13 +57,11 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-
+                                      <a class="dropdown-item" href="/Profil/Admin">Profil</a>
+                                      <a class="dropdown-item" href="/Setting/Admin">Setting</a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
-                                    <div class="dropdown-divider"></div>
-                                      <a class="dropdown-item" href="{{route('SuratKeluar')}}">Profil</a>
-                                    </div>
                                 </div>
                             </li>
                         @endguest

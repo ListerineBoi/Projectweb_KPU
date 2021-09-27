@@ -13,21 +13,18 @@
 
   <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
-  <a class="navbar-brand" href="#"><img src="/image/logoKPU.png" width="30" height="30" class="d-inline-block align-top" alt="">KPU Kota Yogyakarta (Halaman Publik)</a>
+  <a class="navbar-brand" href="/Publik/Home"><img src="/image/logoKPU.png" width="30" height="30" class="d-inline-block align-top" alt="">KPU Kota Yogyakarta (Halaman Publik)</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
+    <li class="nav-item">
+        <a class="nav-link active" href="/Publik/Home">Home</a>
+      </li>
       <li class="nav-item">
         <a class="nav-link active" href="/Informasi/TPS">TPS</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link active" href="#">Jumlah Pemilih</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link active" href="/Informasi/TCP">Tata Cara Pindah Pemilih</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -36,8 +33,11 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="{{route('SMPublik')}}">Surat Masuk</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="{{route('SuratKeluar')}}">Surat Keluar</a>
+          <a class="dropdown-item" href="{{route('SKPublik')}}">Surat Keluar</a>
         </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="/">Welcome Page</a>
       </li>
     </ul>
   </div>
