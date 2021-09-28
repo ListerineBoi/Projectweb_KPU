@@ -4,7 +4,6 @@
 
 <form method="post" action="{{route('simpanM')}}" enctype='multipart/form-data'>
 	@csrf
-	<form method="GET" action="#">
 <div class="row h-100 justify-content-center align-items-center bg-light">
     <div class="col-md-10">
         <div class="text-bold text-center bg">
@@ -208,8 +207,8 @@
             </div>
             </br>
 </div>
-            <button type="button" class="btn btn-danger" class="text-right" style="float: right;">Kirim Formulir</button>
-            <a href="/Surat/Masuk" type="button" class="btn btn-dark" class="text-right" style="float: right;">Kembali</a>
+            <button href="/"type="button" class="btn btn-danger" class="text-right" style="float: right;">Kirim Formulir</button>
+            <a href="/Publik/Home" type="button" class="btn btn-dark" class="text-right" style="float: right;">Kembali</a>
     </form>
 
 @endsection   

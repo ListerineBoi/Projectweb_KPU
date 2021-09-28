@@ -40,6 +40,8 @@ Route::get('/Informasi/TCP', [App\Http\Controllers\PublikController::class, 'tcp
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/Profil/Admin', [App\Http\Controllers\AdminController::class, 'profiladm'])->name('ProfilAdm');
 Route::get('/Setting/Admin', [App\Http\Controllers\AdminController::class, 'setting'])->name('Setting');
+Route::get('/DetailSM/Admin', [App\Http\Controllers\AdminController::class, 'detailSM'])->name('DetailSM');
+Route::get('/DetailSK/Admin', [App\Http\Controllers\AdminController::class, 'detailSK'])->name('DetailSK');
 
     //surat masuk//
 Route::get('/Surat/Masuk', [App\Http\Controllers\AdminController::class, 'index1'])->name('SuratMasuk');
