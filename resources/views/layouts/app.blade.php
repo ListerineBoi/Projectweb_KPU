@@ -21,7 +21,7 @@
 </head>
 <body>
 <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-danger shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-orange shadow-sm">
             <div class="container">
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
