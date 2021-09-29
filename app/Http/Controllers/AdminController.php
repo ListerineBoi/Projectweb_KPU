@@ -229,4 +229,14 @@ class AdminController extends Controller
     {
         return view('/layouts/Admin/Setting');
     }
+
+    public function detailSM()
+    {
+        return view('/layouts/Admin/DetailSM');
+    }
+
+    public function detailSK()
+    {
+        return view('/layouts/Admin/DetailSK');
+    }
 }

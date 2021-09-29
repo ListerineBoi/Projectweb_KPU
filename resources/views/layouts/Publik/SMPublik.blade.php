@@ -161,7 +161,7 @@
             </br>
 </div>
             <button type="submit" class="btn btn-danger" class="text-right" style="float: right;">Kirim Formulir</button>
-            <a href="/Surat/Masuk" type="button" class="btn btn-dark" class="text-right" style="float: right;">Kembali</a>
+            <a href="/Publik/Home" type="button" class="btn btn-dark" class="text-right" style="float: right;">Kembali</a>
     </form>
 
 @endsection   
