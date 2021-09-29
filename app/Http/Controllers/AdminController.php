@@ -30,10 +30,18 @@ class AdminController extends Controller
     {
         $lok=Auth::user()->lokasi;
         $tps=Tps::all();
+        if($lok==null){
+            $list=SuratM::where([
+                ['penerima','=',null]
+            ])->get();
+
+            }else{
+       
         $list=SuratM::where([
             ['penerima','=',null],
             ['kec_jog','=',$lok]
         ])->get();
+        }
         return view('/layouts/Admin/SuratMasuk',compact('list'));
     }
     public function verif(Request $request)
@@ -52,10 +60,18 @@ class AdminController extends Controller
     {
         $lok=Auth::user()->lokasi;
         $tps=Tps::all();
+        if($lok==null){
+            $list=SuratK::where([
+                ['penerima','=',null]
+            ])->get();
+
+            }else{
+       
         $list=SuratK::where([
             ['penerima','=',null],
             ['kec_jog','=',$lok]
         ])->get();
+        }
         return view('/layouts/Admin/SuratKeluar',compact('list'));
     }
 

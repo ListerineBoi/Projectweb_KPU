@@ -11,5 +11,5 @@ class SuratK extends Model
     protected $fillable = [
         'tps_jog','penerima','kec_jog','no_kk', 'nik','nama','prov','kab','kec', 'kel','dis','alasan', 'kel_jog','email', 'No_hp','img_ktp','img_c1',
     ];
-    protected $table="p_masuk";
+    protected $table="p_keluar";
 }

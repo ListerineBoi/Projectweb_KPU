@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\SuratM;
+use App\Models\SuratK;
 use App\Models\Kecamatan;
 
 class PublikController extends Controller
@@ -48,18 +49,15 @@ class PublikController extends Controller
     public function savePengajuan(Request $request)
     {
         $this->validate($request, [
-            'kecamatan_jog' => 'required',
+            'kec_jog' => 'required',
             'nokk' => 'required',
             'nik' => 'required',
             'nama' => 'required',
             'provinsi' => 'required',
             'kabukot' => 'required',
             'kecamatan' => 'required',
-            'keldes' => 'required',
-            'tps' => 'required',
             'disabil' => 'required',
             'alasan' => 'required',
-            'keldes_jog' => 'required',
             'email' => 'required',
             'nohp' => 'required',
             'img_c1' => 'required',
@@ -77,22 +75,19 @@ class PublikController extends Controller
             //$path = $request->file('img')->storeAs('public/homestay', $final);
 
         $SuratM= new SuratM([
-            'kec_jog' => $request->kecamatan_jog,
+            'kec_jog' => $request->kec_jog,
             'no_kk' => $request->nokk,
             'nama' => $request->nama,
             'nik' => $request->nik,
             'prov' => $request->provinsi,
             'kab' => $request->kabukot,
             'kec' => $request->kecamatan,
-            'kel' => $request->keldes,
-            'tps' => $request->tps,
             'dis' => $request->disabil,
             'alasan' => $request->alasan,
-            'kel_jog' => $request->keldes_jog,
             'email' => $request->email,
             'No_hp' => $request->nohp,
             'img_c1' => $finalc1,
-            'img_c1' => $finalktp
+            'img_ktp' => $finalktp
             
         ]);
         $SuratM->save();
@@ -102,23 +97,19 @@ class PublikController extends Controller
 
     public function savePengajuanK(Request $request)
     {
-        $this->validate($request, [
-            'tps_jog' => 'required',
-            'kecamatan_jog' => 'required',
-            'nokk' => 'required',
-            'nik' => 'required',
-            'nama' => 'required',
-            'provinsi' => 'required',
-            'kabukot' => 'required',
-            'kecamatan' => 'required',
-            'disabil' => 'required',
-            'alasan' => 'required',
-            'keldes_jog' => 'required',
-            'email' => 'required',
-            'nohp' => 'required',
-            'img_c1' => 'required',
-            'img_ktp' => 'required'      
-        ]);
+        // $this->validate($request, [
+        //     'kec_jog' => 'required',
+        //     'nokk' => 'required',
+        //     'nik' => 'required',
+        //     'nama' => 'required',
+        //     'provinsi' => 'required',
+        //     'kabukot' => 'required',
+        //     'kecamatan' => 'required',
+        //     'email' => 'required',
+        //     'nohp' => 'required',
+        //     'img_c1' => 'required',
+        //     'img_ktp' => 'required'      
+        // ]);
             $fullname = $request->file('img_c1')->getClientOriginalName();
             $extn =$request->file('img_c1')->getClientOriginalExtension();
             $finalc1= $request->nik.'_'.'C1'.'_'.time().'.'.$extn;
@@ -131,21 +122,17 @@ class PublikController extends Controller
             //$path = $request->file('img')->storeAs('public/homestay', $final);
 
         $SuratK= new SuratK([
-            'tps_jog' => $request->tps_jog,
-            'kec_jog' => $request->kecamatan_jog,
+            'kec_jog' => $request->kec_jog,
             'no_kk' => $request->nokk,
             'nama' => $request->nama,
             'nik' => $request->nik,
             'prov' => $request->provinsi,
             'kab' => $request->kabukot,
             'kec' => $request->kecamatan,
-            'dis' => $request->disabil,
-            'alasan' => $request->alasan,
-            'kel_jog' => $request->keldes_jog,
             'email' => $request->email,
             'No_hp' => $request->nohp,
             'img_c1' => $finalc1,
-            'img_c1' => $finalktp
+            'img_ktp' => $finalktp
             
         ]);
         $SuratK->save();
