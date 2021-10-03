@@ -25,16 +25,16 @@
 			<td>{{$loop->iteration}}</td>
 			<td>{{$row->nik}}</td>
 			<td>{{$row->nama}}</td>
-			<td><button type="button" href="/DetailSK/Admin" class="btn text-center btn-primary">Cek Detail</button></td>
+			<td><a type="button" href="/DetailSK/Admin" class="btn text-center btn-primary">Cek Detail</a></td>
 			<td>
-			<form method="post" action="{{route('verif')}}" enctype='multipart/form-data'>
+			<form method="post" action="{{route('verifK')}}" enctype='multipart/form-data'>
                 @csrf
                 <input type="hidden" class="form-control" name="id" value="{{$row->id}}">
 				<input type="hidden" class="form-control" name="type" value="0">    
                 <button type="submit" class="btn btn-primary">Setuju</button>
             </form>	
 			<br>
-			<form method="post" action="{{route('verif')}}" enctype='multipart/form-data'>
+			<form method="post" action="{{route('verifK')}}" enctype='multipart/form-data'>
                 @csrf
                 <input type="hidden" class="form-control" name="id" value="{{$row->id}}">   
 				<input type="hidden" class="form-control" name="type" value="1">    
