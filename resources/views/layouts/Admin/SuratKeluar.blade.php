@@ -27,19 +27,93 @@
 			<td>{{$row->nama}}</td>
 			<td><a type="button" href="/DetailSK/Admin" class="btn text-center btn-primary">Cek Detail</a></td>
 			<td>
-			<form method="post" action="{{route('verifK')}}" enctype='multipart/form-data'>
+			<form method="post" action="{{route('verif')}}" enctype='multipart/form-data'>
                 @csrf
-                <input type="hidden" class="form-control" name="id" value="{{$row->id}}">
-				<input type="hidden" class="form-control" name="type" value="0">    
-                <button type="submit" class="btn btn-primary">Setuju</button>
-            </form>	
+			<div class="container">
+  			<!-- Button to Open the Modal -->
+  			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_tengah">
+    		Setuju
+  			</button>
+ 
+  			<div class="modal fade" id="modal_tengah">
+    		<div class="modal-dialog modal-dialog-centered">
+      		<div class="modal-content">
+      
+        	<!-- Ini adalah Bagian Header Modal -->
+        	<div class="modal-header">
+          	<h4 class="modal-title">TPS Tujuan Masuk Kota Yogyakarta</h4>
+          	<button type="button" class="close" data-dismiss="modal">&times;</button>
+        	</div>
+        
+        	<!-- Ini adalah Bagian Body Modal -->
+        	<div class="modal-body">
+          	<div class="dropdown">
+          	<label class="control-label col-sm-2" for="nik">TPS </label>
+				  <div class="col-sm-10">
+				  <select class="form-control" name="kec_jog">
+      			  <option selected>Pilih TPS...</option>
+      			  <option value=1>TPS 1</option>
+				  <option value=2>TPS 2</option>
+				  <option value=3>TPS 3</option>
+				  </select>
+				</div>
+        </div>
+        
+        <!-- Ini adalah Bagian Footer Modal -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+	</form>	
 			<br>
-			<form method="post" action="{{route('verifK')}}" enctype='multipart/form-data'>
+			<form method="post" action="{{route('verif')}}" enctype='multipart/form-data'>
                 @csrf
-                <input type="hidden" class="form-control" name="id" value="{{$row->id}}">   
-				<input type="hidden" class="form-control" name="type" value="1">    
-                <button type="submit" class="btn btn-warning">Tolak</button>
-            </form>	
+			<div class="container">
+  			<!-- Button to Open the Modal -->
+  			<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal_tengah">
+    		Tolak
+  			</button>
+ 
+  			<div class="modal fade" id="modal_tengah">
+    		<div class="modal-dialog modal-dialog-centered">
+      		<div class="modal-content">
+      
+        	<!-- Ini adalah Bagian Header Modal -->
+        	<div class="modal-header">
+          	<h4 class="modal-title">Alasan Ditolak</h4>
+          	<button type="button" class="close" data-dismiss="modal">&times;</button>
+        	</div>
+        
+        	<!-- Ini adalah Bagian Body Modal -->
+        	<div class="modal-body">
+          <form>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Email:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">Alasan:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+        </form>
+        </div>
+        
+        <!-- Ini adalah Bagian Footer Modal -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+</form>	
 			</td>
 		</tr>
 		@endforeach
