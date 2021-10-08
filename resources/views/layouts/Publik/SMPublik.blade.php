@@ -4,13 +4,13 @@
 
 <form method="post" action="{{route('simpanM')}}" enctype='multipart/form-data'>
 	@csrf
+
+<div class="container">
 <div class="row h-100 justify-content-center align-items-center bg-light">
     <div class="col-md-10">
-        <div class="text-bold text-center bg">
-        <h3>FORMULIR PENGAJUAN PERMOHONAN PINDAH PEMILIH MASUK KOTA YOGYAKARTA</h3>
+        <h3 class="text-bold text-light text-center bg-orange">FORMULIR PENGAJUAN PERMOHONAN PINDAH PEMILIH MASUK KOTA YOGYAKARTA</h3>
         </br>
-        <h4> Asal TPS Pemilih</h4>
-        </div>
+        <h4 class="text-bold text-center"> Asal TPS Pemilih</h4>
         </br>
 			<div class="form-group row">
 				<label class="control-label col-sm-2" for="nokk">No KK * </label>
@@ -157,11 +157,14 @@
             </div>
             <div class= "col-md-6 text-justify">*(Ekstensi JPG/PNG, File Maks 5 MB)</div>
             </div>
-            </div>
+            
             </br>
-</div>
+
             <button type="submit" class="btn btn-danger" class="text-right" style="float: right;">Kirim Formulir</button>
             <a href="/Publik/Home" type="button" class="btn btn-dark" class="text-right" style="float: right;">Kembali</a>
-    </form>
+			</div>
+			</div>
+</div>
+		</form>
 
 @endsection   

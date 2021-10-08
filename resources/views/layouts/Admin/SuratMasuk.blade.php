@@ -2,12 +2,8 @@
 
 @section('content') 
 
-<div class="jumbotron jumbotron-fluid text-center">
-  <div class="container">
-    <h1 class="display-4">Halo! Kamu di Halaman Pengajuan Surat Masuk.</h1>
-    <p class="lead">Di halaman ini, kamu bisa Memverifikasi Surat Masuk yang diajukan oleh Pemilih atau memasukkan data Pemilih ke Surat Masuk</p>
-  </div>
-</div>
+<div class="container">
+<h3 class="text-bold text-light text-center bg-orange">Halaman Surat Masuk</h3>
 </br>
 
 <table class="table table-bordered table-striped">
@@ -131,5 +127,7 @@
     <p class="card-text">Klik tombol untuk menambahkan data pemilih ke Surat Masuk</p>
     <a href="/Input/SM" class="btn btn-primary">Formulir</a>
   </div>
+</div>
+
 </div>
     @endsection   

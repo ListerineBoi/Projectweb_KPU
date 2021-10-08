@@ -6,7 +6,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    <link rel="shortcut icon" href="/image/logoKPU.png" type="image/x-icon">
     <title>KPU Kota Yogyakarta</title>
 
     <!-- Scripts -->
