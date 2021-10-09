@@ -32,17 +32,42 @@
 				</div>
 			</div>		
         
-		<div class="form-group row">
-				<label class="control-label col-sm-2" for="nik">Kecamatan </label>
+			<div class="form-group row">
+				<label class="control-label col-sm-2" for="nik" data-target="district">Kecamatan </label>
 				<div class="col-sm-10">
-				<select class="form-control" name="kec_jog">
+				<select class="form-control city selectFilter" name="kec_jog" id="select1">
       			  <option selected>Pilih Kecamatan anda saat ini...</option>
-      			  <option value=1>Danurejan</option>
-				  <option value=2>Gondokusuman</option>
-				  <option value=3>Gondomanan</option>
+					@foreach($kec as $row)
+      			  <option value="{{$row->id}}">{{$row->nama}}</option>
+					@endforeach
 				  </select>
 				</div>
 			</div>
+
+			<div class="form-group row">
+				<label class="control-label col-sm-2" for="nik">Kelurahan </label>
+				<div class="col-sm-10">
+				<select class="form-control district selectFilter" name="kel_jog" id="select2">
+      			  <option selected>Pilih kelurahan anda saat ini...</option>
+					@foreach($kel as $row)
+      			  <option value="{{$row['nama']}}" source="{{$row['id']}}">{{$row['nama']}}</option>
+					@endforeach
+				  </select>
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<label class="control-label col-sm-2" for="nik">Tps </label>
+				<div class="col-sm-10">
+				<select class="form-control district selectFilter" name="tps_jog" id="select2">
+      			  <option selected>Pilih TPS...</option>
+					@foreach($tps as $row)
+					<option value='{{$row->id}}'>{{$row->nama}}</option>
+				 	@endforeach
+				  </select>
+				</div>
+			</div>
+		
 			
             <div class="form-group row">
 				<label class="control-label col-sm-2" for="nik">E-Mail * </label>
