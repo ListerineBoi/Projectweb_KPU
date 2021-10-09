@@ -42,6 +42,7 @@ Route::get('/Profil/Admin', [App\Http\Controllers\AdminController::class, 'profi
 Route::get('/Setting/Admin', [App\Http\Controllers\AdminController::class, 'setting'])->name('Setting');
 Route::get('/DetailSM/Admin', [App\Http\Controllers\AdminController::class, 'detailSM'])->name('DetailSM');
 Route::get('/DetailSK/Admin', [App\Http\Controllers\AdminController::class, 'detailSK'])->name('DetailSK');
+Route::get('/InputTPS/Admin', [App\Http\Controllers\AdminController::class, 'InputTPS'])->name('InputTPS');
 
     //surat masuk//
 Route::get('/Surat/Masuk', [App\Http\Controllers\AdminController::class, 'index1'])->name('SuratMasuk');

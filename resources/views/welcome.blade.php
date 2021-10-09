@@ -8,14 +8,15 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <title>Sistem Pindah Pemilih KPU Kota Yogyakarta</title>
+    <link rel="shortcut icon" href="/image/logoKPU.png" type="image/x-icon">
+    <title>SIDALIH</title>
   </head>
 <body>
 <!-- Image and text -->
 <nav class="navbar navbar-light bg-orange">
   <a class="navbar-brand text-light" href="https://kota-yogyakarta.kpu.go.id/">
     <img src="/image/logoKPU.png" width="30" height="30" class="d-inline-block align-top" alt="">
-    KPU Kota Yogyakarta
+    Sistem Pindah Pemilih KPU Kota Yogyakarta
   </a>
   <a class="navbar-brand text-light ml-auto" href="/Publik/Home">
   Halaman Publik 

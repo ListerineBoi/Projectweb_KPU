@@ -338,4 +338,9 @@ class AdminController extends Controller
     {
         return view('/layouts/Admin/DetailSK');
     }
+
+    public function inputTPS()
+    {
+        return view('/layouts/Admin/InputTPS');
+    }
 }

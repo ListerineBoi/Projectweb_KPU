@@ -5,13 +5,13 @@
 
 <form method="post" action="{{route('saveIsk')}}" enctype='multipart/form-data'>
 	@csrf
+
+<div class="container">
 <div class="row h-100 justify-content-center align-items-center bg-light">
     <div class="col-md-10">
-        <div class="text-bold text-center bg">
-        <h3>FORMULIR PENGAJUAN PERMOHONAN PINDAH PEMILIH KELUAR KOTA YOGYAKARTA</h3>
+        <h3 class="text-light text-center bg-orange">FORMULIR PENGAJUAN PERMOHONAN PINDAH PEMILIH KELUAR KOTA YOGYAKARTA</h3>
         </br>
-        <h4> Alamat Yogyakarta </h4>
-        </div>
+        <h4 class="text-bold text-center"> Alamat Yogyakarta </h4>
         </br>
         <!-- <div class="form-group row">
 				<label class="control-label col-sm-2" for="nik">Kabupaten/Kota </label>
@@ -177,19 +177,18 @@
 				  <option>Menggala</option>
 				  </select>
 				</div>
-			</div>
+
 
 
             </div>
             </br>
 
-	
-</div>
-
-	
             <button type="submit" class="btn btn-danger" class="text-right" style="float: right;">Kirim Formulir</button>
             <a href="/Surat/Masuk" type="button" class="btn btn-dark" class="text-right" style="float: right;">Kembali</a>
-            </form>
+			</div>
+			</div>
+</div>    
+		</form>
 
 
 @endsection  
