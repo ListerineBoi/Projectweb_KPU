@@ -3,7 +3,7 @@
 @section('content') 
 
 <div class="container">
-<h3 class="text-bold text-light text-center bg-orange">Halaman Surat Keluar</h3>
+<h3 class="text-bold text-light text-center bg-orange">Halaman Pengajuan Keluar</h3>
 </br>
 <table class="table table-bordered table-striped">
 	<thead>
@@ -116,7 +116,7 @@
 <div class="card">
   <div class="card-body text-center">
     <h5 class="card-title">Formulir Input Data Pemilih</h5>
-    <p class="card-text">Klik tombol untuk menambahkan data pemilih ke Surat Keluar</p>
+    <p class="card-text">Klik tombol untuk menambahkan data pemilih ke Pengajuan Keluar</p>
     <a href="/Input/SK" class="btn btn-primary">Formulir</a>
   </div>
 </div>

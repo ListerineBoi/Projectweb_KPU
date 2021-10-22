@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('homePublik');
 });
 
 Auth::routes();
@@ -58,3 +58,9 @@ Route::post('/Input/SK/simpan', [App\Http\Controllers\AdminController::class, 's
 
     //informasi admin//
 Route::get('/TPS/Admin', [App\Http\Controllers\AdminController::class, 'tpsadm'])->name('tpsadmin');
+
+//fetch//
+Route::get('/fetch/fetchkabkot', [App\Http\Controllers\FetchController::class, 'fetchkabkot'])->name('fetchkabkot');
+Route::get('/fetch/fetchkec', [App\Http\Controllers\FetchController::class, 'fetchkec'])->name('fetchkec');
+Route::get('/fetch/fetchkeldes', [App\Http\Controllers\FetchController::class, 'fetchkeldes'])->name('fetchkeldes');
+Route::get('/fetch/fetchtps', [App\Http\Controllers\FetchController::class, 'fetchtps'])->name('fetchtps');

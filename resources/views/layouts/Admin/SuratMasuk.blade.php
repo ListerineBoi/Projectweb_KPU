@@ -3,7 +3,7 @@
 @section('content') 
 
 <div class="container">
-<h3 class="text-bold text-light text-center bg-orange">Halaman Surat Masuk</h3>
+<h3 class="text-bold text-light text-center bg-orange">Halaman Pengajuan Masuk</h3>
 </br>
 
 <table class="table table-bordered table-striped">
@@ -55,7 +55,7 @@
 				  <select class="form-control" name="tps_jog">
       			  <option selected>Pilih TPS...</option>
       			  @foreach($tps as $row1)
-					<option value='{{$row->id}}'>{{$row1->nama}}</option>
+					<option value='{{$row1->id}}'>{{$row1->nama}} {{$row1->alamat}}</option>
 				 @endforeach
 				  </select>
 				</div>
@@ -127,7 +127,7 @@
 <div class="card">
   <div class="card-body text-center">
     <h5 class="card-title">Formulir Input Data Pemilih</h5>
-    <p class="card-text">Klik tombol untuk menambahkan data pemilih ke Surat Masuk</p>
+    <p class="card-text">Klik tombol untuk menambahkan data pemilih ke Pengajuan Masuk</p>
     <a href="/Input/SM" class="btn btn-primary">Formulir</a>
   </div>
 </div>

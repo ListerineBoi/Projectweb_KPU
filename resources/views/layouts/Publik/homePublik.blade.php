@@ -9,7 +9,7 @@
   <div class="col-sm-6">
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title text-bold text-center">Tata Cara Pengajuan Surat Masuk</h5>
+        <h5 class="card-title text-bold text-center">Tata Cara Pengajuan Pengajuan Pindah Masuk</h5>
         <p class="card-text">Diisi Tata Cara dan Informasi.</p>
       </div>
     </div>
@@ -17,7 +17,7 @@
   <div class="col-sm-6">
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title text-bold text-center">Tata Cara Pengajuan Surat Keluar</h5>
+        <h5 class="card-title text-bold text-center">Tata Cara Pengajuan Pengajuan Pindah Keluar</h5>
         <p class="card-text">Diisi Tata Cara dan Informasi.</p>
       </div>
     </div>

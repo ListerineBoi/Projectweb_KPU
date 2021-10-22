@@ -9,7 +9,7 @@ class Kecamatan extends Model
 {
     public $timestamps = FALSE;
     protected $fillable = [
-        'nama',
+        'nama','kabkot',
     ];
     protected $table="kecamatan";
 }

@@ -33,69 +33,43 @@
             <div class="form-group row">
 				<label class="control-label col-sm-2" for="nik">Provinsi </label>
 				<div class="col-sm-10">
-				<select class="form-control" name="provinsi">
-      			  <option selected>Pilih Provinsi...</option>
-      			  <option>Aceh</option>
-				  <option>Sumatera Utara</option>
-				  <option>Sumatera Barat</option>
-				  <option>Riau</option>
-				  <option>Jambi</option>
-				  <option>Kepulauan Riau</option>
-				  <option>Bangka Belitung</option>
-				  <option>Bengkulu</option>
-				  <option>Sumatera Selatan</option>
-				  <option>Lampung</option>
-				  <option>Banten</option>
-				  <option>D.K.I Jakarta</option>
-				  <option>Jawa Barat</option>
-				  <option>Jawa Tengah</option>
-				  <option>Jawa Timur</option>
-				  <option>D.I Yogyakarta</option>
-				  <option>Bali</option>
-				  <option>Kalimantan Barat</option>
-				  <option>Kalimantan Tengah</option>
-				  <option>Kalimantan Selatan</option>
-				  <option>Kalimantan Timur</option>
-				  <option>Kalimantan Utara</option>
-				  <option>Sulawesi Tenggara</option>
-				  <option>Sulawesi Utara</option>
-				  <option>Sulawesi Selatan</option>
-				  <option>Sulawesi Tengah</option>
-				  <option>Gorontalo</option>
-				  <option>Sulawesi Barat</option>
-				  <option>Maluku</option>
-				  <option>Maluku Utara</option>
-				  <option>Nusa Tenggara Barat</option>
-				  <option>Nusa Tenggara Timur</option>
-				  <option>Papua Barat</option>
-				  <option>Papua</option>
+				<select class="form-control" name="provinsi" id="select1" dt="fetchkabkot">
+				<option selected>Pilih Provinsi...</option>
+				@foreach($prov as $row1)
+      			  <option value="{{$row1->id}}">{{$row1->nama}}</option>
+					@endforeach
     			</select>
   				</div>
 			</div>
             <div class="form-group row">
 				<label class="control-label col-sm-2" for="nik">Kabupaten/Kota </label>
 				<div class="col-sm-10">
-				<select class="form-control" name="kabukot">
+				<select class="form-control" name="kabukot" id="select2" dt="fetchkec" >
       			  <option selected>Pilih Kabupaten/Kota...</option>
-      			  <option>Lampung Barat</option>
-				  <option>Way Kanan</option>
-				  <option>Tulang Bawang</option>
-				  <option>Pesisir Barat</option>
-				  <option>Tanggamus</option>
+      			  {{ csrf_field() }}
 				  </select>
 				</div>
 			</div>
             <div class="form-group row">
 				<label class="control-label col-sm-2" for="nik">Kecamatan </label>
 				<div class="col-sm-10">
-				<select class="form-control" name="kecamatan">
+				<select class="form-control" name="kecamatan" id="select3" dt="fetchkeldes">
       			  <option selected>Pilih Kecamatan...</option>
-      			  <option>Terbanggi Besar</option>
-				  <option>Gunung Sugih Besar</option>
-				  <option>Menggala</option>
+      			  {{ csrf_field() }}
 				  </select>
 				</div>
 			</div>
+
+			<div class="form-group row">
+				<label class="control-label col-sm-2" for="nik">kelurahan </label>
+				<div class="col-sm-10">
+				<select class="form-control district selectFilter" name="kel" id="select4" >
+      			  <option selected>Pilih kelurahan anda saat ini...</option>
+					{{ csrf_field() }}
+				  </select>
+				</div>
+			</div>
+
             <div class="form-group row">
 				<label class="control-label col-sm-2" for="nik">Disabilitas </label>
 				<div class="col-sm-10">
@@ -103,10 +77,19 @@
 				</div>
 			</div>
             <div class="form-group row">
-				<label class="control-label col-sm-2" for="nik">Alasan Pindah </label>
+				<label class="control-label col-sm-2" for="nik">Alasan</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" name="alasan" placeholder="Masukkan Alasan Pindah Pemilih ">
-				</div>
+				<select class="form-control" name="alasan">
+				<option selected>menjalankan tugas pemerintahan di tempat lain pada hari Pemungutan Suara</option>
+				<option selected>menjalani rawat inap di rumah sakit atau puskesmas dan keluarga yang mendampingi</option>
+				<option selected>penyandang disabilitas yang menjalani perawatan di panti sosial/panti rehabilitasi</option>
+				<option selected>menjalani rehabilitasi narkoba</option>
+				<option selected>menjadi  tahanan di rumah tahanan atau lembaga permasyarakatan</option>
+				<option selected>tugas belajar/menempuh pendidikan menengah atau tinggi</option>
+				<option selected>pindah domisili</option>
+				<option selected>tertimpa bencana alam</option>
+    			</select>
+  				</div>
             </br>
             <div class= "col-md-6 text-justify">* Wajib Diisi</div>
     </div>
@@ -115,23 +98,10 @@
     <h4> Domisili Pemilih di Yogyakarta </h4>
     </div>
     </br>
-	<!-- <div class="form-group row">
-				<label class="control-label col-sm-2" for="nik">Kabupaten/Kota </label>
-				<div class="col-sm-10">
-				<select class="form-control" name="exampleFormControlSelect1">
-      			  <option selected>Pilih Kabupaten/Kota anda saat ini...</option>
-      			  <option>Sleman</option>
-				  <option>Kota Yogyakarta</option>
-				  <option>Gunung Knameul</option>
-				  <option>Bantul</option>
-				  <option>Kulonprogo</option>
-				  </select>
-				</div>
-			</div> -->
 			<div class="form-group row">
 				<label class="control-label col-sm-2" for="nik" data-target="district">Kecamatan </label>
 				<div class="col-sm-10">
-				<select class="form-control city selectFilter" name="kec_jog" id="select1">
+				<select class="form-control city selectFilter" name="kec_jog" id="select1_1" dt="fetchkeldes">
       			  <option selected>Pilih Kecamatan anda saat ini...</option>
 					@foreach($kec as $row)
       			  <option value="{{$row->id}}">{{$row->nama}}</option>
@@ -139,14 +109,13 @@
 				  </select>
 				</div>
 			</div>
+
 			<div class="form-group row">
-				<label class="control-label col-sm-2" for="nik">Kelurahan </label>
+				<label class="control-label col-sm-2" for="nik">kelurahan </label>
 				<div class="col-sm-10">
-				<select class="form-control district selectFilter" name="kel_jog" id="select2">
+				<select class="form-control district selectFilter" name="kel_jog" id="select2_2" dt="fetchtps" >
       			  <option selected>Pilih kelurahan anda saat ini...</option>
-					@foreach($kel as $row)
-      			  <option value="{{$row['nama']}}" source="{{$row['id']}}">{{$row['nama']}}</option>
-					@endforeach
+					{{ csrf_field() }}
 				  </select>
 				</div>
 			</div>
@@ -154,14 +123,13 @@
 			<div class="form-group row">
 				<label class="control-label col-sm-2" for="nik">Tps </label>
 				<div class="col-sm-10">
-				<select class="form-control district selectFilter" name="tps_jog" id="select2">
+				<select class="form-control district selectFilter" name="tps_jog" id="select3_3">
       			  <option selected>Pilih TPS...</option>
-					@foreach($tps as $row)
-					<option value='{{$row->id}}'>{{$row->nama}} : {{$row->alamat}}</option>
-				 	@endforeach
+					{{ csrf_field() }}
 				  </select>
 				</div>
 			</div>
+			
             <div class="form-group row">
 				<label class="control-label col-sm-2" for="nik">E-Mail * </label>
 				<div class="col-sm-10">
