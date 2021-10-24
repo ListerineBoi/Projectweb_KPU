@@ -21,7 +21,9 @@
 			<td>{{$loop->iteration}}</td>
 			<td>{{$row->nik}}</td>
 			<td>{{$row->nama}}</td>
-			<td><a type="button" href="/DetailSK/Admin" class="btn text-center btn-primary">Cek Detail</a></td>
+			<td><div class="col text-center">
+                <button type="button" href="/DetailSK/Admin" class="btn text-center btn-primary">Cek Detail</button>
+            </div></td>
 			<td>
 			<form method="post" action="{{route('verifK')}}" enctype='multipart/form-data'>
                 @csrf

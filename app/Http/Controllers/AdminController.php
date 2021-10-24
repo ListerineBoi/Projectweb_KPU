@@ -274,4 +274,19 @@ class AdminController extends Controller
     {
         return view('/layouts/Admin/InputTPS');
     }
+
+    public function hisMasuk()
+    {
+        return view('/layouts/Admin/HisMasuk');
+    }
+
+    public function hisKeluar()
+    {
+        return view('/layouts/Admin/HisKeluar');
+    }
+
+    public function kuotaTPS()
+    {
+        return view('/layouts/Admin/KuotaTPS');
+    }
 }

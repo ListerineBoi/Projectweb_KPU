@@ -5,7 +5,26 @@
 <div class="col-12 align-items-center">
 <h2 class="text-center text-light bg-orange">DATA TPS</h2>
 </div>
-</br>
+<div class="card row m-4"> 
+  <div class="card-body text-center">
+    <h5 class="card-title">Cek Data TPS</h5>
+    <div class="form-group row m-2">
+				<div class="col md-3 mb-2">
+				<select class="form-control text-center city selectFilter" name="kec_jog" id="select1_1" dt="fetchkeldes">
+      			  <option selected>Kecamatan</option>
+				  </select>
+			</div>
+</div>
+<div class="form-group row m-2">
+				<div class="col md-3 mb-2">
+				<select class="form-control text-center city selectFilter" name="kec_jog" id="select1_1" dt="fetchkeldes">
+      			  <option selected>Kelurahan</option>
+				  </select>
+			</div>
+</div>
+    <a href="/DataTPS/Admin" class="btn btn-primary">Cek Data</a>
+  </div>
+</div>
 <div class="row m-2">
   @foreach($tps as $row)
 
@@ -42,9 +61,9 @@
         google.maps.event.addDomListener(window, 'load', initialize);
     </script>
 
-<div id="googleMap" style="width:100%;height:380px;"></div>
+<div class="col md-3 mb-2" id="googleMap" style="width:100%;height:380px;"></div>
 
 </div>
-</div>
+</div> 
 
 @endsection

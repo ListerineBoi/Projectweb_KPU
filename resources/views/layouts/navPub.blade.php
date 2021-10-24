@@ -18,7 +18,6 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
     <li class="nav-item">
@@ -37,12 +36,10 @@
           <a class="dropdown-item" href="{{route('SKPublik')}}">Pengajuan Keluar</a>
         </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link active" href="/">Welcome Page</a>
-      </li>
     </ul>
   </div>
 </nav>
+</body>
 
         <main class="py-4">
             @yield('content')
@@ -55,5 +52,5 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="{{ asset('js/dropdownfilter.js') }}"></script>
-  </body>
+ 
 </html>

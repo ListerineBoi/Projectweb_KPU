@@ -12,7 +12,7 @@
         <h3 class="text-light text-center bg-orange">FORMULIR PENGAJUAN PERMOHONAN PINDAH PEMILIH KELUAR KOTA YOGYAKARTA</h3>
         </br>
         <h4 class="text-bold text-center"> Alamat Yogyakarta </h4>
-        </br>
+        </br> 
         <!-- <div class="form-group row">
 				<label class="control-label col-sm-2" for="nik">Kabupaten/Kota </label>
 				<div class="col-sm-10">
@@ -42,6 +42,20 @@
 				<label class="control-label col-sm-2" for="nik">Nama * </label>
 				<div class="col-sm-10">
 					<input type="text" class="form-control" name="nama" placeholder="Masukkan Nama Anda">
+				</div>
+			</div>	
+			<div class="form-group row">
+				<label class="control-label col-sm-2" for="nik">Jenis Kelamin</label>
+				<div class="col-sm-10">
+				<option selected>Pilih Jenis Kelamin...</option>
+				<option selected>Pria</option>
+				<option selected>Wanita</option>
+				</div>
+			</div>
+			<div class="form-group row">
+				<label class="control-label col-sm-2" for="nik">Alamat di Yogyakarta</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" name="alamatjog" placeholder="Masukkan Alamat Anda di Yogyakarta ">
 				</div>
 			</div>	
 			
@@ -106,6 +120,7 @@
             </div>
             <div class= "col-md-6 text-justify">*(Ekstensi JPG/PNG, File Maks 5 MB)</div>
             </div>
+			
 			<div class="text-bold text-center">
     		<h4> Tujuan Pindah </h4>
     		</div>	
@@ -153,7 +168,7 @@
             <button type="submit" class="btn btn-danger" class="text-right" style="float: right;">Kirim Formulir</button>
             <a href="/Surat/Masuk" type="button" class="btn btn-dark" class="text-right" style="float: right;">Kembali</a>
 			</div>
-			</div>
+			</div> 
 </div>    
 		</form>
 

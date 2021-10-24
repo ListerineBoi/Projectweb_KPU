@@ -22,7 +22,9 @@
 			<td>{{$loop->iteration}}</td>
 			<td>{{$row->nik}}</td>
 			<td>{{$row->nama}}</td>
-			<td><button type="button" href="/DetailSM/Admin" class="btn text-center btn-primary">Cek Detail</button></td>
+			<td><div class="col text-center">
+                <button type="button" href="/DetailSM/Admin" class="btn text-center btn-primary">Cek Detail</button>
+            </div></td>
 			<td>
             
 			

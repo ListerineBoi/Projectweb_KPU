@@ -30,6 +30,20 @@
 					<input type="text" class="form-control" name="nama" placeholder="Masukkan Nama Anda">
 				</div>
 			</div>		
+			<div class="form-group row">
+				<label class="control-label col-sm-2" for="nik">Jenis Kelamin</label>
+				<div class="col-sm-10">
+				<option selected>Pilih Jenis Kelamin...</option>
+				<option selected>Pria</option>
+				<option selected>Wanita</option>
+				</div>
+			</div>
+			<div class="form-group row">
+				<label class="control-label col-sm-2" for="nik">Alamat di Yogyakarta</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" name="alamatjog" placeholder="Masukkan Alamat Anda di Yogyakarta ">
+				</div>
+			</div>	
         
 			<div class="form-group row">
 				<label class="control-label col-sm-2" for="nik" data-target="district">Kecamatan </label>
@@ -51,7 +65,7 @@
 					{{ csrf_field() }}
 				  </select>
 				</div>
-			</div>
+			</div> 
 
 			<div class="form-group row">
 				<label class="control-label col-sm-2" for="nik">Tps </label>

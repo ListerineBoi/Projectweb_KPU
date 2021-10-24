@@ -43,12 +43,15 @@ Route::get('/Setting/Admin', [App\Http\Controllers\AdminController::class, 'sett
 Route::get('/DetailSM/Admin', [App\Http\Controllers\AdminController::class, 'detailSM'])->name('DetailSM');
 Route::get('/DetailSK/Admin', [App\Http\Controllers\AdminController::class, 'detailSK'])->name('DetailSK');
 Route::get('/InputTPS/Admin', [App\Http\Controllers\AdminController::class, 'InputTPS'])->name('InputTPS');
+Route::get('/DataTPS/Admin', [App\Http\Controllers\AdminController::class, 'kuotaTPS'])->name('KuotaTPS');
 
     //surat masuk//
 Route::get('/Surat/Masuk', [App\Http\Controllers\AdminController::class, 'index1'])->name('SuratMasuk');
 Route::post('/Surat/Masuk/ver', [App\Http\Controllers\AdminController::class, 'verif'])->name('verif');
 Route::get('/Input/SM', [App\Http\Controllers\AdminController::class, 'ism'])->name('InputSM');
 Route::post('/Input/SM/simpan', [App\Http\Controllers\AdminController::class, 'saveIsm'])->name('saveIsm');
+Route::get('/Admin/History/Masuk', [App\Http\Controllers\AdminController::class, 'hisMasuk'])->name('HisMasuk');
+Route::get('/Admin/History/Keluar', [App\Http\Controllers\AdminController::class, 'hisKeluar'])->name('HisKeluar');
 
     //surat keluar//
 Route::get('/Surat/Keluar', [App\Http\Controllers\AdminController::class, 'index2'])->name('SuratKeluar');

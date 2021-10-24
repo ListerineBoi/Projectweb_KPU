@@ -11,7 +11,7 @@
         <h3 class="text-bold text-light text-center bg-orange">FORMULIR PENGAJUAN PERMOHONAN PINDAH PEMILIH MASUK KOTA YOGYAKARTA</h3>
         </br>
         <h4 class="text-bold text-center"> Asal TPS Pemilih</h4>
-        </br>
+        </br> 
 			<div class="form-group row">
 				<label class="control-label col-sm-2" for="nokk">No KK * </label>
 				<div class="col-sm-10">
@@ -30,6 +30,14 @@
 					<input type="text" class="form-control" name="nama" placeholder="Masukkan Nama Anda">
 				</div>
 			</div>		
+			<div class="form-group row">
+				<label class="control-label col-sm-2" for="nik">Jenis Kelamin</label>
+				<div class="col-sm-10">
+				<option selected>Pilih Jenis Kelamin...</option>
+				<option selected>Pria</option>
+				<option selected>Wanita</option>
+				</div>
+			</div>
             <div class="form-group row">
 				<label class="control-label col-sm-2" for="nik">Provinsi </label>
 				<div class="col-sm-10">
@@ -73,7 +81,23 @@
             <div class="form-group row">
 				<label class="control-label col-sm-2" for="nik">Disabilitas </label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" name="disabil" placeholder="Masukkan Keterangan Disabilitas Anda atau (-) Jika Tnameak">
+				<option selected>Ya/Tidak...</option>
+				<option selected>Ya</option>
+				<option selected>Tidak</option>
+				</div>
+			</div>
+			<div class="form-group row">
+				<label class="control-label col-sm-2" for="nik">Keterangan Disabilitas </label>
+				<div class="col-sm-10">
+				<option selected>(-) Tidak Disabilitas</option>
+				<option selected>Tuna Rungu</option>
+				<option selected>Tuna Wicara</option>
+				<option selected>Tuna Netra</option>
+				<option selected>Tuna Daksa</option>
+				<option selected>Tuna Laras</option>
+				<option selected>Tuna Grahita</option>
+				<option selected>Tuna Ganda</option>
+				<option selected>Lainnya</option>
 				</div>
 			</div>
             <div class="form-group row">
@@ -118,6 +142,21 @@
       			  <option selected>Pilih kelurahan anda saat ini...</option>
 					{{ csrf_field() }}
 				  </select>
+				</div>
+			</div>
+			<div class="form-group row">
+				<label class="control-label col-sm-2" for="nik">Tps </label>
+				<div class="col-sm-10">
+				<select class="form-control district selectFilter" name="tps_jog" id="select3_3">
+      			  <option selected>Pilih TPS...</option>
+					{{ csrf_field() }}
+				  </select>
+				</div>
+			</div>
+			<div class="form-group row">
+				<label class="control-label col-sm-2" for="nik">Alamat Domisili Yogyakarta </label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" name="domisiljog" placeholder="Alamat Domisili di Yogyakarta">
 				</div>
 			</div>
 			

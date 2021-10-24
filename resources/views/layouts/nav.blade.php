@@ -34,6 +34,16 @@
           <a class="dropdown-item" href="{{route('SuratKeluar')}}">Pengajuan Keluar</a>
         </div>
       </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          History
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/Admin/History/Masuk">Surat Masuk</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/Admin/History/Keluar">Surat Keluar</a>
+        </div>
+      </li>
     </ul>
   </div>
   <ul class="navbar-nav ml-auto">
