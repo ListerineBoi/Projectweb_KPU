@@ -23,7 +23,7 @@
 			<td>{{$row->nik}}</td>
 			<td>{{$row->nama}}</td>
 			<td><div class="col text-center">
-                <button type="button" href="/DetailSM/Admin" class="btn text-center btn-primary">Cek Detail</button>
+                <a type="button" href="{{route('DetailSM', ['id' => $row->id])}}" class="btn text-center btn-primary">Cek Detail</a>
             </div></td>
 			<td>
             

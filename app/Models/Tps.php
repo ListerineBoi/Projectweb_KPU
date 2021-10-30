@@ -9,7 +9,7 @@ class Tps extends Model
 {
     public $timestamps = FALSE;
     protected $fillable = [
-        'lokasi','nama','alamat','jml_p_tetap', 'q_suara','jml_p_pilih', 	
+        'lokasi','nama','alamat','jml_p_tetap', 'jml_keluar','jml_masuk', 	
     ];
     protected $table="tps";
 }

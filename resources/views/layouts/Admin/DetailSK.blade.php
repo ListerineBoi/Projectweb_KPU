@@ -15,6 +15,16 @@
             <th class="text-center">Foto KTP</th>
             <th class="text-center">Foto KK</th>
 		</tr>
+		<tr>
+			<th class="text-center">{{$det['kabj']}}</th>
+			<th class="text-center">{{$det['kecj']}}</th>
+			<th class="text-center">{{$det['kelj']}}</th>
+            <th class="text-center">TPS</th>
+			<th class="text-center">{{$sk->email}}</th>
+            <th class="text-center">{{$sk->No_hp}}</th>
+            <th class="text-center">Foto KTP</th>
+            <th class="text-center">Foto KK</th>
+		</tr>
 	</thead>
 </table>
 
@@ -28,6 +38,13 @@
 			<th class="text-center">Kabupaten</th>
 			<th class="text-center">Kecamatan</th>
 			<th class="text-center">Kelurahan</th>
+            <th class="text-center">Alasan</th>
+		</tr>
+		<tr>
+			<th class="text-center">{{$det['prov']}}</th>
+			<th class="text-center">{{$det['kab']}}</th>
+			<th class="text-center">{{$det['kec']}}</th>
+			<th class="text-center">{{$det['kel']}}</th>
             <th class="text-center">Alasan</th>
 		</tr>
 	</thead>

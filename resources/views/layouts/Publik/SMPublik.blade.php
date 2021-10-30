@@ -33,9 +33,11 @@
 			<div class="form-group row">
 				<label class="control-label col-sm-2" for="nik">Jenis Kelamin</label>
 				<div class="col-sm-10">
+				<select class="form-control" name="jk">
 				<option selected>Pilih Jenis Kelamin...</option>
-				<option selected>Pria</option>
-				<option selected>Wanita</option>
+				<option value=0 selected>Pria</option>
+				<option value=1 >Wanita</option>
+				</select>
 				</div>
 			</div>
             <div class="form-group row">
@@ -81,23 +83,26 @@
             <div class="form-group row">
 				<label class="control-label col-sm-2" for="nik">Disabilitas </label>
 				<div class="col-sm-10">
-				<option selected>Ya/Tidak...</option>
-				<option selected>Ya</option>
-				<option selected>Tidak</option>
+				<select class="form-control" id="dis1" name="Disabilitas">
+				<option value="y">Ya</option>
+				<option value="n"selected>Tidak</option>
+				</select>
 				</div>
 			</div>
 			<div class="form-group row">
 				<label class="control-label col-sm-2" for="nik">Keterangan Disabilitas </label>
 				<div class="col-sm-10">
-				<option selected>(-) Tidak Disabilitas</option>
-				<option selected>Tuna Rungu</option>
-				<option selected>Tuna Wicara</option>
-				<option selected>Tuna Netra</option>
-				<option selected>Tuna Daksa</option>
-				<option selected>Tuna Laras</option>
-				<option selected>Tuna Grahita</option>
-				<option selected>Tuna Ganda</option>
-				<option selected>Lainnya</option>
+				<select class="form-control" id="dis" name="dis">
+				<option selected>-</option>
+				<option >Tuna Rungu</option>
+				<option >Tuna Wicara</option>
+				<option >Tuna Netra</option>
+				<option >Tuna Daksa</option>
+				<option >Tuna Laras</option>
+				<option >Tuna Grahita</option>
+				<option >Tuna Ganda</option>
+				<option >Lainnya</option>
+				</select>
 				</div>
 			</div>
             <div class="form-group row">
@@ -138,7 +143,7 @@
 			<div class="form-group row">
 				<label class="control-label col-sm-2" for="nik">kelurahan </label>
 				<div class="col-sm-10">
-				<select class="form-control district selectFilter" name="kel_jog" id="select2_2" >
+				<select class="form-control district selectFilter" name="kel_jog" id="select2_2" dt="fetchtps">
       			  <option selected>Pilih kelurahan anda saat ini...</option>
 					{{ csrf_field() }}
 				  </select>

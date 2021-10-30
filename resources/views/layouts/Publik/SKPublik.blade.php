@@ -33,9 +33,11 @@
 			<div class="form-group row">
 				<label class="control-label col-sm-2" for="nik">Jenis Kelamin</label>
 				<div class="col-sm-10">
+				<select class="form-control" name="jk">
 				<option selected>Pilih Jenis Kelamin...</option>
-				<option selected>Pria</option>
-				<option selected>Wanita</option>
+				<option value=0 selected>Pria</option>
+				<option value=1 >Wanita</option>
+				</select>
 				</div>
 			</div>
 			<div class="form-group row">

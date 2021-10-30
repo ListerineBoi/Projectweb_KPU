@@ -13,6 +13,14 @@
             <th class="text-center">Kelurahan</th>
             <th class="text-center">Alasan</th>
 		</tr>
+		<tr>
+			<td class="text-center">{{$sm->no_kk}}</td>
+			<td class="text-center">{{$det['prov']}}</td>
+			<td class="text-center">{{$det['kab']}}</td>
+			<td class="text-center">{{$det['kec']}}</td>
+            <td class="text-center">{{$det['kel']}}</td>
+            <td class="text-center">{{$sm->alasan}}</td>
+		</tr>
 	</thead>
 </table>
 
@@ -29,6 +37,15 @@
             <th class="text-center">No HP (WA)</th>
             <th class="text-center">Foto KTP</th>
             <th class="text-center">Foto KK</th>
+		</tr>
+		<tr>
+			<td class="text-center">{{$det['kabj']}}</td>
+			<td class="text-center">{{$det['kecj']}}</td>
+			<td class="text-center">{{$det['kelj']}}</td>
+			<td class="text-center">{{$sm->email}}</td>
+            <td class="text-center">{{$sm->No_hp}}</td>
+            <td class="text-center">Foto KTP</td>
+            <td class="text-center">Foto KK</td>
 		</tr>
 	</thead>
 </table>

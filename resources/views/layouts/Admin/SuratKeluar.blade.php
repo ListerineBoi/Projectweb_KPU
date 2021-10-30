@@ -22,7 +22,7 @@
 			<td>{{$row->nik}}</td>
 			<td>{{$row->nama}}</td>
 			<td><div class="col text-center">
-                <button type="button" href="/DetailSK/Admin" class="btn text-center btn-primary">Cek Detail</button>
+                <a type="button" href="{{route('DetailSK', ['id' => $row->id])}}" class="btn text-center btn-primary">Cek Detail</a>
             </div></td>
 			<td>
 			<form method="post" action="{{route('verifK')}}" enctype='multipart/form-data'>

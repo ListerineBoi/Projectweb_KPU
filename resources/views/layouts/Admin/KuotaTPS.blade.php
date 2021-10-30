@@ -6,6 +6,8 @@
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
 <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.5.1/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v2.5.1/mapbox-gl.css' rel='stylesheet' />
 
 <div class="container">
 <div class="col-12 align-items-center">
@@ -13,142 +15,29 @@
 </div>
 <div class="card row m-4">
   <div class="card-body text-center">
-    <h5 class="card-title">Kecamatan ....</h5>
-    <h5 class="card-title">Kelurahan ....</h5>
+    <h5 class="card-title">Kecamatan {{$det['kec']}}</h5>
+    <h5 class="card-title">Kelurahan {{$det['kel']}}</h5>
   </div>
 </div>
 <div class="row m-2">
-<div class="col md-3 mb-2" style="width: 18rem;">
-  <div class="card-body text-center">
-    <h5 class="card-title">TPS 1</h5>
-    <div class="alert alert-danger" role="alert">
-  250/250
-</div>
-  </div>
-</div>
 
+
+@foreach($tps as $row)
+
+<div class="col md-3 mb-2" style="width: 18rem;">
+    <div class="card text-center" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">{{$row->nama}}</h5>
+            <div class="alert alert-danger" role="alert">
+            {{$row->jml_p_tetap*10/100-($row->jml_masuk-$row->jml_keluar)}}
+            </div>
+          </div>
+    </div>
+</div>
 </br>
+@endforeach
 
-<div class="col md-3 mb-2" style="width: 18rem;">
-  <div class="card-body text-center">
-    <h5 class="card-title text-center">TPS 2</h5>
-    <div class="alert alert-danger" role="alert">
-  223/250
-</div>
-  </div>
-</div>
 
-</br>
-
-<div class="col md-3 mb-2" style="width: 18rem;">
-  <div class="card-body text-center">
-    <h5 class="card-title text-center">TPS 3</h5>
-    <div class="alert alert-danger" role="alert">
-  198/250
-</div>
-  </div>
-</div>
-
-</br>
-
-<div class="col md-3 mb-2" style="width: 18rem;">
-  <div class="card-body text-center">
-    <h5 class="card-title text-center">TPS 4</h5>
-    <div class="alert alert-danger" role="alert">
-  223/250
-</div>
-  </div>
-</div>
-
-</br>
-
-<div class="row m-2">
-<div class="col md-3 mb-2" style="width: 18rem;">
-  <div class="card-body text-center">
-    <h5 class="card-title">TPS 5</h5>
-    <div class="alert alert-danger" role="alert">
-  250/250
-</div>
-  </div>
-</div>
-
-</br>
-
-<div class="col md-3 mb-2" style="width: 18rem;">
-  <div class="card-body text-center">
-    <h5 class="card-title text-center">TPS 6</h5>
-    <div class="alert alert-danger" role="alert">
-  223/250
-</div>
-  </div>
-</div>
-
-</br>
-
-<div class="col md-3 mb-2" style="width: 18rem;">
-  <div class="card-body text-center">
-    <h5 class="card-title text-center">TPS 7</h5>
-    <div class="alert alert-danger" role="alert">
-  198/250
-</div>
-  </div>
-</div>
-
-</br>
-
-<div class="col md-3 mb-2" style="width: 18rem;">
-  <div class="card-body text-center">
-    <h5 class="card-title text-center">TPS 8</h5>
-    <div class="alert alert-danger" role="alert">
-  223/250
-</div>
-  </div>
-</div>
-
-</br>
-
-<div class="row m-2">
-<div class="col md-3 mb-2" style="width: 18rem;">
-  <div class="card-body text-center">
-    <h5 class="card-title">TPS 9</h5>
-    <div class="alert alert-danger" role="alert">
-  250/250
-</div>
-  </div>
-</div>
-
-</br>
-
-<div class="col md-3 mb-2" style="width: 18rem;">
-  <div class="card-body text-center">
-    <h5 class="card-title text-center">TPS 10</h5>
-    <div class="alert alert-danger" role="alert">
-  223/250
-</div>
-  </div>
-</div>
-
-</br>
-
-<div class="col md-3 mb-2" style="width: 18rem;">
-  <div class="card-body text-center">
-    <h5 class="card-title text-center">TPS 11</h5>
-    <div class="alert alert-danger" role="alert">
-  198/250
-</div>
-  </div>
-</div>
-
-</br>
-
-<div class="col md-3 mb-2" style="width: 18rem;">
-  <div class="card-body text-center">
-    <h5 class="card-title text-center">TPS 12</h5>
-    <div class="alert alert-danger" role="alert">
-  223/250
-</div>
-  </div>
-</div>
 
 </div>
 </div>
@@ -169,6 +58,7 @@
     Grafik total Surat Masuk dan Surat Keluar pada TPS yang ada di Kota Yogyakarta
     </p>
 </figure>
+<div id='map' style='width: 400px; height: 300px;'></div>
 
 <!-- bar chart -->
 <script>
@@ -177,25 +67,19 @@
         type: 'column'
     },
     title: {
-        text: 'Grafik Surat Masuk dan Surat Keluar KPU Kota Yogyakarta'
+        text: 'Grafik Surat Masuk dan Surat Keluar Kelurahan {{$det['kel']}}'
     },
     subtitle: {
         text: ''
     },
     xAxis: {
         categories: [
-            'TPS 1',
-            'TPS 2',
-            'TPS 3',
-            'TPS 4',
-            'TPS 5',
-            'TPS 6',
-            'TPS 7',
-            'TPS 8',
-            'TPS 9',
-            'TPS 10',
-            'TPS 11',
-            'TPS 12'
+            <?php
+                foreach($tps as $row1){
+                    echo "'".$row1['nama']."'".",";
+                }
+                ?>
+
         ],
         crosshair: true
     },
@@ -221,11 +105,24 @@
     },
     series: [{
         name: 'Surat Masuk',
-        data: [49, 71, 106, 129, 144, 176, 135, 148, 216, 194, 95, 54]
+        data: [
+            <?php
+                foreach($tps as $row2){
+                    echo $row2['jml_masuk'].",";
+                }
+                ?>
+    
+        ]
 
     }, {
         name: 'Surat Keluar',
-        data: [83, 78, 98, 93, 106, 84, 105, 104, 91, 83, 106, 92]
+        data: [
+            <?php
+                foreach($tps as $row3){
+                    echo $row3['jml_keluar'].",";
+                }
+                ?>
+        ]
 
     }]
 });
@@ -243,7 +140,7 @@
         type: 'pie'
     },
     title: {
-        text: 'Total Surat Masuk dan Surat Keluar KPU Kota Yogyakarta'
+        text: 'Total Surat Masuk dan Surat Keluar Kelurahan {{$det['kel']}}'
     },
     tooltip: {
         pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -268,16 +165,66 @@
         colorByPoint: true,
         data: [{
             name: 'Surat Masuk',
-            y: 61.41,
+            y: {{$sumM}},
             
         }, {
             name: 'Surat Keluar',
-            y: 11.84
+            y: {{$sumK}}
         }] 
     }]
 }); 
 </script>
 <button class="btn align-item-center btn-danger" href="" class="text-right" style="float: right;">Kembali</button>
 </div>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoibGlzdGVyaW5lYm9pIiwiYSI6ImNrdmRzenZzMTllbDQyd29mOTN2Nnk4cDAifQ.ILAoM1z0NOugYT9C5yCZpA';
+const map = new mapboxgl.Map({
+    container: 'map', // container ID
+    style: 'mapbox://styles/mapbox/streets-v11', // style URL
+    center: [110.361939,-7.808649], // starting position [lng, lat]
+    zoom: 9 // starting zoom
+});
+// Create a new marker.
+const places = {
+'type': 'FeatureCollection',
+'features': [<?php
+                $koor="";
+                foreach($tps as $row0){
+                $koor=explode(", ",$row0['koordinat']);
+                echo "{
+                'type': 'Feature',
+                'properties': {
+                'description':"."'".$row0['nama']."'".",
+                'icon': 'mail-15'
+                },
+                'geometry': {
+                'type': 'Point',
+                'coordinates':"."[".$koor[1].",".$koor[0]."]
+                }
+                },";
+                }
+                ?>
+            ]
+};
+map.on('load', () => {
+// Add a GeoJSON source containing place coordinates and information.
+map.addSource('places', {
+'type': 'geojson',
+'data': places
+});
+map.addLayer({
+'id': 'poi-labels',
+'type': 'symbol',
+'source': 'places',
+'layout': {
+'text-field': ['get', 'description'],
+'text-variable-anchor': ['top', 'bottom', 'left', 'right'],
+'text-radial-offset': 0.5,
+'text-justify': 'auto',
+'icon-image': ['get', 'icon']
+}
+});
+});
+</script>
 
 @endsection 

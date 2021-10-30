@@ -33,6 +33,7 @@ Route::post('/PengajuanSurat/Keluar/simpan', [App\Http\Controllers\PublikControl
     ///informasi///
 Route::get('/Informasi/TPS', [App\Http\Controllers\PublikController::class, 'tps'])->name('tps');
 Route::get('/Informasi/TCP', [App\Http\Controllers\PublikController::class, 'tcp'])->name('TCP');
+Route::get('/Informasi/DataTPS', [App\Http\Controllers\PublikController::class, 'kuotaTPSPub'])->name('kuotaTPSPub');
 
 //////////////////////
 
@@ -40,8 +41,8 @@ Route::get('/Informasi/TCP', [App\Http\Controllers\PublikController::class, 'tcp
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/Profil/Admin', [App\Http\Controllers\AdminController::class, 'profiladm'])->name('ProfilAdm');
 Route::get('/Setting/Admin', [App\Http\Controllers\AdminController::class, 'setting'])->name('Setting');
-Route::get('/DetailSM/Admin', [App\Http\Controllers\AdminController::class, 'detailSM'])->name('DetailSM');
-Route::get('/DetailSK/Admin', [App\Http\Controllers\AdminController::class, 'detailSK'])->name('DetailSK');
+Route::get('/DetailSM/Admin/{id}', [App\Http\Controllers\AdminController::class, 'detailSM'])->name('DetailSM');
+Route::get('/DetailSK/Admin/{id}', [App\Http\Controllers\AdminController::class, 'detailSK'])->name('DetailSK');
 Route::get('/InputTPS/Admin', [App\Http\Controllers\AdminController::class, 'InputTPS'])->name('InputTPS');
 Route::get('/DataTPS/Admin', [App\Http\Controllers\AdminController::class, 'kuotaTPS'])->name('KuotaTPS');
 

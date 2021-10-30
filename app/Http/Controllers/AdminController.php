@@ -66,7 +66,7 @@ class AdminController extends Controller
                      
             ]);
             SuratM::where('id', $request->get('id'))->update(['status' => 1 ,'penerima' => $id , 'tps_jog' => $request->get('tps_jog')]);
-            Tps::where('id', $request->get('tps_jog'))->increment('jml_p_pilih');
+            Tps::where('id', $request->get('tps_jog'))->increment('jml_masuk');
             
            Mail::to(SuratM::where('id', $request->get('id'))->value('email'))->send(new Diterima());
            
@@ -110,7 +110,7 @@ class AdminController extends Controller
         if($request->get('type')=="0"){
             SuratK::where('id', $request->get('id'))->update(['status' => 1 ,'penerima' => $id]);
             $tps=SuratK::where('id', $request->get('id'))->value('tps_jog');
-            Tps::where('id', $tps)->decrement('jml_p_pilih');
+            Tps::where('id', $tps)->increment('jml_keluar');
             Mail::to(SuratK::where('id', $request->get('id'))->value('email'))->send(new Diterima());
         }else{
             SuratK::where('id', $request->get('id'))->update(['status' => 2 ]);
@@ -130,24 +130,26 @@ class AdminController extends Controller
     public function saveIsm(Request $request)
     {
         $id=Auth::user()->id;
-        $this->validate($request, [
-            'tps_jog' => 'required',
-            'kec_jog' => 'required',
-            'nokk' => 'required',
-            'nik' => 'required',
-            'nama' => 'required',
-            'provinsi' => 'required',
-            'kabukot' => 'required',
-            'kecamatan' => 'required',
-            'kel' => 'required',
-            'disabil' => 'required',
-            'alasan' => 'required',
-            'kel_jog' => 'required',
-            'email' => 'required',
-            'nohp' => 'required',
-            'img_c1' => 'required',
-            'img_ktp' => 'required'      
-        ]);
+        // $this->validate($request, [
+        //     'tps_jog' => 'required',
+        //     'kec_jog' => 'required',
+        //     'nokk' => 'required',
+        //     'nik' => 'required',
+        //     'nama' => 'required',
+        //     'jk' => 'required',
+        //     'provinsi' => 'required',
+        //     'kabukot' => 'required',
+        //     'kecamatan' => 'required',
+        //     'kel' => 'required',
+        //     'disabil' => 'required',
+        //     'alasan' => 'required',
+        //     'kel_jog' => 'required',
+        //     'domisiljog' => 'required',
+        //     'email' => 'required',
+        //     'nohp' => 'required',
+        //     'img_c1' => 'required',
+        //     'img_ktp' => 'required'      
+        // ]);
             $fullname = $request->file('img_c1')->getClientOriginalName();
             $extn =$request->file('img_c1')->getClientOriginalExtension();
             $finalc1= $request->nik.'_'.'C1'.'_'.time().'.'.$extn;
@@ -166,6 +168,7 @@ class AdminController extends Controller
             'kec_jog' => $request->kecamatan_jog,
             'no_kk' => $request->nokk,
             'nama' => $request->nama,
+            'jk' => $request->jk,
             'nik' => $request->nik,
             'prov' => $request->provinsi,
             'kab' => $request->kabukot,
@@ -175,6 +178,7 @@ class AdminController extends Controller
             'alasan' => $request->alasan,
             'kec_jog' => $request->kec_jog,
             'kel_jog' => $request->kel_jog,
+            'alamat' => $request->domisiljog,
             'email' => $request->email,
             'No_hp' => $request->nohp,
             'img_c1' => $finalc1,
@@ -182,7 +186,7 @@ class AdminController extends Controller
             
         ]);
         $SuratM->save();
-        Tps::where('id', $request->get('tps_jog'))->increment('jml_p_pilih');
+        Tps::where('id', $request->get('tps_jog'))->increment('jml_masuk');
         return redirect()->route('InputSM');
     }
 
@@ -196,20 +200,23 @@ class AdminController extends Controller
     public function saveIsk(Request $request)
     {
         $id=Auth::user()->id;
-        $this->validate($request, [
-            'tps_jog' => 'required',
-            'kec_jog' => 'required',
-            'nokk' => 'required',
-            'nik' => 'required',
-            'nama' => 'required',
-            'provinsi' => 'required',
-            'kabukot' => 'required',
-            'kecamatan' => 'required',
-            'email' => 'required',
-            'nohp' => 'required',
-            'img_c1' => 'required',
-            'img_ktp' => 'required'      
-        ]);
+        // $this->validate($request, [
+        //     'tps_jog' => 'required',
+        //     'kec_jog' => 'required',
+        //     'nokk' => 'required',
+        //     'nik' => 'required',
+        //     'nama' => 'required',
+        //     'jk' => 'required',
+        //     'provinsi' => 'required',
+        //     'kabukot' => 'required',
+        //     'kecamatan' => 'required',
+        //     'kel' => 'required',
+        //     'alamatjog' => 'required',
+        //     'email' => 'required',
+        //     'nohp' => 'required',
+        //     'img_c1' => 'required',
+        //     'img_ktp' => 'required'      
+        // ]);
             $fullname = $request->file('img_c1')->getClientOriginalName();
             $extn =$request->file('img_c1')->getClientOriginalExtension();
             $finalc1= $request->nik.'_'.'C1'.'_'.time().'.'.$extn;
@@ -228,11 +235,14 @@ class AdminController extends Controller
             'kec_jog' => $request->kec_jog,
             'no_kk' => $request->nokk,
             'nama' => $request->nama,
+            'jk' => $request->jk,
             'nik' => $request->nik,
             'prov' => $request->provinsi,
             'kab' => $request->kabukot,
             'kec' => $request->kecamatan,
+            'kel' => $request->kel,
             'kel_jog' => $request->kel_jog,
+            'alamat' => $request->alamatjog,
             'email' => $request->email,
             'No_hp' => $request->nohp,
             'img_c1' => $finalc1,
@@ -240,14 +250,40 @@ class AdminController extends Controller
             
         ]);
         $SuratK->save();
-        Tps::where('id', $request->get('tps_jog'))->decrement('jml_p_pilih');
+        Tps::where('id', $request->get('tps_jog'))->increment('jml_keluar');
         return redirect()->route('InputSK');
     }
 
     public function tpsadm()
     {
         $tps=Tps::all();
-        return view('/layouts/Admin/tpsadmin');
+        $kec=Kecamatan::where('kabkot','=', 3471)->get();
+        $sumkec=array();
+        foreach ($kec as $kc) {
+            $kel=Keldes::where('kecamatan','=', $kc->id)->get();
+            $sumMAll=0;
+            $sumKAll=0;
+            foreach ($kel as $kl) {
+                $sumM=0;
+                $sumK=0;
+                $tps1=Tps::where('lokasi','=', $kl->id)->get();
+                foreach ($tps1 as $row1) {
+                    $sumM=$sumM+$row1->jml_masuk;
+                    $sumK=$sumK+$row1->jml_keluar;
+                }
+                $sumMAll=$sumMAll+$sumM;
+                $sumKAll=$sumKAll+$sumK;
+            }
+            array_push($sumkec,['sumM'=> $sumMAll,'sumK'=> $sumKAll]);
+        }
+        
+
+        foreach ($tps as $row) {
+            $sumM=$sumM+$row->jml_masuk;
+            $sumK=$sumK+$row->jml_keluar;
+            
+        }
+        return view('/layouts/Admin/tpsadmin',compact('tps','kec','sumM','sumK','sumkec'));
     }
 
     public function profiladm()
@@ -260,14 +296,82 @@ class AdminController extends Controller
         return view('/layouts/Admin/Setting');
     }
 
-    public function detailSM()
+    public function detailSM($id)
     {
-        return view('/layouts/Admin/DetailSM');
+        $sm=SuratM::where([
+            ['id','=',$id]
+        ])->first();
+        $prov=Prov::where([
+            ['id','=',$sm->prov]
+        ])->value('nama');
+        $kab=KabKot::where([
+            ['id','=',$sm->kab]
+        ])->value('nama');
+        $kec=Kecamatan::where([
+            ['id','=',$sm->kec]
+        ])->value('nama');
+        $kel=Keldes::where([
+            ['id','=',$sm->kel]
+        ])->value('nama');
+        $kabj=KabKot::where([
+            ['id','=','3471']
+        ])->value('nama');
+        $kecj=Kecamatan::where([
+            ['id','=',$sm->kec_jog]
+        ])->value('nama');
+        $kelj=Keldes::where([
+            ['id','=',$sm->kel_jog]
+        ])->value('nama');
+        $det = [
+            "prov" => $prov,
+            "kab" => $kab,
+            "kec" => $kec,
+            "kel" => $kel,
+            "kabj" => $kabj,
+            "kecj" => $kecj,
+            "kelj" => $kelj,
+        ];
+        
+        return view('/layouts/Admin/DetailSM',compact('sm','det'));
     }
 
-    public function detailSK()
+    public function detailSK($id)
     {
-        return view('/layouts/Admin/DetailSK');
+        $sk=SuratK::where([
+            ['id','=',$id]
+        ])->first();
+        $prov=Prov::where([
+            ['id','=',$sk->prov]
+        ])->value('nama');
+        $kab=KabKot::where([
+            ['id','=',$sk->kab]
+        ])->value('nama');
+        $kec=Kecamatan::where([
+            ['id','=',$sk->kec]
+        ])->value('nama');
+        $kel=Keldes::where([
+            ['id','=',$sk->kel]
+        ])->value('nama');
+        $kabj=KabKot::where([
+            ['id','=','3471']
+        ])->value('nama');
+        $kecj=Kecamatan::where([
+            ['id','=',$sk->kec_jog]
+        ])->value('nama');
+        $kelj=Keldes::where([
+            ['id','=',$sk->kel_jog]
+        ])->value('nama');
+        $det = [
+            "prov" => $prov,
+            "kab" => $kab,
+            "kec" => $kec,
+            "kel" => $kel,
+            "kabj" => $kabj,
+            "kecj" => $kecj,
+            "kelj" => $kelj,
+        ];
+        return $sk->kec;
+        return view('/layouts/Admin/DetailSK',compact('sk','det'));
     }
 
     public function inputTPS()
@@ -287,6 +391,24 @@ class AdminController extends Controller
 
     public function kuotaTPS()
     {
-        return view('/layouts/Admin/KuotaTPS');
+        $tps=Tps::where('lokasi','=', $request->input('kel_jog'))->get();
+        $kec=Kecamatan::where([
+            ['id','=',$request->kec_jog]
+        ])->value('nama');
+        $kel=Keldes::where([
+            ['id','=',$request->kel_jog]
+        ])->value('nama');
+        $det=[
+            "kec" => $kec,
+            "kel" => $kel,
+        ];
+        $sumM=0;
+        $sumK=0;
+        foreach ($tps as $row) {
+            $sumM=$sumM+$row->jml_masuk;
+            $sumK=$sumK+$row->jml_keluar;
+            
+        }
+        return view('/layouts/Admin/KuotaTPS',compact('tps','det','sumM','sumK'));
     }
 }
