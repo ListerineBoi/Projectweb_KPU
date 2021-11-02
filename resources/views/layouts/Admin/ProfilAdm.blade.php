@@ -2,41 +2,36 @@
 
 @section('content') 
 
-<div class="jumbotron jumbotron-fluid text-center">
-  <div class="container">
-    <h3 class="display-4">Profil Admin</h3>
-  </div>
-</div>
+<div class="container">
+<div class="row h-100 justify-content-center align-items-center bg-light">
+    <div class="col-md-10">
+        <h3 class="text-light text-center bg-orange">PROFIL</h3>
 </br>
-<table class="table table-bordered">
+<table class="table table-bordered text-center">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">Nama</th>
+      <th scope="col">Email</th>
+      <th scope="col">Password</th>
+      <th scope="col">No HP</th>
+      <th scope="col">Alamat</th>
+      <th scope="col">Wilayah Kecamatan</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
+      <td>Mark Lee</td>
+      <td>markleenct@gmail.com</td>
+      <td>leesooman</td>
+      <td>097634658922</td>
+      <td>Yeongwonhi, Daegu, Gyeong-Do, South Korea</td>
+      <td>Daeguwon</td>
     </tr>
   </tbody>
 </table>
 <input class="btn btn-dark" type="submit" value="Edit Profil">
+</div>
+</div>
+</div>
 
 @endsection 

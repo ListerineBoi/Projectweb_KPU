@@ -23,6 +23,5 @@
             <td><div class="col text-center">
                 <button type="button" href="/DetailSM/Admin" class="btn text-center btn-primary">Cek Detail</button>
             </div></td>
-        </div>
-
+        </div></table>
 @endsection   

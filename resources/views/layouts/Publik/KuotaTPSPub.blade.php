@@ -24,7 +24,7 @@
 
 @foreach($tps as $row)
 
-<div class="col md-3 mb-2" style="width: 18rem;">
+<div class="col-6" style="width: 18rem;">
     <div class="card text-center" style="width: 18rem;">
           <div class="card-body">
             <h5 class="card-title">{{$row->nama}}</h5>
@@ -34,14 +34,12 @@
           </div>
     </div>
 </div>
-</br>
 @endforeach
-
-
-
 </div>
 </div>
 </div>
+
+</br>
 
 <figure class="highcharts-figure">
      <div id="bar"></div> <!-- chart -->
@@ -174,8 +172,6 @@
     }]
 }); 
 </script>
-<button class="btn align-item-center btn-danger" href="" class="text-right" style="float: right;">Kembali</button>
-</div>
 
 <script>
 mapboxgl.accessToken = 'pk.eyJ1IjoibGlzdGVyaW5lYm9pIiwiYSI6ImNrdmRzenZzMTllbDQyd29mOTN2Nnk4cDAifQ.ILAoM1z0NOugYT9C5yCZpA';
@@ -227,5 +223,6 @@ map.addLayer({
 });
 });
 </script>
-
+<div id="map" style="width: 100%;height: 100vh;"></div>
+</div>
 @endsection 
