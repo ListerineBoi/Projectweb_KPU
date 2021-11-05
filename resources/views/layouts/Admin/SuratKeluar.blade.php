@@ -29,7 +29,7 @@
                 @csrf
 				<input type="hidden" name="id" value="{{$row->id}}">
 			<input type="hidden" name="type" value=0>
-			<div class="container">
+			<div class="container text-center">
   			<!-- Button to Open the Modal -->
   			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_terima{{$loop->iteration}}">
     		Setuju
@@ -66,7 +66,7 @@
                 @csrf
 				<input type="hidden" name="id" value="{{$row->id}}">
 			<input type="hidden" name="type" value=1>
-			<div class="container">
+			<div class="container text-center">
   			<!-- Button to Open the Modal -->
   			<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal_tolak{{$loop->iteration}}">
     		Tolak

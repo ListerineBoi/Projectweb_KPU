@@ -389,6 +389,16 @@ class AdminController extends Controller
         return view('/layouts/Admin/HisKeluar');
     }
 
+    public function fuMasuk()
+    {
+        return view('/layouts/Admin/FUMasuk');
+    }
+
+    public function fuKeluar()
+    {
+        return view('/layouts/Admin/FUKeluar');
+    }
+
     public function kuotaTPS()
     {
         $tps=Tps::where('lokasi','=', $request->input('kel_jog'))->get();

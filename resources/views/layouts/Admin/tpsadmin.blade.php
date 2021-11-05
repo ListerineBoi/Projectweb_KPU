@@ -32,7 +32,7 @@
 				  </select>
 			</div>
 </div>
-<button type="submit" class="btn btn-danger">Kirim Formulir</button>
+<button type="submit" class="btn btn-danger">Cek Data TPS</button>
       </form>
 </div>
 
