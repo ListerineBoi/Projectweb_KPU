@@ -12,7 +12,7 @@
 </br>
 <div class="card row m-4"> 
   <div class="card-body text-center">
-  <form method="get" action="{{route('kuotaTPSPub')}}">
+  <form method="get" action="{{route('KuotaTPS')}}">
     <h5 class="card-title">Cek Data TPS</h5>
     <div class="form-group row m-2">
 				<div class="col md-3 mb-2">

@@ -14,6 +14,7 @@ use App\Mail\Diterima;
 use App\Mail\Ditolak;
 use Illuminate\Support\Facades\Mail;
 use Auth;
+use PDF;
 
 class AdminController extends Controller
 {
@@ -389,7 +390,7 @@ class AdminController extends Controller
         return view('/layouts/Admin/HisKeluar');
     }
 
-    public function kuotaTPS()
+    public function kuotaTPS(Request $request)
     {
         $tps=Tps::where('lokasi','=', $request->input('kel_jog'))->get();
         $kec=Kecamatan::where([
@@ -410,5 +411,10 @@ class AdminController extends Controller
             
         }
         return view('/layouts/Admin/KuotaTPS',compact('tps','det','sumM','sumK'));
+    }
+    public function printpdf()
+    {
+        $pdf = PDF::loadview('/layouts/Admin/formPrint')->setpaper('Legal','potrait');
+        return $pdf->stream('Laporan_Data_Barang');
     }
 }
