@@ -21,14 +21,12 @@
 </head>
 <body>
 <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-orange shadow-sm">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-orange">
             <div class="container">
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto text-light"><img src="/image/logoKPU.png" width="30" height="30" class="d-inline-block align-top" alt="">
-                    <h3> KPU KOTA YOGYAKARTA </h3>
-                    </ul>
+                    <a class="navbar-brand" href="/home"><img src="/image/logoKPU.png" width="30" height="30" class="d-inline-block align-top text-light" alt="">Sistem Pindah Pemilih KPU Kota Yogyakarta</a>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">

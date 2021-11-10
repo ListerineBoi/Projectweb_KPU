@@ -8,6 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="shortcut icon" href="/image/logoKPU.png" type="image/x-icon">
     <title>Admin SIDALIH</title>
   </head>
@@ -39,9 +40,19 @@
           History
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/Admin/History/Masuk">Surat Masuk</a>
+          <a class="dropdown-item" href="/Admin/History/Masuk">Pengajuan Masuk</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="/Admin/History/Keluar">Surat Keluar</a>
+          <a class="dropdown-item" href="/Admin/History/Keluar">Pengajuan Keluar</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Follow Up
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/Admin/FollowUp/Masuk">Pengajuan Masuk</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/Admin/FollowUp/Keluar">Pengajuan Keluar</a>
         </div>
       </li>
     </ul>
@@ -80,9 +91,122 @@
                     </ul>
 </nav>
 
-        <main class="py-4">
-            @yield('content')
-        </main>
+<main class="py-4">
+      @yield('content')
+</main>
+
+<!-- Footer -->
+<footer class="bg-orange text-center text-white">
+  <!-- Grid container -->
+  <div class="container p-4">
+
+  <div class="container p-4">
+    <!-- Section: Social media -->
+    <section class="mb-4">
+      <!-- Facebook -->
+      <a class="btn btn-outline-light btn-floating m-1" href="https://web.facebook.com/kpukotajogja?_rdc=1&_rdr" role="button"
+        ><i class="fa fa-facebook"></i
+      ></a>
+
+      <!-- Twitter -->
+      <a class="btn btn-outline-light btn-floating m-1" href="https://twitter.com/kpukotajogja" role="button"
+        ><i class="fa fa-twitter"></i
+      ></a>
+
+      <!-- Website -->
+      <a class="btn btn-outline-light btn-floating m-1" href="https://kota-yogyakarta.kpu.go.id/" role="button"
+        ><i class="fa fa-google"></i
+      ></a>
+
+      <!-- Instagram -->
+      <a class="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/kpukotajogja/" role="button"
+        ><i class="fa fa-instagram"></i
+      ></a>
+
+        <!-- Youtube -->
+        <a class="btn btn-outline-light btn-floating m-1" href="https://www.youtube.com/channel/UCVdSz86o9q2cQKvAQ5QhOYg" role="button"
+        ><i class="fa fa-youtube"></i
+      ></a>
+    </section>
+</div>
+
+    <!-- Section: Links -->
+    <section class="">
+      <!--Grid row-->
+      <div class="row">
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Komisi Pemilihan Umum Kota Yogyakarta</h5>
+
+          <ul class="list-unstyled mb-0">
+            <p>
+            Jl. Magelang No.41, Kricak, Kec. Tegalrejo, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55242
+            </p>
+            <p>
+            (0274) 556916
+            </p>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase text-bold">Pengajuan Surat</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="/PengajuanSurat/Masuk" class="text-white">Surat Masuk</a>
+            </li>
+            <li>
+              <a href="/PengajuanSurat/Keluar" class="text-white">Surat Keluar</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">History</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="#!" class="text-white">Pengajuan Surat Masuk</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Pengajuan Surat Keluar</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Follow Up</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="#!" class="text-white">Pengajuan Surat Masuk</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Pengajuan Surat Keluar</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+      </div>
+      <!--Grid row-->
+    </section>
+    <!-- Section: Links -->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2021 Copyright:
+    <a class="text-white" href="https://kota-yogyakarta.kpu.go.id/">KPU Kota Yogyakarta</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
         
  <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

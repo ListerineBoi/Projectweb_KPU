@@ -3,7 +3,7 @@
 @section('content') 
 
 <div class="container">
-<h3 class="text-bold text-light text-center bg-orange">Halaman History Surat Masuk</h3>
+<h3 class="text-bold text-light text-center bg-orange">Halaman Follow Up Pengajuan Surat Keluar</h3>
 </br>
 
 <table class="table table-bordered table-striped">

@@ -28,7 +28,7 @@
 			<td>
             
 			
-			<div class="container">
+			<div class="container text-center">
   			<!-- Button to Open the Modal -->
   			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_terima{{$loop->iteration}}">
     		Setuju
@@ -78,7 +78,7 @@
 
 			<br>
 		
-			<div class="container">
+			<div class="container text-center">
   			<!-- Button to Open the Modal -->
   			<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal_tolak{{$loop->iteration}}">
     		Tolak
