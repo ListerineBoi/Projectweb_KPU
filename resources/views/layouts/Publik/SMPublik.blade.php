@@ -8,9 +8,11 @@
 <div class="container">
 <div class="row h-100 justify-content-center align-items-center bg-light">
     <div class="col-md-10">
+	<div class="card border-dark">
+      <div class="card-body">
         <h3 class="text-bold text-light text-center bg-orange">FORMULIR PENGAJUAN PERMOHONAN PINDAH PEMILIH MASUK KOTA YOGYAKARTA</h3>
         </br>
-        <h4 class="text-bold text-center"> Asal TPS Pemilih</h4>
+        <h4 class="text-bold text-center"> ------- Asal TPS Pemilih ------- </h4>
         </br> 
 			<div class="form-group row">
 				<label class="control-label col-sm-2" for="nokk">No KK * </label>
@@ -124,7 +126,7 @@
     </div>
             </br>
     <div class="text-bold text-center">
-    <h4> Domisili Pemilih di Yogyakarta </h4>
+    <h4> ------- Domisili Pemilih di Yogyakarta ------- </h4>
     </div>
     </br>
 			
@@ -197,7 +199,8 @@
             </br>
 
             <button type="submit" class="btn btn-danger" class="text-right" style="float: right;">Kirim Formulir</button>
-            <a href="/Publik/Home" type="button" class="btn btn-dark" class="text-right" style="float: right;">Kembali</a>
+			</div>
+</div>
 			</div>
 			</div>
 </div>

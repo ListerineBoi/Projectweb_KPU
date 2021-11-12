@@ -3,9 +3,13 @@
 @section('content') 
 
 <div class="container">
+<div class="row h-100 justify-content-center align-items-center bg-light">
+<div class="col-md-10">
 <h3 class="text-bold text-light text-center bg-orange">Halaman Pengajuan Keluar</h3>
+<div class="card border-dark">
+<div class="card-body">
 </br>
-<table class="table table-bordered table-striped">
+<table class="table table-bordered table-striped col-md-12">
 	<thead>
 		<tr>
 			<th class="text-center">No</th>
@@ -112,7 +116,8 @@
 		@endforeach
 	</tbody>
 </table>
-
+</div>
+</div>
 </br>
 
 <div class="card">
@@ -123,6 +128,8 @@
   </div>
 </div>
 
+</div>
+</div>
 </div>
 
 @endsection  

@@ -91,12 +91,12 @@
                     </ul>
 </nav>
 
-<main class="py-4">
+<main class="py-4" style="height:100%;width:100%;">
       @yield('content')
 </main>
 
 <!-- Footer -->
-<footer class="bg-orange text-center text-white">
+<footer class="bg-orange text-center text-white" style="auto">
   <!-- Grid container -->
   <div class="container p-4">
 

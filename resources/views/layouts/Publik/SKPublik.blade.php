@@ -8,9 +8,11 @@
 <div class="container">
 <div class="row h-100 justify-content-center align-items-center bg-light">
     <div class="col-md-10">
+	<div class="card border-dark">
+      <div class="card-body">
         <h3 class="text-bold text-light text-center bg-orange">FORMULIR PENGAJUAN PERMOHONAN PINDAH PEMILIH KELUAR KOTA YOGYAKARTA</h3>
         </br>
-        <h4 class="text-bold text-center"> Alamat Yogyakarta </h4>
+        <h4 class="text-bold text-center"> ------- Alamat Yogyakarta ------- </h4>
         </br>
 		<div class="form-group row">
 				<label class="control-label col-sm-2" for="nokk">No KK * </label>
@@ -108,8 +110,10 @@
             <div class= "col-md-6 text-justify">*(Ekstensi JPG/PNG, File Maks 5 MB)</div>
             </div>
 			<div class="text-bold text-center">
-    		<h4> Tujuan Pindah </h4>
+			</br>
+    		<h4> ------- Tujuan Pindah ------- </h4>
     		</div>	
+			</br>
             <div class="form-group row">
 				<label class="control-label col-sm-2" for="nik">Provinsi </label>
 				<div class="col-sm-10">
@@ -154,7 +158,9 @@
 
             <button type="submit" class="btn btn-danger center-block" class="text-right center-block" style="float: right;">Kirim Formulir</button>
             <a href="/Publik/Home" type="button" class="btn btn-dark center-block" class="text-right center-block" style="float: right;">Kembali</a>
-			</div>
+</div>	
+</div>	
+		</div>
 			</div>
 			</div>
             </form>

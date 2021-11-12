@@ -8,4 +8,6 @@
     <p class="lead">Kamu Sudah Berhasil Login Ke Sistem Pindah Pemilih KPU Kota Yogyakarta :)</p>
   </div>
 </div>
+
+
 @endsection     

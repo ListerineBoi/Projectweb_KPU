@@ -3,7 +3,11 @@
 @section('content') 
 
 <div class="container">
+<div class="row h-100 justify-content-center align-items-center bg-light">
+<div class="col-md-10">
 <h3 class="text-bold text-light text-center bg-orange">Halaman Pengajuan Masuk</h3>
+<div class="card border-dark">
+<div class="card-body">
 </br>
 
 <table class="table table-bordered table-striped">
@@ -53,7 +57,7 @@
         	<div class="modal-body">
           	<div class="dropdown">
           	<label class="control-label col-sm-2" for="nik">TPS </label>
-				  <div class="col-sm-10">
+				  <div class="col-sm-12">
 				  <select class="form-control" name="tps_jog">
       			  <option selected>Pilih TPS...</option>
       			  @foreach($tps as $row1)
@@ -97,6 +101,7 @@
                 @csrf
 				<input type="hidden" name="id" value="{{$row->id}}">
 			<input type="hidden" name="type" value=1>
+
         	<!-- Ini adalah Bagian Body Modal -->
         	<div class="modal-body">
           <div class="mb-3">
@@ -123,6 +128,8 @@
 		@endforeach
 	</tbody>
 </table>
+</div>
+</div>
 
 </br>
 
@@ -134,5 +141,7 @@
   </div>
 </div>
 
+</div>
+</div>
 </div>
     @endsection   
