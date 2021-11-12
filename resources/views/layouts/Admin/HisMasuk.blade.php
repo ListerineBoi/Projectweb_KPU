@@ -12,16 +12,27 @@
 			<th class="text-center">No</th>
 			<th class="text-center">NIK</th>
 			<th class="text-center">Nama</th>
+			<th class="text-center">Status</th>
 			<th class="text-center">Detail</th>
             </tr>
 	</thead>
 	<tbody>
+	@foreach($list as $row)
 		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
+		
+			<td>{{$loop->iteration}}</td>
+			<td>{{$row->nik}}</td>
+			<td>{{$row->nama}}</td>
+			<td>@if($row->status==1)
+				diterima
+				@elseif($row->status==2)
+    			ditolak
+				@endif
+			</td>
             <td><div class="col text-center">
-                <button type="button" href="/DetailSM/Admin" class="btn text-center btn-primary">Cek Detail</button>
+                <a type="button" href="{{route('DetailSM', ['id' => $row->id])}}" class="btn text-center btn-primary">Cek Detail</a>
             </div></td>
+		</tr>
+			@endforeach
         </div></table>
 @endsection   

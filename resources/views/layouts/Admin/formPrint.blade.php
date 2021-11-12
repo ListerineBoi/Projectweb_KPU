@@ -141,21 +141,21 @@ surat pemberitahuan pindah memili bagi:</span></p>
 0in;margin-left:1pt;margin-bottom:.0001pt;text-align:justify;line-height:
 130%'>No.<span style='letter-spacing:-.05pt'> </span>Kartu<span
 style='letter-spacing:-.2pt'> </span>Keluarga                 <span
-style='letter-spacing:-.9pt'>: </span><span style='letter-spacing:-.9pt'> </span><u>                                                      </u></p>
+style='letter-spacing:-.9pt'>: </span></span>{{$data->no_kk}}</p>
 
 <p class=MsoNormal style='margin-top:4.6pt;margin-right:1pt;margin-bottom:
 0in;margin-left:1pt;margin-bottom:.0001pt;text-align:justify;line-height:
-130%'>Nomor Induk Kependudukan<span lang=IN>  : </span><u>                                                      </u></p>
+130%'>Nomor Induk Kependudukan<span lang=IN>  : </span>{{$data->nik}} </p>
 
 <p class=MsoNormal style='margin-top:4.6pt;margin-right:1pt;margin-bottom:
 0in;margin-left:1pt;margin-bottom:.0001pt;text-align:justify;line-height:
 130%'>Nama<span style='letter-spacing:-.1pt'> </span>Lengkap<span lang=IN>                        </span>:
-<u>                                                      </u></p>
+{{$data->nama}}</p>
 
 <p class=MsoNormal style='margin-top:4.6pt;margin-right:1pt;margin-bottom:
 0in;margin-left:1pt;margin-bottom:.0001pt;text-align:justify;line-height:
 130%'>Alamat<span style='letter-spacing:-.1pt'> </span>Lengkap<span lang=IN>                      :
-</span><u>                                                      </u></p>
+</span>{{$data->alamat}}</p>
 
 <p class=MsoBodyText style='margin-top:.05pt'><span lang=id style='font-size:
 9.0pt;font-family:"Times New Roman",serif'>&nbsp;</span></p>

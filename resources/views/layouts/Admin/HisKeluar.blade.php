@@ -16,11 +16,21 @@
             </tr>
 	</thead>
 	<tbody>
+	@foreach($list as $row)
 		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-            <td><button type="button" href="/DetailSM/Admin" class="btn text-center btn-primary">Cek Detail</button></td>
-        </div>
+		<td>{{$loop->iteration}}</td>
+			<td>{{$row->nik}}</td>
+			<td>{{$row->nama}}</td>
+			<td>@if($row->status==1)
+				diterima
+				@elseif($row->status==2)
+    			ditolak
+				@endif
+			</td>
+            <td><div class="col text-center">
+                <a type="button" href="{{route('DetailSK', ['id' => $row->id])}}" class="btn text-center btn-primary">Cek Detail</a>
+            </div></td>
+		</tr>
+			@endforeach
 </table>
 @endsection   

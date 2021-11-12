@@ -40,7 +40,7 @@ Route::get('/Informasi/DataTPS', [App\Http\Controllers\PublikController::class, 
 //admin//
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/Profil/Admin', [App\Http\Controllers\AdminController::class, 'profiladm'])->name('ProfilAdm');
-Route::get('/printpdf', [App\Http\Controllers\AdminController::class, 'printpdf'])->name('printpdf');
+Route::get('/printpdf/{id}', [App\Http\Controllers\AdminController::class, 'printpdf'])->name('printpdf');
 Route::get('/Setting/Admin', [App\Http\Controllers\AdminController::class, 'setting'])->name('Setting');
 Route::get('/DetailSM/Admin/{id}', [App\Http\Controllers\AdminController::class, 'detailSM'])->name('DetailSM');
 Route::get('/DetailSK/Admin/{id}', [App\Http\Controllers\AdminController::class, 'detailSK'])->name('DetailSK');

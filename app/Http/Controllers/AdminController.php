@@ -382,17 +382,79 @@ class AdminController extends Controller
 
     public function hisMasuk()
     {
-        return view('/layouts/Admin/HisMasuk');
+        $lok=Auth::user()->lokasi;
+        $role=Auth::user()->role;
+        $tps=Tps::all();
+        if($role==1){
+            $list=SuratM::where([
+                ['status','!=',0]
+            ])->get();
+
+            }else{
+                if(strlen($lok)==7){
+                    $list=SuratM::where([
+                        ['status','=',0],
+                        ['kec_jog','=',$lok]
+                    ])->get();
+                }elseif(strlen($lok)==10) {
+                    $list=SuratM::where([
+                        ['status','=',0],
+                        ['kel_jog','=',$lok]
+                    ])->get();
+                }
+        }
+        return view('/layouts/Admin/HisMasuk',compact('list','tps'));
     }
 
     public function hisKeluar()
     {
-        return view('/layouts/Admin/HisKeluar');
+        $lok=Auth::user()->lokasi;
+        $tps=Tps::all();
+        if($lok==null){
+            $list=SuratK::where([
+                ['status','!=',0]
+            ])->get();
+
+            }else{
+                if(strlen($lok)==7){
+                    $list=SuratK::where([
+                        ['status','=',0],
+                        ['kec_jog','=',$lok]
+                    ])->get();
+                    }elseif(strlen($lok)==10) {
+                        $list=SuratK::where([
+                            ['status','=',0],
+                            ['kel_jog','=',$lok]
+                        ])->get();
+                    }
+        }
+        return view('/layouts/Admin/HisKeluar',compact('list','tps'));
     }
 
     public function fuMasuk()
     {
-        return view('/layouts/Admin/FUMasuk');
+        $lok=Auth::user()->lokasi;
+        $role=Auth::user()->role;
+        $tps=Tps::all();
+        if($role==1){
+            $list=SuratM::where([
+                ['status','=',3]
+            ])->get();
+
+            }else{
+                if(strlen($lok)==7){
+                    $list=SuratM::where([
+                        ['status','=',0],
+                        ['kec_jog','=',$lok]
+                    ])->get();
+                }elseif(strlen($lok)==10) {
+                    $list=SuratM::where([
+                        ['status','=',0],
+                        ['kel_jog','=',$lok]
+                    ])->get();
+                }
+        }
+        return view('/layouts/Admin/FUMasuk',compact('list','tps'));
     }
 
     public function fuKeluar()
@@ -422,9 +484,12 @@ class AdminController extends Controller
         }
         return view('/layouts/Admin/KuotaTPS',compact('tps','det','sumM','sumK'));
     }
-    public function printpdf()
+    public function printpdf($id)
     {
-        $pdf = PDF::loadview('/layouts/Admin/formPrint')->setpaper('Legal','potrait');
+        $data=SuratM::where([
+            ['id','=',$id]
+        ])->first();
+        $pdf = PDF::loadview('/layouts/Admin/formPrint',compact('data'))->setpaper('Legal','potrait');
         return $pdf->stream('Laporan_Data_Barang');
     }
 }
