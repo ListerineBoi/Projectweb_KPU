@@ -29,8 +29,10 @@
           <div class="card-body">
             <h5 class="card-title">{{$row->nama}}</h5>
             <div class="alert alert-danger" role="alert">
-            {{$row->jml_p_tetap*10/100-($row->jml_masuk-$row->jml_keluar)}}
+            {{round($row->jml_p_tetap*$row->presentase/100-($row->jml_masuk-$row->jml_keluar))}}
             </div>
+            <a href="{{route('editTPS',['id' => $row->id])}}" type="button" class="btn btn-primary" >Update</a>
+            <a href="{{route('delTPS',['id' => $row->id])}}" type="button" class="btn btn-danger" >Delete</a>
           </div>
     </div>
 </div>

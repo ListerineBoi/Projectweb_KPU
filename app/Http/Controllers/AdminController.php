@@ -10,11 +10,15 @@ use App\Models\Kecamatan;
 use App\Models\KabKot;
 use App\Models\Keldes;
 use App\Models\Prov;
+use App\Models\User;
 use App\Mail\Diterima;
 use App\Mail\Ditolak;
+use App\Imports\TpsImport;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Mail;
 use Auth;
 use PDF;
+use Hash;
 
 class AdminController extends Controller
 {
@@ -66,10 +70,7 @@ class AdminController extends Controller
                 'tps_jog' => 'required'
                      
             ]);
-            SuratM::where('id', $request->get('id'))->update(['status' => 1 ,'penerima' => $id , 'tps_jog' => $request->get('tps_jog')]);
-            Tps::where('id', $request->get('tps_jog'))->increment('jml_masuk');
-            
-           Mail::to(SuratM::where('id', $request->get('id'))->value('email'))->send(new Diterima());
+            SuratM::where('id', $request->get('id'))->update(['status' => 3 ,'penerima' => $id , 'tps_jog' => $request->get('tps_jog')]);
            
         }else{
             SuratM::where('id', $request->get('id'))->update(['status' => 2 ,'penerima' => $id]);
@@ -109,10 +110,7 @@ class AdminController extends Controller
         $id=Auth::user()->id;
         
         if($request->get('type')=="0"){
-            SuratK::where('id', $request->get('id'))->update(['status' => 1 ,'penerima' => $id]);
-            $tps=SuratK::where('id', $request->get('id'))->value('tps_jog');
-            Tps::where('id', $tps)->increment('jml_keluar');
-            Mail::to(SuratK::where('id', $request->get('id'))->value('email'))->send(new Diterima());
+            SuratK::where('id', $request->get('id'))->update(['status' => 3 ,'penerima' => $id]);
         }else{
             SuratK::where('id', $request->get('id'))->update(['status' => 2 ]);
             Mail::to(SuratK::where('id', $request->get('id'))->value('email'))->send(new Ditolak());
@@ -154,16 +152,16 @@ class AdminController extends Controller
             $fullname = $request->file('img_c1')->getClientOriginalName();
             $extn =$request->file('img_c1')->getClientOriginalExtension();
             $finalc1= $request->nik.'_'.'C1'.'_'.time().'.'.$extn;
-
+            $path = $request->file('img_c1')->storeAs('public/c1', $finalc1);
 
             $fullname = $request->file('img_ktp')->getClientOriginalName();
             $extn =$request->file('img_ktp')->getClientOriginalExtension();
             $finalktp= $request->nik.'_'.'KTP'.'_'.time().'.'.$extn;
 
-            //$path = $request->file('img')->storeAs('public/homestay', $final);
+            $path = $request->file('img_ktp')->storeAs('public/ktp', $finalktp);
 
         $SuratM= new SuratM([
-            'status' => 1,
+            'status' => 3,
             'tps_jog' => $request->tps_jog,
             'penerima' => $id,
             'kec_jog' => $request->kecamatan_jog,
@@ -187,7 +185,6 @@ class AdminController extends Controller
             
         ]);
         $SuratM->save();
-        Tps::where('id', $request->get('tps_jog'))->increment('jml_masuk');
         return redirect()->route('InputSM');
     }
 
@@ -221,16 +218,16 @@ class AdminController extends Controller
             $fullname = $request->file('img_c1')->getClientOriginalName();
             $extn =$request->file('img_c1')->getClientOriginalExtension();
             $finalc1= $request->nik.'_'.'C1'.'_'.time().'.'.$extn;
-
+            $path = $request->file('img_c1')->storeAs('public/c1', $finalc1);
 
             $fullname = $request->file('img_ktp')->getClientOriginalName();
             $extn =$request->file('img_ktp')->getClientOriginalExtension();
             $finalktp= $request->nik.'_'.'KTP'.'_'.time().'.'.$extn;
 
-            //$path = $request->file('img')->storeAs('public/homestay', $final);
+            $path = $request->file('img_ktp')->storeAs('public/ktp', $finalktp);
 
         $SuratK= new SuratK([
-            'status' => 1,
+            'status' => 3,
             'tps_jog' => $request->tps_jog,
             'penerima' => $id,
             'kec_jog' => $request->kec_jog,
@@ -251,7 +248,7 @@ class AdminController extends Controller
             
         ]);
         $SuratK->save();
-        Tps::where('id', $request->get('tps_jog'))->increment('jml_keluar');
+        // Tps::where('id', $request->get('tps_jog'))->increment('jml_keluar');
         return redirect()->route('InputSK');
     }
 
@@ -289,12 +286,56 @@ class AdminController extends Controller
 
     public function profiladm()
     {
-        return view('/layouts/Admin/ProfilAdm');
+        $id=Auth::user();
+        if(strlen($id->lokasi)==7){
+            $lk=Kecamatan::where([
+                ['id','=',$id->lokasi]
+            ])->value('nama');
+            }elseif(strlen($id->lokasi)==10) {
+                $lk=Keldes::where([
+                    ['id','=',$id->lokasi]
+                ])->value('nama');
+            }else{
+                $lk='Kota Yogyakarta';
+            }
+        return view('/layouts/Admin/ProfilAdm',compact('id','lk'));
     }
 
     public function setting()
     {
-        return view('/layouts/Admin/Setting');
+        $user=User::all();
+        $kec=Kecamatan::where('kabkot','=', 3471)->get();
+        return view('/layouts/Admin/Setting',compact('kec','user'));
+    }
+    public function saveAdmin(Request $request)
+    {
+        $this->validate($request, [
+            'nama' => 'required',
+            'email' => 'required',
+            'pass' => 'required',
+            'role' => 'required',
+            'kec_jog' => 'required'  
+        ]);
+        if ($request->kel_jog != null) {
+            $user= new User([
+                'name' => $request->nama,
+                'email' => $request->email,
+                'password' => Hash::make($request->pass),
+                'role' => $request->role,
+                'lokasi' => $request->kel_jog
+            ]);
+        }
+        else {
+            $user= new User([
+                'name' => $request->nama,
+                'email' => $request->email,
+                'password' => Hash::make($request->pass),
+                'role' => $request->role,
+                'lokasi' => $request->kec_jog
+            ]);
+        }
+        $user->save();
+        return redirect()->route('Setting');
     }
 
     public function detailSM($id)
@@ -377,7 +418,8 @@ class AdminController extends Controller
 
     public function inputTPS()
     {
-        return view('/layouts/Admin/InputTPS');
+        $kec=Kecamatan::where('kabkot','=', 3471)->get();
+        return view('/layouts/Admin/InputTPS',compact('kec'));
     }
 
     public function hisMasuk()
@@ -459,10 +501,31 @@ class AdminController extends Controller
 
     public function fuKeluar()
     {
-        return view('/layouts/Admin/FUKeluar');
+        $lok=Auth::user()->lokasi;
+        $role=Auth::user()->role;
+        $tps=Tps::all();
+        if($role==1){
+            $list=SuratK::where([
+                ['status','=',3]
+            ])->get();
+
+            }else{
+                if(strlen($lok)==7){
+                    $list=SuratK::where([
+                        ['status','=',0],
+                        ['kec_jog','=',$lok]
+                    ])->get();
+                }elseif(strlen($lok)==10) {
+                    $list=SuratK::where([
+                        ['status','=',0],
+                        ['kel_jog','=',$lok]
+                    ])->get();
+                }
+        }
+        return view('/layouts/Admin/FUKeluar',compact('list','tps'));
     }
 
-    public function kuotaTPS()
+    public function kuotaTPS(Request $request)
     {
         $tps=Tps::where('lokasi','=', $request->input('kel_jog'))->get();
         $kec=Kecamatan::where([
@@ -489,7 +552,170 @@ class AdminController extends Controller
         $data=SuratM::where([
             ['id','=',$id]
         ])->first();
-        $pdf = PDF::loadview('/layouts/Admin/formPrint',compact('data'))->setpaper('Legal','potrait');
-        return $pdf->stream('Laporan_Data_Barang');
+        $tps_jog=Tps::where([
+            ['id','=',$data->tps_jog]
+        ])->value('nama');
+        $keldes=Keldes::where([
+            ['id','=',$data->kel]
+        ])->value('nama');
+        $kel_jog=Keldes::where([
+            ['id','=',$data->kel_jog]
+        ])->value('nama');
+        $kec=Kecamatan::where([
+            ['id','=',$data->kec]
+        ])->value('nama');
+        $kec_jog=Kecamatan::where([
+            ['id','=',$data->kec_jog]
+        ])->value('nama');
+        $kabkot=KabKot::where([
+            ['id','=',$data->kab]
+        ])->value('nama');
+        $prov=Prov::where([
+            ['id','=',$data->prov]
+        ])->value('nama');
+        $domisili=array();
+        array_push($domisili,['keldes'=> $keldes,'kec'=> $kec,'kabkot'=> $kabkot,'prov'=> $prov,'kec_jog'=> $kec_jog,'kel_jog'=> $kel_jog,'tps_jog'=> $tps_jog]);
+        
+        if ($data->kab==3471) {
+            $priv=array(1,1,1,1,1);
+        }elseif ($data->prov==34) {
+            $priv=array(1,1,1,1,0);
+        }else{
+            $priv=array(1,0,1,0,0);
+        }
+        $pdf = PDF::loadview('/layouts/Admin/formPrint',compact('data','domisili','priv'))->setpaper('Legal','potrait');
+        //return date("Y-m-d");
+        return $pdf->stream($data->nik.'_pindahMasuk');
+    }
+    public function printpdfK($id)
+    {
+        $data=SuratK::where([
+            ['id','=',$id]
+        ])->first();
+        $tps_jog=Tps::where([
+            ['id','=',$data->tps_jog]
+        ])->value('nama');
+        $keldes=Keldes::where([
+            ['id','=',$data->kel]
+        ])->value('nama');
+        $kel_jog=Keldes::where([
+            ['id','=',$data->kel_jog]
+        ])->value('nama');
+        $kec=Kecamatan::where([
+            ['id','=',$data->kec]
+        ])->value('nama');
+        $kec_jog=Kecamatan::where([
+            ['id','=',$data->kec_jog]
+        ])->value('nama');
+        $kabkot=KabKot::where([
+            ['id','=',$data->kab]
+        ])->value('nama');
+        $prov=Prov::where([
+            ['id','=',$data->prov]
+        ])->value('nama');
+        $domisili=array();
+        array_push($domisili,['keldes'=> $keldes,'kec'=> $kec,'kabkot'=> $kabkot,'prov'=> $prov,'kec_jog'=> $kec_jog,'kel_jog'=> $kel_jog,'tps_jog'=> $tps_jog]);
+        
+        if ($data->kab==3471) {
+            $priv=array(1,1,1,1,1);
+        }elseif ($data->prov==34) {
+            $priv=array(1,1,1,1,0);
+        }else{
+            $priv=array(1,0,1,0,0);
+        }
+        $pdf = PDF::loadview('/layouts/Admin/formPrint',compact('data','domisili','priv'))->setpaper('Legal','potrait');
+        //return date("Y-m-d");
+        return $pdf->stream($data->nik.'_pindahKeluar');
+    }
+    public function verifFuMasuk(Request $request)
+    {
+        $this->validate($request, [
+                'pdfsurat' => 'required'      
+            ]);
+        $fullname = $request->file('pdfsurat')->getClientOriginalName();
+            $extn =$request->file('pdfsurat')->getClientOriginalExtension();
+            $final= 'pdfsurat'.'_'.time().'.'.$extn;
+            $path = $request->file('pdfsurat')->storeAs('public/suratFu', $final);
+        SuratM::where('id', $request->get('id'))->update(['status' => 1,'surat_acc' => $final]);
+        $tps=SuratM::where('id', $request->get('id'))->value('tps_jog');
+        Tps::where('id', $tps)->increment('jml_masuk');
+        Mail::to(SuratM::where('id', $request->get('id'))->value('email'))->send(new Diterima());
+        return redirect()->route('FUMasuk');
+    }
+    public function verifFuKeluar(Request $request)
+    {
+        $this->validate($request, [
+            'pdfsurat' => 'required'      
+        ]);
+        $fullname = $request->file('pdfsurat')->getClientOriginalName();
+            $extn =$request->file('pdfsurat')->getClientOriginalExtension();
+            $final= 'pdfsurat'.'_'.time().'.'.$extn;
+
+            $path = $request->file('pdfsurat')->storeAs('public/suratFu', $final);
+        SuratK::where('id', $request->get('id'))->update(['status' => 1,'surat_acc' => $final]);
+        $tps=SuratK::where('id', $request->get('id'))->value('tps_jog');
+        Tps::where('id', $tps)->increment('jml_keluar');
+        Mail::to(SuratK::where('id', $request->get('id'))->value('email'))->send(new Diterima());
+        return redirect()->route('FUKeluar');
+    }
+    public function savetps(Request $request)
+    {
+        $this->validate($request, [
+            'kec_jog' => 'required',
+            'kel_jog' => 'required',
+            'nama' => 'required',
+            'alamat' => 'required',
+            'koordinat' => 'required',
+            'jml' => 'required',
+            'pres' => 'required'  
+        ]);
+
+        $tps= new Tps([
+            'lokasi' => $request->kel_jog,
+            'nama' => $request->nama,
+            'alamat' => $request->alamat,
+            'koordinat' => $request->koordinat,
+            'jml_p_tetap' => $request->jml,
+            'presentase' => $request->pres
+            
+        ]);
+        $tps->save();
+        return redirect()->route('InputTPS');
+    }
+    public function editTPS($id)
+    {
+        $kec=Kecamatan::where('kabkot','=', 3471)->get();
+        $tps=Tps::where('id','=', $id)->first();
+        return view('/layouts/Admin/editTPS',compact('kec','tps'));
+    }
+    public function savetpsEdit(Request $request)
+    {
+        $this->validate($request, [
+            'nama' => 'required',
+            'alamat' => 'required',
+            'koordinat' => 'required',
+            'jml' => 'required',
+            'pres' => 'required'  
+        ]);
+        Tps::where('id', $request->get('id'))->update([
+            'nama' => $request->get('nama'),
+            'alamat' => $request->get('alamat'),
+            'koordinat' => $request->get('koordinat'),
+            'jml_p_tetap' => $request->get('jml'),
+            'presentase' => $request->get('pres')  
+        ]);
+        return redirect()->route('tpsadmin');
+    }
+    public function delTPS($id)
+    {
+        Tps::where('id', $id)->delete();
+        return redirect()->route('tpsadmin');
+    }
+    public function importtps(Request $request) 
+    {
+        $tps = $request->file('excel');
+        Excel::import(new TpsImport, $tps);
+        
+        return redirect()->route('tpsadmin');
     }
 }

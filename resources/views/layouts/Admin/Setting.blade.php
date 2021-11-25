@@ -2,7 +2,7 @@
 
 @section('content') 
 
-<form method="post" action="{{route('simpanM')}}" enctype='multipart/form-data'>
+<form method="post" action="{{route('saveAdmin')}}" enctype='multipart/form-data'>
 @csrf
 
 <div class="container">
@@ -13,43 +13,56 @@
 			<div class="form-group row">
 				<label class="control-label col-sm-2" for="nik">Nama Sub-Admin</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" name="nik" placeholder="Masukkan Nama Sub-Admin">
+					<input type="text" class="form-control" name="nama" placeholder="Masukkan Nama Sub-Admin">
 				</div>
 			</div>
             <div class="form-group row">
 				<label class="control-label col-sm-2" for="nik">Email</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" name="nama" placeholder="Masukkan Email Sub-Admin">
+					<input type="text" class="form-control" name="email" placeholder="Masukkan Email Sub-Admin">
 				</div>
 			</div>		
             <div class="form-group row">
 				<label class="control-label col-sm-2" for="nik">Password</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" name="disabil" placeholder="Masukkan Password Sub-Admin">
+					<input type="password" class="form-control" name="pass" placeholder="Masukkan Password Sub-Admin">
+				</div>
+			</div>
+			<div class="form-group row">
+				<label class="control-label col-sm-2" for="nik">Jenis Admin </label>
+				<div class="col-sm-10">
+				<select class="form-control" id="dis2" name="role">
+				<option  value="0">Mengelola</option>
+				<option  value="2" selected>Melihat</option>
+				</select>
 				</div>
 			</div>
             <div class="form-group row">
-				<label class="control-label col-sm-2" for="nik">No HP</label>
+				<label class="control-label col-sm-2" for="nik" data-target="district">Kecamatan </label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" name="nama" placeholder="Masukkan No HP Sub-Admin">
+				<select class="form-control city selectFilter" name="kec_jog" id="select1_1" dt="fetchkeldes">
+      			  <option selected>Pilih Kecamatan anda saat ini...</option>
+					@foreach($kec as $row)
+      			  <option value="{{$row->id}}">{{$row->nama}}</option>
+					@endforeach
+				  </select>
 				</div>
-			</div>	
-            <div class="form-group row">
-				<label class="control-label col-sm-2" for="nik">Alamat</label>
+			</div>
+
+			<div class="form-group row">
+				<label class="control-label col-sm-2" for="nik">kelurahan </label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" name="nama" placeholder="Masukkan Alamat Sub-Admin">
+				<select class="form-control district selectFilter" name="kel_jog" id="select2_2" dt="fetchtps" >
+      			  <option selected>Pilih kelurahan anda saat ini...</option>
+					{{ csrf_field() }}
+				  </select>
 				</div>
-			</div>	
-            <div class="form-group row">
-				<label class="control-label col-sm-2" for="nik">Wilayah Kecamatan</label>
-				<div class="col-sm-10">
-					<input type="text" class="form-control" name="nama" placeholder="Masukkan Wilayah Kecamatan Sub-Admin">
-				</div>
+			</div>
             </br>
             <div class= "col-md-6 text-justify">* Wajib Diisi</div>
+			<button type="submit" class="btn btn-danger" class="text-right" style="float: right;">Save</button>
     </div>
             </br>
-            <button type="submit" class="btn btn-danger" class="text-right" style="float: right;">Save</button>
             </div>	
 			</div>
 			</div> 
@@ -67,11 +80,19 @@
 		<tr>
 			<th class="text-center">Nama</th>
 			<th class="text-center">Email</th>
-			<th class="text-center">Password</th>
-			<th class="text-center">No HP</th>
-			<th class="text-center">Alamat</th>
             <th class="text-center">Wilayah Kecamatan</th>
+			<th class="text-center">Role</th>
+			<th class="text-center">Action</th>
 		</tr>
+		@foreach($user as $row)
+		<tr>
+			<td class="text-center">{{$row->name}}</td>
+			<td class="text-center">{{$row->email}}</td>
+            <td class="text-center">{{$row->lokasi}}</td>
+			<td class="text-center">@if($row->role==1)Admin Utama @elseif($row->role==0)Admin Kelurahan @else Admin Kecamatan @endif</td>
+			<td class="text-center">Action</td>
+		</tr>
+		@endforeach
 </thead>
 <tbody>
 

@@ -12,20 +12,16 @@
     <tr>
       <th scope="col">Nama</th>
       <th scope="col">Email</th>
-      <th scope="col">Password</th>
-      <th scope="col">No HP</th>
-      <th scope="col">Alamat</th>
+      <th scope="col">Role</th>
       <th scope="col">Wilayah Kecamatan</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>Mark Lee</td>
-      <td>markleenct@gmail.com</td>
-      <td>leesooman</td>
-      <td>097634658922</td>
-      <td>Yeongwonhi, Daegu, Gyeong-Do, South Korea</td>
-      <td>Daeguwon</td>
+      <td>{{$id->name}}</td>
+      <td>{{$id->email}}</td>
+      <td>@if($id->role==1)Admin @elseif($id->role==2) subadmin1 @else subadmin2 @endif</td>
+      <td>{{$lk}}</td>
     </tr>
   </tbody>
 </table>

@@ -134,7 +134,7 @@ TAHUN 2024</span></b></p>
 <p class=MsoNormal style='margin-top:4.6pt;margin-right:1pt;margin-bottom:
 0in;margin-left:1pt;margin-bottom:.0001pt;text-align:justify;line-height:
 130%'><span lang=IN>Komisi Pemilihan Umum Kota Yogyakarta/ Panitia Pemungutan
-Suara pada hari.......tanggal ..........bulan.......tahun........ mengeluarkan
+Suara pada tanggal <u>{{date("d")}}</u> bulan <u>{{date("F")}}</u> tahun <u>{{date("Y")}}</u> mengeluarkan
 surat pemberitahuan pindah memili bagi:</span></p>
 
 <p class=MsoNormal style='margin-top:4.6pt;margin-right:1pt;margin-bottom:
@@ -172,53 +172,39 @@ Tetap</p>
  <tr style='height:14.45pt'>
   <td width=204 valign=top style='width:152.9pt;padding:0in 0in 0in 0in;
   height:14.45pt'>
-  <p class=TableParagraph style='margin-left:1pt;line-height:12.2pt'><span
+  <p class=TableParagraph style='margin-top:1.8pt;margin-right:0in;margin-bottom:
+  0in;margin-left:1pt;margin-bottom:.0001pt;line-height:11.65pt'><span
   lang=id style='font-size:12.0pt;font-family:"Times New Roman",serif'>1.<span
-  style='letter-spacing:1.15pt'></span>TPS                                   :</span></p>
+  style='letter-spacing:1.1pt'></span>TPS                        :</span></p>
   </td>
   <td width=339 valign=top style='width:254.1pt;padding:0in 0in 0in 0in;
   height:14.45pt'>
-  <p class=TableParagraph style='margin-left:4.9pt;line-height:12.2pt'><u><span
-  lang=id style='font-size:12.0pt;font-family:"Times New Roman",serif'>                                             </span></u><u><span
-  lang=id style='font-size:12.0pt;font-family:"Times New Roman",serif'> </span></u><span
-  lang=id style='font-size:12.0pt;font-family:"Times New Roman",serif;
-  letter-spacing:.1pt'> </span><span lang=id style='font-size:12.0pt;
-  font-family:"Times New Roman",serif;letter-spacing:.1pt'> </span><span
-  lang=id style='font-size:12.0pt;font-family:"Times New Roman",serif'>4.<span
-  style='letter-spacing:.8pt'></span>Kabupaten/Kota :</span></p>
+  <p class=TableParagraph style='margin-top:1.8pt;margin-right:0in;margin-bottom:
+  0in;margin-left:4.15pt;margin-bottom:.0001pt;line-height:11.65pt'><u><span
+  lang=id style='font-size:12.0pt;font-family:"Times New Roman",serif'>                                              </span></u></p>
   </td>
   <td width=183 valign=top style='width:136.9pt;padding:0in 0in 0in 0in;
   height:14.45pt'>
-  <p class=TableParagraph align=right style='margin-right:1pt;text-align:
-  right;line-height:12.2pt'><u><span lang=id style='font-size:12.0pt;
-  font-family:"Times New Roman",serif'>                                           </span></u></p>
+  <p class=TableParagraph><span lang=id style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
   </td>
  </tr>
- <tr style='height:16.65pt'>
+ <tr style='height:14.45pt'>
   <td width=204 valign=top style='width:152.9pt;padding:0in 0in 0in 0in;
-  height:16.65pt'>
+  height:14.45pt'>
   <p class=TableParagraph style='margin-top:1.8pt;margin-right:0in;margin-bottom:
-  0in;margin-left:1pt;margin-bottom:.0001pt'><span lang=id style='font-size:
-  12.0pt;font-family:"Times New Roman",serif'>2.<span style='letter-spacing:
-  1.0pt'></span>Desa/Kelurahan                :</span></p>
+  0in;margin-left:1pt;margin-bottom:.0001pt;line-height:11.65pt'><span
+  lang=id style='font-size:12.0pt;font-family:"Times New Roman",serif'>2.<span
+  style='letter-spacing:1.1pt'></span>Desa/Kelurahan     :</span></p>
   </td>
   <td width=339 valign=top style='width:254.1pt;padding:0in 0in 0in 0in;
-  height:16.65pt'>
+  height:14.45pt'>
   <p class=TableParagraph style='margin-top:1.8pt;margin-right:0in;margin-bottom:
-  0in;margin-left:1pt;margin-bottom:.0001pt'><u><span lang=id
-  style='font-size:12.0pt;font-family:"Times New Roman",serif'>                                             </span></u><u><span
-  lang=IN style='font-size:12.0pt;font-family:"Times New Roman",serif'>  </span></u><span
-  lang=IN style='font-size:12.0pt;font-family:"Times New Roman",serif;
-  letter-spacing:.1pt'> </span><span lang=id style='font-size:12.0pt;
-  font-family:"Times New Roman",serif'> 5.<span style='letter-spacing:.85pt'></span>Provinsi                   </span><span
-  lang=id style='font-size:12.0pt;font-family:"Times New Roman",serif'></span><span
-  lang=id style='font-size:12.0pt;font-family:"Times New Roman",serif'>:</span></p>
+  0in;margin-left:4.15pt;margin-bottom:.0001pt;line-height:11.65pt'><span
+  lang=id style='font-size:12.0pt;font-family:"Times New Roman",serif'>{{$domisili[0]['keldes']}} </span></p>
   </td>
   <td width=183 valign=top style='width:136.9pt;padding:0in 0in 0in 0in;
-  height:16.65pt'>
-  <p class=TableParagraph align=right style='margin-top:1.8pt;margin-right:
-  2.4pt;margin-bottom:0in;margin-left:0in;margin-bottom:.0001pt;text-align:
-  right'><u><span lang=id style='font-size:12.0pt;font-family:"Times New Roman",serif'>                                           </span></u></p>
+  height:14.45pt'>
+  <p class=TableParagraph><span lang=id style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
   </td>
  </tr>
  <tr style='height:14.45pt'>
@@ -227,13 +213,51 @@ Tetap</p>
   <p class=TableParagraph style='margin-top:1.8pt;margin-right:0in;margin-bottom:
   0in;margin-left:1pt;margin-bottom:.0001pt;line-height:11.65pt'><span
   lang=id style='font-size:12.0pt;font-family:"Times New Roman",serif'>3.<span
-  style='letter-spacing:1.1pt'></span>Kecamatan                        :</span></p>
+  style='letter-spacing:1.1pt'></span>Kecamatan             :</span></p>
   </td>
   <td width=339 valign=top style='width:254.1pt;padding:0in 0in 0in 0in;
   height:14.45pt'>
   <p class=TableParagraph style='margin-top:1.8pt;margin-right:0in;margin-bottom:
-  0in;margin-left:4.15pt;margin-bottom:.0001pt;line-height:11.65pt'><u><span
-  lang=id style='font-size:12.0pt;font-family:"Times New Roman",serif'>                                              </span></u></p>
+  0in;margin-left:4.15pt;margin-bottom:.0001pt;line-height:11.65pt'><span
+  lang=id style='font-size:12.0pt;font-family:"Times New Roman",serif'>{{$domisili[0]['kec']}}</span></p>
+  </td>
+  <td width=183 valign=top style='width:136.9pt;padding:0in 0in 0in 0in;
+  height:14.45pt'>
+  <p class=TableParagraph><span lang=id style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr style='height:14.45pt'>
+  <td width=204 valign=top style='width:152.9pt;padding:0in 0in 0in 0in;
+  height:14.45pt'>
+  <p class=TableParagraph style='margin-top:1.8pt;margin-right:0in;margin-bottom:
+  0in;margin-left:1pt;margin-bottom:.0001pt;line-height:11.65pt'><span
+  lang=id style='font-size:12.0pt;font-family:"Times New Roman",serif'>4.<span
+  style='letter-spacing:1.1pt'></span>Kabupaten/Kota     :</span></p>
+  </td>
+  <td width=339 valign=top style='width:254.1pt;padding:0in 0in 0in 0in;
+  height:14.45pt'>
+  <p class=TableParagraph style='margin-top:1.8pt;margin-right:0in;margin-bottom:
+  0in;margin-left:4.15pt;margin-bottom:.0001pt;line-height:11.65pt'><span
+  lang=id style='font-size:12.0pt;font-family:"Times New Roman",serif'>{{$domisili[0]['kabkot']}}</span></p>
+  </td>
+  <td width=183 valign=top style='width:136.9pt;padding:0in 0in 0in 0in;
+  height:14.45pt'>
+  <p class=TableParagraph><span lang=id style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr style='height:14.45pt'>
+  <td width=204 valign=top style='width:152.9pt;padding:0in 0in 0in 0in;
+  height:14.45pt'>
+  <p class=TableParagraph style='margin-top:1.8pt;margin-right:0in;margin-bottom:
+  0in;margin-left:1pt;margin-bottom:.0001pt;line-height:11.65pt'><span
+  lang=id style='font-size:12.0pt;font-family:"Times New Roman",serif'>5.<span
+  style='letter-spacing:1.1pt'></span>Provinsi                  :</span></p>
+  </td>
+  <td width=339 valign=top style='width:254.1pt;padding:0in 0in 0in 0in;
+  height:14.45pt'>
+  <p class=TableParagraph style='margin-top:1.8pt;margin-right:0in;margin-bottom:
+  0in;margin-left:4.15pt;margin-bottom:.0001pt;line-height:11.65pt'><span
+  lang=id style='font-size:12.0pt;font-family:"Times New Roman",serif'>{{$domisili[0]['prov']}}</span></p>
   </td>
   <td width=183 valign=top style='width:136.9pt;padding:0in 0in 0in 0in;
   height:14.45pt'>
@@ -254,23 +278,23 @@ oleh pemilih untuk menggunakan haknya untuk memilih/memberikan suara di:</p>
 <p class=MsoNormal style='margin-left:257.75pt'>&nbsp;</p>
 
 <p class=MsoNormal style='margin-left:280pt'>:  <span style='letter-spacing:
--.3pt'> </span><u>                                                </u></p>
+-.3pt'> </span>{{$domisili[0]['tps_jog']}}</p>
 
 <p class=MsoNormal style='margin-top:1.05pt;margin-right:0in;margin-bottom:
 0in;margin-left:280pt;margin-bottom:.0001pt'>:  <span style='letter-spacing:
--.3pt'> </span><u>                                                </u></p>
+-.3pt'> </span>{{$domisili[0]['kel_jog']}}</p>
 
 <p class=MsoNormal style='margin-top:1.0pt;margin-right:0in;margin-bottom:0in;
 margin-left:280pt;margin-bottom:.0001pt'>:  <span style='letter-spacing:
--.3pt'> </span><u>                                                </u></p>
+-.3pt'> </span>{{$domisili[0]['kec_jog']}}</p>
 
 <p class=MsoNormal style='margin-top:.95pt;margin-right:0in;margin-bottom:0in;
 margin-left:280pt;margin-bottom:.0001pt'>:  <span style='letter-spacing:
--.3pt'> </span><u>                                                </u></p>
+-.3pt'> </span>KOTA YOGYAKARTA</p>
 
 <p class=MsoNormal style='margin-top:1.0pt;margin-right:0in;margin-bottom:0in;
 margin-left:280pt;margin-bottom:.0001pt'>:  <span style='letter-spacing:
--.3pt'> </span><u>                                                </u></p>
+-.3pt'> </span>DAERAH ISTIMEWA YOGYAKARTA</p>
 
 <p class=MsoNormal style='margin-top:5.95pt;margin-right:289.6pt;margin-bottom:
 0in;margin-left:13.15pt;margin-bottom:.0001pt;text-indent:-3.75pt;line-height:
@@ -282,16 +306,16 @@ margin-left:280pt;margin-bottom:.0001pt'>:  <span style='letter-spacing:
  <tr style='height:14.25pt'>
  <td width=35 valign=top style='width:26.4pt;border:none;
   padding:0in 0in 0in 0in;height:14.25pt'>
-  <p class=MsoListParagraphCxSpFirst style='margin-top:1.15pt;margin-right:289.6pt;
+  <p class=MsoListParagraphCxSpMiddle style='margin-top:1.15pt;margin-right:0in;
 margin-bottom:0in;margin-left:30.2pt;margin-bottom:.0001pt;text-indent:-17.05pt;
-line-height:20.5pt'><span lang=id style='font-size:11.0pt'>1.<span
+text-autospace:none'><span lang=id style='font-size:11.0pt'>1.<span
 style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span>Anggota<span
 style='letter-spacing:-.05pt'> </span>DPR<span lang=IN> RI</span></p>
   </td>
   <td width=35 valign=top style='width:26.4pt;border:solid black 1.0pt;
   padding:0in 0in 0in 0in;height:14.25pt'>
   <p class=TableParagraph><span lang=id style='font-size:9.0pt;font-family:
-  "Times New Roman",serif'>&nbsp;</span></p>
+  "Times New Roman",serif'>&nbsp;</span><b>@if($priv[0]==1){{' YA'}} @else {{'Tidak'}} @endif</b></p>
   </td>
  </tr>
  <tr style='height:14.25pt'>
@@ -306,7 +330,7 @@ style='letter-spacing:-.05pt'> </span>DPD<span lang=IN> RI</span></p>
   <td width=35 valign=top style='width:26.4pt;border:solid black 1.0pt;
   padding:0in 0in 0in 0in;height:14.25pt'>
   <p class=TableParagraph><span lang=id style='font-size:9.0pt;font-family:
-  "Times New Roman",serif'>&nbsp;</span></p>
+  "Times New Roman",serif'>&nbsp;</span><b>@if($priv[1]==1){{' YA'}} @else {{'Tidak'}} @endif</b></p>
   </td>
  </tr>
  <tr style='height:14.25pt'>
@@ -321,7 +345,7 @@ Calon Presiden dan Wakil Presiden</p>
   <td width=35 valign=top style='width:26.4pt;border:solid black 1.0pt;
   padding:0in 0in 0in 0in;height:14.25pt'>
   <p class=TableParagraph><span lang=id style='font-size:9.0pt;font-family:
-  "Times New Roman",serif'>&nbsp;</span></p>
+  "Times New Roman",serif'>&nbsp;</span><b>@if($priv[2]==1){{' YA'}} @else {{'Tidak'}} @endif</b></p>
   </td>
  </tr>
  <tr style='height:14.25pt'>
@@ -329,14 +353,15 @@ Calon Presiden dan Wakil Presiden</p>
   padding:0in 0in 0in 0in;height:14.25pt'>
   <p class=MsoListParagraphCxSpMiddle style='margin-top:1.0pt;margin-right:0in;
 margin-bottom:0in;margin-left:30.2pt;margin-bottom:.0001pt;text-indent:-17.05pt;
-text-autospace:none'><span lang=id style='font-size:11.0pt'>4.<span
+text-autospace:none'>
+<span lang=id style='font-size:11.0pt'>4.<span
 style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span>Anggota
 DPRD<span style='letter-spacing:-.1pt'> </span>Provinsi</p>
   </td>
   <td width=35 valign=top style='width:26.4pt;border:solid black 1.0pt;
   padding:0in 0in 0in 0in;height:14.25pt'>
   <p class=TableParagraph><span lang=id style='font-size:9.0pt;font-family:
-  "Times New Roman",serif'>&nbsp;</span></p>
+  "Times New Roman",serif'>&nbsp;</span><b>@if($priv[3]==1){{' YA'}} @else {{'Tidak'}} @endif</b></p>
   </td>
  </tr>
  <tr style='height:14.25pt'>
@@ -351,9 +376,10 @@ DPRD<span style='letter-spacing:-.1pt'> </span>Kabupaten/Kota</p>
   <td width=35 valign=top style='width:26.4pt;border:solid black 1.0pt;
   padding:0in 0in 0in 0in;height:14.25pt'>
   <p class=TableParagraph><span lang=id style='font-size:9.0pt;font-family:
-  "Times New Roman",serif'>&nbsp;</span></p>
+  "Times New Roman",serif'>&nbsp;</span><b>@if($priv[4]==1){{' YA'}} @else {{'Tidak'}} @endif</b></p>
   </td>
  </tr>
+ 
 </table>
 
 

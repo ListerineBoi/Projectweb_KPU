@@ -40,11 +40,16 @@ Route::get('/Informasi/DataTPS', [App\Http\Controllers\PublikController::class, 
 //admin//
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/Profil/Admin', [App\Http\Controllers\AdminController::class, 'profiladm'])->name('ProfilAdm');
-Route::get('/printpdf/{id}', [App\Http\Controllers\AdminController::class, 'printpdf'])->name('printpdf');
 Route::get('/Setting/Admin', [App\Http\Controllers\AdminController::class, 'setting'])->name('Setting');
+Route::post('/Setting/simpan_Admin', [App\Http\Controllers\AdminController::class, 'saveAdmin'])->name('saveAdmin');
 Route::get('/DetailSM/Admin/{id}', [App\Http\Controllers\AdminController::class, 'detailSM'])->name('DetailSM');
 Route::get('/DetailSK/Admin/{id}', [App\Http\Controllers\AdminController::class, 'detailSK'])->name('DetailSK');
 Route::get('/InputTPS/Admin', [App\Http\Controllers\AdminController::class, 'InputTPS'])->name('InputTPS');
+Route::get('/editTPS/Admin/{id}', [App\Http\Controllers\AdminController::class, 'editTPS'])->name('editTPS');
+Route::get('/delTPS/Admin/{id}', [App\Http\Controllers\AdminController::class, 'delTPS'])->name('delTPS');
+Route::post('/InputTPS/Admin/savetps', [App\Http\Controllers\AdminController::class, 'savetps'])->name('savetps');
+Route::post('/InputTPS/Admin/importtps', [App\Http\Controllers\AdminController::class, 'importtps'])->name('importtps');
+Route::post('/InputTPS/Admin/savetpsEdit', [App\Http\Controllers\AdminController::class, 'savetpsEdit'])->name('savetpsEdit');
 Route::get('/DataTPS/Admin', [App\Http\Controllers\AdminController::class, 'kuotaTPS'])->name('KuotaTPS');
 
     //surat masuk//
@@ -54,6 +59,8 @@ Route::get('/Input/SM', [App\Http\Controllers\AdminController::class, 'ism'])->n
 Route::post('/Input/SM/simpan', [App\Http\Controllers\AdminController::class, 'saveIsm'])->name('saveIsm');
 Route::get('/Admin/History/Masuk', [App\Http\Controllers\AdminController::class, 'hisMasuk'])->name('HisMasuk');
 Route::get('/Admin/FollowUp/Masuk', [App\Http\Controllers\AdminController::class, 'fuMasuk'])->name('FUMasuk');
+Route::post('/Admin/FollowUp/Masuk/verif', [App\Http\Controllers\AdminController::class, 'verifFuMasuk'])->name('verifFuMasuk');
+Route::get('/printpdf/{id}', [App\Http\Controllers\AdminController::class, 'printpdf'])->name('printpdf');
 
     //surat keluar//
 Route::get('/Surat/Keluar', [App\Http\Controllers\AdminController::class, 'index2'])->name('SuratKeluar');
@@ -62,10 +69,13 @@ Route::get('/Input/SK', [App\Http\Controllers\AdminController::class, 'isk'])->n
 Route::post('/Input/SK/simpan', [App\Http\Controllers\AdminController::class, 'saveIsk'])->name('saveIsk');
 Route::get('/Admin/History/Keluar', [App\Http\Controllers\AdminController::class, 'hisKeluar'])->name('HisKeluar');
 Route::get('/Admin/FollowUp/Keluar', [App\Http\Controllers\AdminController::class, 'fuKeluar'])->name('FUKeluar');
+Route::post('/Admin/FollowUp/Keluar/verif', [App\Http\Controllers\AdminController::class, 'verifFuKeluar'])->name('verifFuKeluar');
+Route::get('/printpdfK/{id}', [App\Http\Controllers\AdminController::class, 'printpdfK'])->name('printpdfK');
 
 
     //informasi admin//
 Route::get('/TPS/Admin', [App\Http\Controllers\AdminController::class, 'tpsadm'])->name('tpsadmin');
+
 
 //fetch//
 Route::get('/fetch/fetchkabkot', [App\Http\Controllers\FetchController::class, 'fetchkabkot'])->name('fetchkabkot');

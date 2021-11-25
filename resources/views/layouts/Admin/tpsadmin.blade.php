@@ -28,7 +28,7 @@
 				<div class="col md-3 mb-2">
         <select class="form-control district selectFilter" name="kel_jog" id="select2_2" dt="fetchtps">
       			  <option selected>Pilih kelurahan</option>
-					{{ csrf_field() }}
+					
 				  </select>
 			</div>
 </div>

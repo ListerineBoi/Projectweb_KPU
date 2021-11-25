@@ -128,13 +128,13 @@ class PublikController extends Controller
             $fullname = $request->file('img_c1')->getClientOriginalName();
             $extn =$request->file('img_c1')->getClientOriginalExtension();
             $finalc1= $request->nik.'_'.'C1'.'_'.time().'.'.$extn;
-
+            $path = $request->file('img_c1')->storeAs('public/c1', $finalc1);
 
             $fullname = $request->file('img_ktp')->getClientOriginalName();
             $extn =$request->file('img_ktp')->getClientOriginalExtension();
             $finalktp= $request->nik.'_'.'KTP'.'_'.time().'.'.$extn;
 
-            //$path = $request->file('img')->storeAs('public/homestay', $final);
+            $path = $request->file('img_ktp')->storeAs('public/ktp', $finalktp);
 
         $SuratM= new SuratM([
             'kec_jog' => $request->kec_jog,
@@ -184,13 +184,13 @@ class PublikController extends Controller
             $fullname = $request->file('img_c1')->getClientOriginalName();
             $extn =$request->file('img_c1')->getClientOriginalExtension();
             $finalc1= $request->nik.'_'.'C1'.'_'.time().'.'.$extn;
-
+            $path = $request->file('img_c1')->storeAs('public/c1', $finalc1);
 
             $fullname = $request->file('img_ktp')->getClientOriginalName();
             $extn =$request->file('img_ktp')->getClientOriginalExtension();
             $finalktp= $request->nik.'_'.'KTP'.'_'.time().'.'.$extn;
 
-            //$path = $request->file('img')->storeAs('public/homestay', $final);
+            $path = $request->file('img_ktp')->storeAs('public/ktp', $finalktp);
 
         $SuratK= new SuratK([
             'kec_jog' => $request->kec_jog,

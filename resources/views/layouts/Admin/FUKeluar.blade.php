@@ -23,15 +23,15 @@
 			<td>{{$row->nik}}</td>
 			<td>{{$row->nama}}</td>
             <td><div class="col text-center">
-				<a type="button" href="{{route('printpdf', ['id' => $row->id])}}" class="btn text-center btn-primary">Download template surat Terima</a>
+				<a type="button" href="{{route('printpdfK', ['id' => $row->id])}}" class="btn text-center btn-primary">Download template surat Terima</a>
 				<div class="container text-center">
   			<!-- Button to Open the Modal -->
-  			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_upload">
-    		Upload Surat Terima
+  			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_upload{{$loop->iteration}}">
+			Konfirmasi & Upload Pdf
   			</button>
 			  <br>
  
-  			<div class="modal fade" id="modal_upload">
+  			<div class="modal fade" id="modal_upload{{$loop->iteration}}">
     		<div class="modal-dialog modal-dialog-centered">
       		<div class="modal-content">
       
@@ -41,14 +41,15 @@
           	<button type="button" class="close" data-dismiss="modal">&times;</button>
         	</div>
 			
-			<form method="post" action="{{route('verif')}}" enctype='multipart/form-data'>
+			<form method="post" action="{{route('verifFuKeluar')}}" enctype='multipart/form-data'>
                 @csrf
         	<!-- Ini adalah Bagian Body Modal -->
+			<input type="hidden" name="id" value="{{$row->id}}">
 			<div class="modal-body">
           	<div class="mb-3">
             <div class="form-group row">
                 <div class="col-sm-12">
-                <input type="file" class="form-control-file" name="img_ktp">
+                <input type="file" class="form-control-file" name="pdfsurat">
             </br>
             </div>
             <div class= "col-sm-12 text-justify">*(Ekstensi PDF, File Maks 5 MB)</div>
@@ -58,7 +59,7 @@
         <!-- Ini adalah Bagian Footer Modal -->
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Upload</button>
+          <button type="submit" class="btn btn-primary">Konfirmasi Follow-up</button>
         </div>
 		</form>			
 			</div>

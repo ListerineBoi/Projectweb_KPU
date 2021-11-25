@@ -152,15 +152,6 @@
 				</div>
 			</div>
 			<div class="form-group row">
-				<label class="control-label col-sm-2" for="nik">Tps </label>
-				<div class="col-sm-10">
-				<select class="form-control district selectFilter" name="tps_jog" id="select3_3">
-      			  <option selected>Pilih TPS...</option>
-					{{ csrf_field() }}
-				  </select>
-				</div>
-			</div>
-			<div class="form-group row">
 				<label class="control-label col-sm-2" for="nik">Alamat Domisili Yogyakarta </label>
 				<div class="col-sm-10">
 					<input type="text" class="form-control" name="domisiljog" placeholder="Alamat Domisili di Yogyakarta">
