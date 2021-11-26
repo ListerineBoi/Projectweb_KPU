@@ -26,9 +26,11 @@
 				<a type="button" href="{{route('printpdfK', ['id' => $row->id])}}" class="btn text-center btn-primary">Download template surat Terima</a>
 				<div class="container text-center">
   			<!-- Button to Open the Modal -->
+			  @if(Auth::user()->role!=2)
   			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_upload{{$loop->iteration}}">
 			Konfirmasi & Upload Pdf
   			</button>
+			  @endif
 			  <br>
  
   			<div class="modal fade" id="modal_upload{{$loop->iteration}}">

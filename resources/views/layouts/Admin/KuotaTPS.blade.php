@@ -31,8 +31,10 @@
             <div class="alert alert-danger" role="alert">
             {{round($row->jml_p_tetap*$row->presentase/100-($row->jml_masuk-$row->jml_keluar))}}
             </div>
+            @if(Auth::user()->role!=2)
             <a href="{{route('editTPS',['id' => $row->id])}}" type="button" class="btn btn-primary" >Update</a>
             <a href="{{route('delTPS',['id' => $row->id])}}" type="button" class="btn btn-danger" >Delete</a>
+            @endif
           </div>
     </div>
 </div>

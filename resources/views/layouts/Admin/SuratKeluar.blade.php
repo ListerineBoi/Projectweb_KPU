@@ -35,10 +35,11 @@
 			<input type="hidden" name="type" value=0>
 			<div class="container text-center">
   			<!-- Button to Open the Modal -->
+			  @if(Auth::user()->role!=2)
   			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_terima{{$loop->iteration}}">
     		Setuju
   			</button>
- 
+ 			@endif
   			<div class="modal fade" id="modal_terima{{$loop->iteration}}">
     		<div class="modal-dialog modal-dialog-centered">
       		<div class="modal-content">
@@ -72,10 +73,11 @@
 			<input type="hidden" name="type" value=1>
 			<div class="container text-center">
   			<!-- Button to Open the Modal -->
+			  @if(Auth::user()->role!=2)
   			<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal_tolak{{$loop->iteration}}">
     		Tolak
   			</button>
- 
+			@endif
   			<div class="modal fade" id="modal_tolak{{$loop->iteration}}">
     		<div class="modal-dialog modal-dialog-centered">
       		<div class="modal-content">
@@ -119,7 +121,7 @@
 </div>
 </div>
 </br>
-
+@if(Auth::user()->role!=2)
 <div class="card">
   <div class="card-body text-center">
     <h5 class="card-title">Formulir Input Data Pemilih</h5>
@@ -127,6 +129,7 @@
     <a href="/Input/SK" class="btn btn-primary">Formulir</a>
   </div>
 </div>
+@endif
 
 </div>
 </div>

@@ -22,8 +22,8 @@
             <th class="text-center">TPS</th>
 			<th class="text-center">{{$sk->email}}</th>
             <th class="text-center">{{$sk->No_hp}}</th>
-            <th class="text-center">Foto KTP</th>
-            <th class="text-center">Foto KK</th>
+            <td class="text-center"><a href="/storage/c1/{{$sk->img_c1}}">{{$sk->img_c1}}</a></td>
+            <td class="text-center"><a href="/storage/ktp/{{$sk->img_ktp}}">{{$sk->img_ktp}}</a></td>
 		</tr>
 	</thead>
 </table>
@@ -38,14 +38,12 @@
 			<th class="text-center">Kabupaten</th>
 			<th class="text-center">Kecamatan</th>
 			<th class="text-center">Kelurahan</th>
-            <th class="text-center">Alasan</th>
 		</tr>
 		<tr>
 			<th class="text-center">{{$det['prov']}}</th>
 			<th class="text-center">{{$det['kab']}}</th>
 			<th class="text-center">{{$det['kec']}}</th>
 			<th class="text-center">{{$det['kel']}}</th>
-            <th class="text-center">Alasan</th>
 		</tr>
 	</thead>
 </table>

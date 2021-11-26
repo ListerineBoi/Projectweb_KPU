@@ -42,6 +42,7 @@ class AdminController extends Controller
         $lok=Auth::user()->lokasi;
         $role=Auth::user()->role;
         $tps=Tps::all();
+        $kec=Kecamatan::where('kabkot','=', 3471)->get();
         if($role==1){
             $list=SuratM::where([
                 ['status','=',0]
@@ -60,7 +61,7 @@ class AdminController extends Controller
                     ])->get();
                 }
         }
-        return view('/layouts/Admin/SuratMasuk',compact('list','tps'));
+        return view('/layouts/Admin/SuratMasuk',compact('list','tps','kec','role','lok'));
     }
     public function verif(Request $request)
     {
@@ -129,26 +130,25 @@ class AdminController extends Controller
     public function saveIsm(Request $request)
     {
         $id=Auth::user()->id;
-        // $this->validate($request, [
-        //     'tps_jog' => 'required',
-        //     'kec_jog' => 'required',
-        //     'nokk' => 'required',
-        //     'nik' => 'required',
-        //     'nama' => 'required',
-        //     'jk' => 'required',
-        //     'provinsi' => 'required',
-        //     'kabukot' => 'required',
-        //     'kecamatan' => 'required',
-        //     'kel' => 'required',
-        //     'disabil' => 'required',
-        //     'alasan' => 'required',
-        //     'kel_jog' => 'required',
-        //     'domisiljog' => 'required',
-        //     'email' => 'required',
-        //     'nohp' => 'required',
-        //     'img_c1' => 'required',
-        //     'img_ktp' => 'required'      
-        // ]);
+        $this->validate($request, [
+            'tps_jog' => 'required',
+            'kec_jog' => 'required',
+            'nokk' => 'required',
+            'nik' => 'required',
+            'nama' => 'required',
+            'jk' => 'required',
+            'provinsi' => 'required',
+            'kabukot' => 'required',
+            'kecamatan' => 'required',
+            'kel' => 'required',
+            'alasan' => 'required',
+            'kel_jog' => 'required',
+            'domisiljog' => 'required',
+            'email' => 'required',
+            'nohp' => 'required',
+            'img_c1' => 'required',
+            'img_ktp' => 'required'      
+        ]);
             $fullname = $request->file('img_c1')->getClientOriginalName();
             $extn =$request->file('img_c1')->getClientOriginalExtension();
             $finalc1= $request->nik.'_'.'C1'.'_'.time().'.'.$extn;
@@ -172,7 +172,7 @@ class AdminController extends Controller
             'prov' => $request->provinsi,
             'kab' => $request->kabukot,
             'kec' => $request->kecamatan,
-            'kel' => $request->kecamatan,
+            'kel' => $request->kel,
             'dis' => $request->disabil,
             'alasan' => $request->alasan,
             'kec_jog' => $request->kec_jog,
@@ -198,23 +198,23 @@ class AdminController extends Controller
     public function saveIsk(Request $request)
     {
         $id=Auth::user()->id;
-        // $this->validate($request, [
-        //     'tps_jog' => 'required',
-        //     'kec_jog' => 'required',
-        //     'nokk' => 'required',
-        //     'nik' => 'required',
-        //     'nama' => 'required',
-        //     'jk' => 'required',
-        //     'provinsi' => 'required',
-        //     'kabukot' => 'required',
-        //     'kecamatan' => 'required',
-        //     'kel' => 'required',
-        //     'alamatjog' => 'required',
-        //     'email' => 'required',
-        //     'nohp' => 'required',
-        //     'img_c1' => 'required',
-        //     'img_ktp' => 'required'      
-        // ]);
+        $this->validate($request, [
+            'tps_jog' => 'required',
+            'kec_jog' => 'required',
+            'nokk' => 'required',
+            'nik' => 'required',
+            'nama' => 'required',
+            'jk' => 'required',
+            'provinsi' => 'required',
+            'kabukot' => 'required',
+            'kecamatan' => 'required',
+            'kel' => 'required',
+            'alamatjog' => 'required',
+            'email' => 'required',
+            'nohp' => 'required',
+            'img_c1' => 'required',
+            'img_ktp' => 'required'      
+        ]);
             $fullname = $request->file('img_c1')->getClientOriginalName();
             $extn =$request->file('img_c1')->getClientOriginalExtension();
             $finalc1= $request->nik.'_'.'C1'.'_'.time().'.'.$extn;
@@ -412,7 +412,7 @@ class AdminController extends Controller
             "kecj" => $kecj,
             "kelj" => $kelj,
         ];
-        return $sk->kec;
+        //return $sk->kec;
         return view('/layouts/Admin/DetailSK',compact('sk','det'));
     }
 
@@ -435,12 +435,12 @@ class AdminController extends Controller
             }else{
                 if(strlen($lok)==7){
                     $list=SuratM::where([
-                        ['status','=',0],
+                        ['status','!=',0],
                         ['kec_jog','=',$lok]
                     ])->get();
                 }elseif(strlen($lok)==10) {
                     $list=SuratM::where([
-                        ['status','=',0],
+                        ['status','!=',0],
                         ['kel_jog','=',$lok]
                     ])->get();
                 }
@@ -460,12 +460,12 @@ class AdminController extends Controller
             }else{
                 if(strlen($lok)==7){
                     $list=SuratK::where([
-                        ['status','=',0],
+                        ['status','!=',0],
                         ['kec_jog','=',$lok]
                     ])->get();
                     }elseif(strlen($lok)==10) {
                         $list=SuratK::where([
-                            ['status','=',0],
+                            ['status','!=',0],
                             ['kel_jog','=',$lok]
                         ])->get();
                     }
@@ -478,7 +478,7 @@ class AdminController extends Controller
         $lok=Auth::user()->lokasi;
         $role=Auth::user()->role;
         $tps=Tps::all();
-        if($role==1){
+        if($lok==null){
             $list=SuratM::where([
                 ['status','=',3]
             ])->get();
@@ -486,12 +486,12 @@ class AdminController extends Controller
             }else{
                 if(strlen($lok)==7){
                     $list=SuratM::where([
-                        ['status','=',0],
+                        ['status','=',3],
                         ['kec_jog','=',$lok]
                     ])->get();
                 }elseif(strlen($lok)==10) {
                     $list=SuratM::where([
-                        ['status','=',0],
+                        ['status','=',3],
                         ['kel_jog','=',$lok]
                     ])->get();
                 }
@@ -504,7 +504,7 @@ class AdminController extends Controller
         $lok=Auth::user()->lokasi;
         $role=Auth::user()->role;
         $tps=Tps::all();
-        if($role==1){
+        if($lok==null){
             $list=SuratK::where([
                 ['status','=',3]
             ])->get();
@@ -512,12 +512,12 @@ class AdminController extends Controller
             }else{
                 if(strlen($lok)==7){
                     $list=SuratK::where([
-                        ['status','=',0],
+                        ['status','=',3],
                         ['kec_jog','=',$lok]
                     ])->get();
                 }elseif(strlen($lok)==10) {
                     $list=SuratK::where([
-                        ['status','=',0],
+                        ['status','=',3],
                         ['kel_jog','=',$lok]
                     ])->get();
                 }
@@ -581,7 +581,7 @@ class AdminController extends Controller
         }elseif ($data->prov==34) {
             $priv=array(1,1,1,1,0);
         }else{
-            $priv=array(1,0,1,0,0);
+            $priv=array(0,0,1,0,0);
         }
         $pdf = PDF::loadview('/layouts/Admin/formPrint',compact('data','domisili','priv'))->setpaper('Legal','potrait');
         //return date("Y-m-d");
@@ -717,5 +717,10 @@ class AdminController extends Controller
         Excel::import(new TpsImport, $tps);
         
         return redirect()->route('tpsadmin');
+    }
+    public function deladmin($id)
+    {
+        User::where('id', $id)->delete();
+        return redirect()->route('Setting');
     }
 }

@@ -34,9 +34,11 @@
 			
 			<div class="container text-center">
   			<!-- Button to Open the Modal -->
+			  @if(Auth::user()->role!=2)
   			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_terima{{$loop->iteration}}">
     		Setuju
   			</button>
+			  @endif
 			  <br>
  
   			<div class="modal fade" id="modal_terima{{$loop->iteration}}">
@@ -55,17 +57,54 @@
 			<input type="hidden" name="id" value="{{$row->id}}">
 			<input type="hidden" name="type" value=0>
         	<div class="modal-body">
-          	<div class="dropdown">
-          	<label class="control-label col-sm-2" for="nik">TPS </label>
-				  <div class="col-sm-12">
-				  <select class="form-control" name="tps_jog">
-      			  <option selected>Pilih TPS...</option>
-      			  @foreach($tps as $row1)
-					<option value='{{$row1->id}}'>{{$row1->nama}} {{$row1->alamat}}</option>
-				 @endforeach
+				@if($role==1)
+				<label for="">TPS</label>
+			<div class="form-group row">
+				<div class="col-sm-10">
+				<select class="form-control city selectFilter" name="kec_jog" id="select1_1" dt="fetchkeldes">
+      			  <option selected>Pilih Kecamatan anda saat ini...</option>
+					@foreach($kec as $row)
+      			  <option value="{{$row->id}}">{{$row->nama}}</option>
+					@endforeach
 				  </select>
 				</div>
-        </div>
+			</div>
+
+			<div class="form-group row">
+				<div class="col-sm-10">
+				<select class="form-control district selectFilter" name="kel_jog" id="select2_2" dt="fetchtps" >
+      			  <option selected>Pilih kelurahan anda saat ini...</option>
+					{{ csrf_field() }}
+				  </select>
+				</div>
+			</div>
+
+			<div class="form-group row">
+			
+				<div class="col-sm-10">
+				<select class="form-control district selectFilter" name="tps_jog" id="select3_3">
+      			  <option selected>Pilih TPS...</option>
+					{{ csrf_field() }}
+				  </select>
+				</div>
+		@else
+		<div class="form-group row">
+				<div class="col-sm-10">
+				<select class="form-control district selectFilter" name="kel_jog" id="select1_1" dt="fetchtps" disabled>
+					<option selected value="{{$lok}}">Auto</option>
+				  </select>
+				</div>
+			</div>
+
+			<div class="form-group row">
+			
+				<div class="col-sm-10">
+				<select class="form-control district selectFilter" name="tps_jog" id="select2_2">
+      			  <option selected>Pilih TPS...</option>
+					{{ csrf_field() }}
+				  </select>
+				</div>
+				@endif
         
         <!-- Ini adalah Bagian Footer Modal -->
         <div class="modal-footer">
@@ -84,9 +123,11 @@
 		
 			<div class="container text-center">
   			<!-- Button to Open the Modal -->
+			  @if(Auth::user()->role!=2)
   			<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal_tolak{{$loop->iteration}}">
     		Tolak
   			</button>
+			  @endif
  
   			<div class="modal fade" id="modal_tolak{{$loop->iteration}}">
     		<div class="modal-dialog modal-dialog-centered">
@@ -132,7 +173,7 @@
 </div>
 
 </br>
-
+@if(Auth::user()->role!=2)
 <div class="card">
   <div class="card-body text-center">
     <h5 class="card-title">Formulir Input Data Pemilih</h5>
@@ -140,7 +181,7 @@
     <a href="/Input/SM" class="btn btn-primary">Formulir</a>
   </div>
 </div>
-
+@endif
 </div>
 </div>
 </div>

@@ -90,7 +90,7 @@
 			<td class="text-center">{{$row->email}}</td>
             <td class="text-center">{{$row->lokasi}}</td>
 			<td class="text-center">@if($row->role==1)Admin Utama @elseif($row->role==0)Admin Kelurahan @else Admin Kecamatan @endif</td>
-			<td class="text-center">Action</td>
+			<td class="text-center"><a type="button" class="btn btn-danger" href="{{route('deladmin', ['id' => $row->id])}}">Delete</a></td>
 		</tr>
 		@endforeach
 </thead>
@@ -99,7 +99,7 @@
 
 </tbody>
 </table>
-<button type="submit" class="btn btn-danger" class="text-right" style="float: right;">Edit Data</button>
+
 </div>
 </div>
 </div>
