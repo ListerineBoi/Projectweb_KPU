@@ -86,7 +86,9 @@
                                         {{ __('Logout') }}
                                     </a>
                                       <a class="dropdown-item" href="/Profil/Admin">Profil</a>
+                                      @if(Auth::user()->role==1)
                                       <a class="dropdown-item" href="/Setting/Admin">Setting</a>
+                                      @endif
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>

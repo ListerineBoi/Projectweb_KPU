@@ -8,12 +8,13 @@
 </br>
 <div class="card row m-4"> 
   <div class="card-body text-center">
-  <form method="get" action="{{route('SuratMasuk')}}">
+  <form method="post" action="{{route('saveeditpengajuan')}}">
+	  @csrf
     <h5 class="card-title">Data Pengajuan Masuk</h5>
+	<input type="hidden" class="form-control" name="id" value="{{$id}}">
     <div class="form-group row m-2">
 				<div class="col md-3 mb-2">
 				<select class="form-control city selectFilter" name="kec_jog" id="select1_1" dt="fetchkeldes">
-      			  <option selected>Pilih Kecamatan</option>
 					@foreach($kec as $row)
       			  <option value="{{$row->id}}">{{$row->nama}}</option>
 					@endforeach
@@ -23,12 +24,11 @@
 <div class="form-group row m-2">
 				<div class="col md-3 mb-2">
         <select class="form-control district selectFilter" name="kel_jog" id="select2_2" dt="fetchtps">
-      			  <option selected>Pilih kelurahan</option>
 					
 				  </select>
 			</div>
 </div>
-<button type="submit" class="btn btn-danger">Cek Data</button>
+<button type="submit" class="btn btn-danger">Simpan</button>
       </form>
 </div>
 

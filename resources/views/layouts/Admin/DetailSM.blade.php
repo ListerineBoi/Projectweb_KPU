@@ -53,8 +53,9 @@
 		</tr>
 	</thead>
 </table>
-<a type="button" href="" class="btn text-center btn-primary">Edit</a>
-
+@if(Auth::user()->role!=2)
+<a type="button" href="{{route('editpengajuan', ['id' => $sm->id])}}" class="btn text-center btn-primary">Edit Domisili Jogja</a>
+@endif
 </br>
 </div>
 @endsection 

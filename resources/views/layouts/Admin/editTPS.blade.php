@@ -14,7 +14,7 @@
 			<div class="form-group row">
 				<label class="control-label col-sm-2" for="nik">Nama</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" name="nama" value="{{$tps->nama}}">
+					<input type="text" class="form-control" name="nama" value="{{$tps->nama}}" @if(Auth::user()->role!=1)readonly @endif>
 				</div>
 			</div>
             <div class="form-group row">
@@ -32,13 +32,13 @@
             <div class="form-group row">
 				<label class="control-label col-sm-2" for="nik">Jumlah Pemilih Tetap</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" name="jml" value="{{$tps->jml_p_tetap}}">
+					<input type="text" class="form-control" name="jml" value="{{$tps->jml_p_tetap}}" @if(Auth::user()->role!=1)readonly @endif>
 				</div>
 			</div>		
             <div class="form-group row">
 				<label class="control-label col-sm-2" for="nik">Presentase Prediksi kuota kosong</label>
 				<div class="col-sm-2">
-					<input type="number" class="form-control" name="pres" value="{{$tps->presentase}}">
+					<input type="number" class="form-control" name="pres" value="{{$tps->presentase}}" @if(Auth::user()->role!=1)readonly @endif>
 				</div>
 				<div class="col-sm-2">
 					<h4>%</h4>	

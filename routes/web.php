@@ -55,7 +55,8 @@ Route::get('/DataTPS/Admin', [App\Http\Controllers\AdminController::class, 'kuot
 
     //surat masuk//
 Route::get('/Surat/Masuk/Admin', [App\Http\Controllers\AdminController::class, 'pilihansm'])->name('pilihansm');
-Route::get('/Surat/Masuk/editpengajuan/{$id}', [App\Http\Controllers\AdminController::class, 'editpengajuan'])->name('editpengajuan');
+Route::get('/Surat/Masuk/editpengajuan/{id}', [App\Http\Controllers\AdminController::class, 'editpengajuan'])->name('editpengajuan');
+Route::post('/Surat/Masuk/saveeditpengajuan', [App\Http\Controllers\AdminController::class, 'saveeditpengajuan'])->name('saveeditpengajuan');
 Route::post('/Surat/Masuk/ver', [App\Http\Controllers\AdminController::class, 'verif'])->name('verif');
 Route::get('/Surat/Masuk/', [App\Http\Controllers\AdminController::class, 'index1'])->name('SuratMasuk');
 Route::get('/Input/SM', [App\Http\Controllers\AdminController::class, 'ism'])->name('InputSM');

@@ -43,10 +43,10 @@ class AdminController extends Controller
         $kec=Kecamatan::where('kabkot','=', 3471)->get();
         return view('/layouts/Admin/pilihansm',compact('kec'));
     }
-    public function editpengajuan()
+    public function editpengajuan($id)
     {
         $kec=Kecamatan::where('kabkot','=', 3471)->get();
-        return view('/layouts/Admin/editpengajuan',compact('kec'));
+        return view('/layouts/Admin/editpengajuan',compact('kec','id'));
     }
     public function index1(Request $request)
     {
@@ -67,6 +67,7 @@ class AdminController extends Controller
                         ['status','=',0],
                         ['kec_jog','=',$lok]
                     ])->paginate(10);
+                    $tps=Tps::all()->first();
                 }elseif(strlen($lok)==10) {
                     $list=SuratM::where([
                         ['status','=',0],
@@ -731,5 +732,13 @@ class AdminController extends Controller
     {
         User::where('id', $id)->delete();
         return redirect()->route('Setting');
+    }
+    public function saveeditpengajuan(Request $request)
+    {
+        SuratM::where('id', $request->get('id'))->update([
+            'kel_jog' => $request->get('kel_jog'),
+            'kec_jog' => $request->get('kec_jog') 
+        ]);
+        return redirect()->route('DetailSM',['id' => $request->get('id')]);
     }
 }

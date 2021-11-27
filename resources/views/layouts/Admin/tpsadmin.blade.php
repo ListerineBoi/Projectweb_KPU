@@ -35,7 +35,7 @@
 <button type="submit" class="btn btn-danger">Cek Data TPS</button>
       </form>
 </div>
-
+@if(Auth::user()->role ==1)
 <div class="card row m-4">
   <div class="card-body text-center">
     <h5 class="card-title">Input Data TPS</h5>
@@ -43,7 +43,7 @@
     <a href="/InputTPS/Admin" class="btn btn-primary">Input</a>
   </div>
 </div>
-
+@endif
 </div>
 <figure class="highcharts-figure">
      <div id="bar"></div> <!-- chart -->
