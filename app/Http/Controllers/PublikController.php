@@ -83,7 +83,7 @@ class PublikController extends Controller
 
     public function kuotaTPSPub(Request $request)
     {
-        $tps=Tps::where('lokasi','=', $request->input('kel_jog'))->get();
+        $tps=Tps::where('lokasi','=', $request->input('kel_jog'))->paginate(10);
         $kec=Kecamatan::where([
             ['id','=',$request->kec_jog]
         ])->value('nama');

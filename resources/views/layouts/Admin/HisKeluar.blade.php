@@ -35,4 +35,5 @@
 		</tr>
 			@endforeach
 </table>
+{{$list->links()}}
 @endsection   

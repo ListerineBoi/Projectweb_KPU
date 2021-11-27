@@ -72,5 +72,5 @@
             </div></td>
 			</tr>
 			@endforeach
-        </div></table>
+        </div></table>{{$list->links()}}
 @endsection   

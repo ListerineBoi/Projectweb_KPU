@@ -34,6 +34,7 @@
             @if(Auth::user()->role!=2)
             <a href="{{route('editTPS',['id' => $row->id])}}" type="button" class="btn btn-primary" >Update</a>
             <a href="{{route('delTPS',['id' => $row->id])}}" type="button" class="btn btn-danger" >Delete</a>
+            <a href="https://www.google.com/maps/place/{{$row->koordinat}}" type="button" class="btn btn-success" >Google Maps</a>
             @endif
           </div>
     </div>
@@ -44,6 +45,7 @@
 
 
 </div>
+{{$tps->appends(request()->input())->links()}}
 </div>
 </div>
 

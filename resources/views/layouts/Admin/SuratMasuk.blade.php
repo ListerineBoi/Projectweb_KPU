@@ -57,54 +57,19 @@
 			<input type="hidden" name="id" value="{{$row->id}}">
 			<input type="hidden" name="type" value=0>
         	<div class="modal-body">
-				@if($role==1)
-				<label for="">TPS</label>
-			<div class="form-group row">
-				<div class="col-sm-10">
-				<select class="form-control city selectFilter" name="kec_jog" id="select1_1" dt="fetchkeldes">
-      			  <option selected>Pilih Kecamatan anda saat ini...</option>
-					@foreach($kec as $row)
-      			  <option value="{{$row->id}}">{{$row->nama}}</option>
-					@endforeach
-				  </select>
-				</div>
-			</div>
-
-			<div class="form-group row">
-				<div class="col-sm-10">
-				<select class="form-control district selectFilter" name="kel_jog" id="select2_2" dt="fetchtps" >
-      			  <option selected>Pilih kelurahan anda saat ini...</option>
-					{{ csrf_field() }}
-				  </select>
-				</div>
-			</div>
-
-			<div class="form-group row">
-			
-				<div class="col-sm-10">
-				<select class="form-control district selectFilter" name="tps_jog" id="select3_3">
-      			  <option selected>Pilih TPS...</option>
-					{{ csrf_field() }}
-				  </select>
-				</div>
-		@else
-		<div class="form-group row">
-				<div class="col-sm-10">
-				<select class="form-control district selectFilter" name="kel_jog" id="select1_1" dt="fetchtps" disabled>
-					<option selected value="{{$lok}}">Auto</option>
-				  </select>
-				</div>
-			</div>
+				
 
 			<div class="form-group row">
 			
 				<div class="col-sm-10">
 				<select class="form-control district selectFilter" name="tps_jog" id="select2_2">
       			  <option selected>Pilih TPS...</option>
-					{{ csrf_field() }}
+					@foreach($tps as $tp)
+					<option selected value="{{$tp->id}}">{{$tp->nama}} {{$tp->alamat}}</option>
+					@endforeach
 				  </select>
 				</div>
-				@endif
+				
         
         <!-- Ini adalah Bagian Footer Modal -->
         <div class="modal-footer">
@@ -169,6 +134,7 @@
 		@endforeach
 	</tbody>
 </table>
+{{$list->links()}}
 </div>
 </div>
 

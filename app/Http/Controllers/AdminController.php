@@ -37,27 +37,43 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index1()
+
+    public function pilihansm()
+    {
+        $kec=Kecamatan::where('kabkot','=', 3471)->get();
+        return view('/layouts/Admin/pilihansm',compact('kec'));
+    }
+    public function editpengajuan()
+    {
+        $kec=Kecamatan::where('kabkot','=', 3471)->get();
+        return view('/layouts/Admin/editpengajuan',compact('kec'));
+    }
+    public function index1(Request $request)
     {
         $lok=Auth::user()->lokasi;
         $role=Auth::user()->role;
-        $tps=Tps::all();
         $kec=Kecamatan::where('kabkot','=', 3471)->get();
         if($role==1){
             $list=SuratM::where([
-                ['status','=',0]
+                ['status','=',0],
+                ['kel_jog','=',$request->kel_jog]
+            ])->paginate(10);
+            $tps=Tps::where([
+                ['lokasi','=',$request->kel_jog]
             ])->get();
-
             }else{
                 if(strlen($lok)==7){
                     $list=SuratM::where([
                         ['status','=',0],
                         ['kec_jog','=',$lok]
-                    ])->get();
+                    ])->paginate(10);
                 }elseif(strlen($lok)==10) {
                     $list=SuratM::where([
                         ['status','=',0],
                         ['kel_jog','=',$lok]
+                    ])->paginate(10);
+                    $tps=Tps::where([
+                        ['lokasi','=',$lok]
                     ])->get();
                 }
         }
@@ -88,19 +104,19 @@ class AdminController extends Controller
         if($lok==null){
             $list=SuratK::where([
                 ['status','=',0]
-            ])->get();
+            ])->paginate(10);
 
             }else{
                 if(strlen($lok)==7){
                     $list=SuratK::where([
                         ['status','=',0],
                         ['kec_jog','=',$lok]
-                    ])->get();
+                    ])->paginate(10);
                     }elseif(strlen($lok)==10) {
                         $list=SuratK::where([
                             ['status','=',0],
                             ['kel_jog','=',$lok]
-                        ])->get();
+                        ])->paginate(10);
                     }
         }
         return view('/layouts/Admin/SuratKeluar',compact('list'));
@@ -303,7 +319,7 @@ class AdminController extends Controller
 
     public function setting()
     {
-        $user=User::all();
+        $user=User::where('id','>',1)->paginate(10);
         $kec=Kecamatan::where('kabkot','=', 3471)->get();
         return view('/layouts/Admin/Setting',compact('kec','user'));
     }
@@ -430,19 +446,19 @@ class AdminController extends Controller
         if($role==1){
             $list=SuratM::where([
                 ['status','!=',0]
-            ])->get();
+            ])->paginate(10);
 
             }else{
                 if(strlen($lok)==7){
                     $list=SuratM::where([
                         ['status','!=',0],
                         ['kec_jog','=',$lok]
-                    ])->get();
+                    ])->paginate(10);
                 }elseif(strlen($lok)==10) {
                     $list=SuratM::where([
                         ['status','!=',0],
                         ['kel_jog','=',$lok]
-                    ])->get();
+                    ])->paginate(10);
                 }
         }
         return view('/layouts/Admin/HisMasuk',compact('list','tps'));
@@ -455,19 +471,19 @@ class AdminController extends Controller
         if($lok==null){
             $list=SuratK::where([
                 ['status','!=',0]
-            ])->get();
+            ])->paginate(10);
 
             }else{
                 if(strlen($lok)==7){
                     $list=SuratK::where([
                         ['status','!=',0],
                         ['kec_jog','=',$lok]
-                    ])->get();
+                    ])->paginate(10);
                     }elseif(strlen($lok)==10) {
                         $list=SuratK::where([
                             ['status','!=',0],
                             ['kel_jog','=',$lok]
-                        ])->get();
+                        ])->paginate(10);
                     }
         }
         return view('/layouts/Admin/HisKeluar',compact('list','tps'));
@@ -481,19 +497,19 @@ class AdminController extends Controller
         if($lok==null){
             $list=SuratM::where([
                 ['status','=',3]
-            ])->get();
+            ])->paginate(10);
 
             }else{
                 if(strlen($lok)==7){
                     $list=SuratM::where([
                         ['status','=',3],
                         ['kec_jog','=',$lok]
-                    ])->get();
+                    ])->paginate(10);
                 }elseif(strlen($lok)==10) {
                     $list=SuratM::where([
                         ['status','=',3],
                         ['kel_jog','=',$lok]
-                    ])->get();
+                    ])->paginate(10);
                 }
         }
         return view('/layouts/Admin/FUMasuk',compact('list','tps'));
@@ -507,19 +523,19 @@ class AdminController extends Controller
         if($lok==null){
             $list=SuratK::where([
                 ['status','=',3]
-            ])->get();
+            ])->paginate(10);
 
             }else{
                 if(strlen($lok)==7){
                     $list=SuratK::where([
                         ['status','=',3],
                         ['kec_jog','=',$lok]
-                    ])->get();
+                    ])->paginate(10);
                 }elseif(strlen($lok)==10) {
                     $list=SuratK::where([
                         ['status','=',3],
                         ['kel_jog','=',$lok]
-                    ])->get();
+                    ])->paginate(10);
                 }
         }
         return view('/layouts/Admin/FUKeluar',compact('list','tps'));
@@ -527,7 +543,7 @@ class AdminController extends Controller
 
     public function kuotaTPS(Request $request)
     {
-        $tps=Tps::where('lokasi','=', $request->input('kel_jog'))->get();
+        $tps=Tps::where('lokasi','=', $request->input('kel_jog'))->paginate(10);
         $kec=Kecamatan::where([
             ['id','=',$request->kec_jog]
         ])->value('nama');
@@ -617,11 +633,11 @@ class AdminController extends Controller
         array_push($domisili,['keldes'=> $keldes,'kec'=> $kec,'kabkot'=> $kabkot,'prov'=> $prov,'kec_jog'=> $kec_jog,'kel_jog'=> $kel_jog,'tps_jog'=> $tps_jog]);
         
         if ($data->kab==3471) {
-            $priv=array(1,1,1,1,1);
-        }elseif ($data->prov==34) {
             $priv=array(1,1,1,1,0);
+        }elseif ($data->prov==34) {
+            $priv=array(1,1,1,0,0);
         }else{
-            $priv=array(1,0,1,0,0);
+            $priv=array(0,0,1,0,0);
         }
         $pdf = PDF::loadview('/layouts/Admin/formPrint',compact('data','domisili','priv'))->setpaper('Legal','potrait');
         //return date("Y-m-d");
@@ -690,13 +706,6 @@ class AdminController extends Controller
     }
     public function savetpsEdit(Request $request)
     {
-        $this->validate($request, [
-            'nama' => 'required',
-            'alamat' => 'required',
-            'koordinat' => 'required',
-            'jml' => 'required',
-            'pres' => 'required'  
-        ]);
         Tps::where('id', $request->get('id'))->update([
             'nama' => $request->get('nama'),
             'alamat' => $request->get('alamat'),

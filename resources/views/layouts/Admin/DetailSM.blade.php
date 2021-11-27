@@ -53,6 +53,7 @@
 		</tr>
 	</thead>
 </table>
+<a type="button" href="" class="btn text-center btn-primary">Edit</a>
 
 </br>
 </div>

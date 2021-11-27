@@ -54,8 +54,10 @@ Route::post('/InputTPS/Admin/savetpsEdit', [App\Http\Controllers\AdminController
 Route::get('/DataTPS/Admin', [App\Http\Controllers\AdminController::class, 'kuotaTPS'])->name('KuotaTPS');
 
     //surat masuk//
-Route::get('/Surat/Masuk', [App\Http\Controllers\AdminController::class, 'index1'])->name('SuratMasuk');
+Route::get('/Surat/Masuk/Admin', [App\Http\Controllers\AdminController::class, 'pilihansm'])->name('pilihansm');
+Route::get('/Surat/Masuk/editpengajuan/{$id}', [App\Http\Controllers\AdminController::class, 'editpengajuan'])->name('editpengajuan');
 Route::post('/Surat/Masuk/ver', [App\Http\Controllers\AdminController::class, 'verif'])->name('verif');
+Route::get('/Surat/Masuk/', [App\Http\Controllers\AdminController::class, 'index1'])->name('SuratMasuk');
 Route::get('/Input/SM', [App\Http\Controllers\AdminController::class, 'ism'])->name('InputSM');
 Route::post('/Input/SM/simpan', [App\Http\Controllers\AdminController::class, 'saveIsm'])->name('saveIsm');
 Route::get('/Admin/History/Masuk', [App\Http\Controllers\AdminController::class, 'hisMasuk'])->name('HisMasuk');
@@ -64,7 +66,7 @@ Route::post('/Admin/FollowUp/Masuk/verif', [App\Http\Controllers\AdminController
 Route::get('/printpdf/{id}', [App\Http\Controllers\AdminController::class, 'printpdf'])->name('printpdf');
 
     //surat keluar//
-Route::get('/Surat/Keluar', [App\Http\Controllers\AdminController::class, 'index2'])->name('SuratKeluar');
+Route::get('/Surat/Keluar/', [App\Http\Controllers\AdminController::class, 'index2'])->name('SuratKeluar');
 Route::post('/Surat/Keluar/ver', [App\Http\Controllers\AdminController::class, 'verifK'])->name('verifK');
 Route::get('/Input/SK', [App\Http\Controllers\AdminController::class, 'isk'])->name('InputSK');
 Route::post('/Input/SK/simpan', [App\Http\Controllers\AdminController::class, 'saveIsk'])->name('saveIsk');
