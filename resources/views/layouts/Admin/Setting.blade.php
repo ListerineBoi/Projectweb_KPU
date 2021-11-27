@@ -8,6 +8,8 @@
 <div class="container">
 <div class="row h-100 justify-content-center align-items-center bg-light">
     <div class="col-md-10">
+	<div class="card border-dark">
+      <div class="card-body">
         <h3 class="text-light text-center bg-orange">FORM DATA SUB-ADMIN</h3>
         </br>
 			<div class="form-group row">
@@ -66,6 +68,8 @@
             </div>	
 			</div>
 			</div> 
+			</div>
+			</div> 
 			
 		</form>
 </br>
@@ -73,6 +77,8 @@
 <div class="container">
 <div class="row h-100 justify-content-center align-items-center bg-light">
     <div class="col-md-10">
+	<div class="card border-dark">
+      <div class="card-body">
         <h3 class="text-light text-center bg-orange">DATA SUB-ADMIN</h3>
 </br>
 <table class="table table-bordered table-striped">
@@ -100,6 +106,8 @@
 </tbody>
 </table>
 <button type="submit" class="btn btn-danger" class="text-right" style="float: right;">Edit Data</button>
+</div>
+</div>
 </div>
 </div>
 </div>

@@ -24,9 +24,10 @@
 			<td>{{$row->nama}}</td>
             <td><div class="col text-center">
 				<a type="button" href="{{route('printpdfK', ['id' => $row->id])}}" class="btn text-center btn-primary">Download template surat Terima</a>
-				<div class="container text-center">
+				<div class="container text-center"> 
+				</br>
   			<!-- Button to Open the Modal -->
-  			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_upload{{$loop->iteration}}">
+  			<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal_upload{{$loop->iteration}}">
 			Konfirmasi & Upload Pdf
   			</button>
 			  <br>

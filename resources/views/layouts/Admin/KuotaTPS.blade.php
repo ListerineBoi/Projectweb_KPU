@@ -60,7 +60,8 @@
     Grafik total Surat Masuk dan Surat Keluar pada TPS yang ada di Kota Yogyakarta
     </p>
 </figure>
-<div id='map' style='width: 400px; height: 300px;'></div>
+
+<div id='map' class="col-12 align-items-center" style='width: 1400px; height: 300px;'></div>
 
 <!-- bar chart -->
 <script>
@@ -176,8 +177,8 @@
     }]
 }); 
 </script>
-<button class="btn align-item-center btn-danger" href="" class="text-right" style="float: right;">Kembali</button>
 </div>
+
 <script>
 mapboxgl.accessToken = 'pk.eyJ1IjoibGlzdGVyaW5lYm9pIiwiYSI6ImNrdmRzenZzMTllbDQyd29mOTN2Nnk4cDAifQ.ILAoM1z0NOugYT9C5yCZpA';
 const map = new mapboxgl.Map({

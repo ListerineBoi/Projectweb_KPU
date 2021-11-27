@@ -25,7 +25,6 @@
     </tr>
   </tbody>
 </table>
-<input class="btn btn-dark" type="submit" value="Edit Profil">
 </div>
 </div>
 </div>
