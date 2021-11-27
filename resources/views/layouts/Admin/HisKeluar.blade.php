@@ -25,6 +25,8 @@
 				diterima
 				@elseif($row->status==2)
     			ditolak
+				@else
+				Menunggu Surat Bukti Pindah
 				@endif
 			</td>
             <td><div class="col text-center">
@@ -33,4 +35,5 @@
 		</tr>
 			@endforeach
 </table>
+{{$list->links()}}
 @endsection   

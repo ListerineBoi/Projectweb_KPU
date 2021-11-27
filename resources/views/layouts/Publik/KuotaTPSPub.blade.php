@@ -31,11 +31,13 @@
             <div class="alert alert-danger" role="alert">
             {{round($row->jml_p_tetap*$row->presentase/100-($row->jml_masuk-$row->jml_keluar))}}
             </div>
+            <a href="https://www.google.com/maps/place/{{$row->koordinat}}" type="button" class="btn btn-success" >Google Maps</a>
           </div>
     </div>
 </div>
 @endforeach
 </div>
+{{$tps->appends(request()->input())->links()}}
 </div>
 </div>
 

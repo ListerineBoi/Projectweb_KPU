@@ -4,8 +4,9 @@ namespace App\Imports;
 
 use App\Models\Tps;
 use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\SkipsEmptyRows;
 
-class TpsImport implements ToModel
+class TpsImport implements ToModel, SkipsEmptyRows
 {
     /**
     * @param array $row

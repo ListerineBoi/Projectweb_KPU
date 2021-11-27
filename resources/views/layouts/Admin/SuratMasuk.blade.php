@@ -34,9 +34,11 @@
 			
 			<div class="container text-center">
   			<!-- Button to Open the Modal -->
+			  @if(Auth::user()->role!=2)
   			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_terima{{$loop->iteration}}">
     		Setuju
   			</button>
+			  @endif
 			  <br>
  
   			<div class="modal fade" id="modal_terima{{$loop->iteration}}">
@@ -55,17 +57,21 @@
 			<input type="hidden" name="id" value="{{$row->id}}">
 			<input type="hidden" name="type" value=0>
         	<div class="modal-body">
-          	<div class="dropdown">
-          	<label class="control-label col-sm-2" for="nik">TPS </label>
-				  <div class="col-sm-12">
-				  <select class="form-control" name="tps_jog">
+				
+
+			<div class="form-group row">
+			
+				<div class="col-sm-10">
+				<select class="form-control district selectFilter" name="tps_jog" id="select2_2">
       			  <option selected>Pilih TPS...</option>
-      			  @foreach($tps as $row1)
-					<option value='{{$row1->id}}'>{{$row1->nama}} {{$row1->alamat}}</option>
-				 @endforeach
+					@if(Auth::user()->role !=2)
+					@foreach($tps as $tp)
+					<option selected value="{{$tp->id}}">{{$tp->nama}} {{$tp->alamat}}</option>
+					@endforeach
+					@endif
 				  </select>
 				</div>
-        </div>
+				
         
         <!-- Ini adalah Bagian Footer Modal -->
         <div class="modal-footer">
@@ -84,9 +90,11 @@
 		
 			<div class="container text-center">
   			<!-- Button to Open the Modal -->
+			  @if(Auth::user()->role!=2)
   			<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal_tolak{{$loop->iteration}}">
     		Tolak
   			</button>
+			  @endif
  
   			<div class="modal fade" id="modal_tolak{{$loop->iteration}}">
     		<div class="modal-dialog modal-dialog-centered">
@@ -128,11 +136,12 @@
 		@endforeach
 	</tbody>
 </table>
+{{$list->links()}}
 </div>
 </div>
 
 </br>
-
+@if(Auth::user()->role!=2)
 <div class="card">
   <div class="card-body text-center">
     <h5 class="card-title">Formulir Input Data Pemilih</h5>
@@ -140,7 +149,7 @@
     <a href="/Input/SM" class="btn btn-primary">Formulir</a>
   </div>
 </div>
-
+@endif
 </div>
 </div>
 </div>

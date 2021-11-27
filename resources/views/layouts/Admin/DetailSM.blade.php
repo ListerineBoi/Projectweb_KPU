@@ -48,12 +48,14 @@
 			<td class="text-center">{{$det['kelj']}}</td>
 			<td class="text-center">{{$sm->email}}</td>
             <td class="text-center">{{$sm->No_hp}}</td>
-            <td class="text-center">Foto KTP</td>
-            <td class="text-center">Foto KK</td>
+            <td class="text-center"><a href="/storage/c1/{{$sm->img_c1}}">{{$sm->img_c1}}</a></td>
+            <td class="text-center"><a href="/storage/ktp/{{$sm->img_ktp}}">{{$sm->img_ktp}}</a></td>
 		</tr>
 	</thead>
 </table>
-
+@if(Auth::user()->role!=2)
+<a type="button" href="{{route('editpengajuan', ['id' => $sm->id])}}" class="btn text-center btn-primary">Edit Domisili Jogja</a>
+@endif
 </br>
 </div>
 @endsection 

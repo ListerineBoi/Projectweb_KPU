@@ -83,7 +83,7 @@ class PublikController extends Controller
 
     public function kuotaTPSPub(Request $request)
     {
-        $tps=Tps::where('lokasi','=', $request->input('kel_jog'))->get();
+        $tps=Tps::where('lokasi','=', $request->input('kel_jog'))->paginate(10);
         $kec=Kecamatan::where([
             ['id','=',$request->kec_jog]
         ])->value('nama');
@@ -106,25 +106,24 @@ class PublikController extends Controller
 
     public function savePengajuan(Request $request)
     {
-        // $this->validate($request, [
-        //     'kec_jog' => 'required',
-        //     'nokk' => 'required',
-        //     'nik' => 'required',
-        //     'nama' => 'required',
-        //     'jk' => 'required',
-        //     'provinsi' => 'required',
-        //     'kabukot' => 'required',
-        //     'kecamatan' => 'required',
-        //     'kel' => 'required',
-        //     'disabil' => 'required',
-        //     'alasan' => 'required',
-        //     'kel_jog' => 'required',
-        //     'domisiljog' => 'required',
-        //     'email' => 'required',
-        //     'nohp' => 'required',
-        //     'img_c1' => 'required',
-        //     'img_ktp' => 'required'      
-        // ]);
+        $this->validate($request, [
+            'kec_jog' => 'required',
+            'nokk' => 'required',
+            'nik' => 'required',
+            'nama' => 'required',
+            'jk' => 'required',
+            'provinsi' => 'required',
+            'kabukot' => 'required',
+            'kecamatan' => 'required',
+            'kel' => 'required',
+            'alasan' => 'required',
+            'kel_jog' => 'required',
+            'domisiljog' => 'required',
+            'email' => 'required',
+            'nohp' => 'required',
+            'img_c1' => 'required',
+            'img_ktp' => 'required'      
+        ]);
             $fullname = $request->file('img_c1')->getClientOriginalName();
             $extn =$request->file('img_c1')->getClientOriginalExtension();
             $finalc1= $request->nik.'_'.'C1'.'_'.time().'.'.$extn;
@@ -164,23 +163,23 @@ class PublikController extends Controller
 
     public function savePengajuanK(Request $request)
     {
-        // $this->validate($request, [
-        //     'kec_jog' => 'required',
-        //     'nokk' => 'required',
-        //     'nik' => 'required',
-        //     'nama' => 'required',
-        //     'jk' => 'required',
-        //     'tps_jog' => 'required',
-        //     'provinsi' => 'required',
-        //     'kabukot' => 'required',
-        //     'kecamatan' => 'required',
-        //     'kel' => 'required',
-        //     'alamatjog' => 'required',
-        //     'email' => 'required',
-        //     'nohp' => 'required',
-        //     'img_c1' => 'required',
-        //     'img_ktp' => 'required'      
-        // ]);
+        $this->validate($request, [
+            'kec_jog' => 'required',
+            'nokk' => 'required',
+            'nik' => 'required',
+            'nama' => 'required',
+            'jk' => 'required',
+            'tps_jog' => 'required',
+            'provinsi' => 'required',
+            'kabukot' => 'required',
+            'kecamatan' => 'required',
+            'kel' => 'required',
+            'alamatjog' => 'required',
+            'email' => 'required',
+            'nohp' => 'required',
+            'img_c1' => 'required',
+            'img_ktp' => 'required'      
+        ]);
             $fullname = $request->file('img_c1')->getClientOriginalName();
             $extn =$request->file('img_c1')->getClientOriginalExtension();
             $finalc1= $request->nik.'_'.'C1'.'_'.time().'.'.$extn;

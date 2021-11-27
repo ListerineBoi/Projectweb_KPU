@@ -27,9 +27,11 @@
 				<div class="container text-center"> 
 				</br>
   			<!-- Button to Open the Modal -->
-  			<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal_upload{{$loop->iteration}}">
+			  @if(Auth::user()->role!=2)
+  			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_upload{{$loop->iteration}}">
 			Konfirmasi & Upload Pdf
   			</button>
+			  @endif
 			  <br>
  
   			<div class="modal fade" id="modal_upload{{$loop->iteration}}">
@@ -71,5 +73,5 @@
             </div></td>
 			</tr>
 			@endforeach
-        </div></table>
+        </div></table>{{$list->links()}}
 @endsection   
