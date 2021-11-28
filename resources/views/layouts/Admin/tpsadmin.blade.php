@@ -45,6 +45,7 @@
 </div>
 @endif
 </div>
+
 <figure class="highcharts-figure">
      <div id="bar"></div> <!-- chart -->
     <p class="highcharts-description text-center">

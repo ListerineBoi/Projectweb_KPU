@@ -6,6 +6,8 @@
 <h3 class="text-bold text-light text-center bg-orange">Halaman Follow Up Pengajuan Surat Masuk</h3>
 </br>
 
+<div class="card border-dark">
+<div class="card-body">
 <table class="table table-bordered table-striped">
 	<thead>
 		<tr>
@@ -72,5 +74,7 @@
             </div></td>
 			</tr>
 			@endforeach
-        </div></table>{{$list->links()}}
+        </div></table>
+</div>
+</div>{{$list->links()}}
 @endsection   

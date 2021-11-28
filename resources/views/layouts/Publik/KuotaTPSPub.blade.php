@@ -24,7 +24,7 @@
 
 @foreach($tps as $row)
 
-<div class="col-6" style="width: 18rem;">
+<div class="col md-3 mb-3" style="width: 18rem;">
     <div class="card text-center" style="width: 18rem;">
           <div class="card-body">
             <h5 class="card-title">{{$row->nama}}</h5>
@@ -43,22 +43,42 @@
 
 </br>
 
+<div class="container">
+<div class="col-12 align-items-center">
+<div class="card border-dark">
+      <div class="card-body">
 <figure class="highcharts-figure">
      <div id="bar"></div> <!-- chart -->
     <p class="highcharts-description text-center">
         Grafik pergerakan Surat Masuk dan Surat Keluar pada TPS yang ada di Kota Yogyakarta
     </p>
 </figure>
+</div>
+</div>
 
 </br>
 
+<div class="card border-dark">
+      <div class="card-body">
 <figure class="highcharts-figure">
     <div id="pie"></div>
     <p class="highcharts-description text-center">
     Grafik total Surat Masuk dan Surat Keluar pada TPS yang ada di Kota Yogyakarta
     </p>
 </figure>
-<div id='map' style='width: 400px; height: 300px;'></div>
+</div>
+</div>
+
+</br>
+
+<div class="card border-dark">
+      <div class="card-body">
+      <h2 class="text-center text-bold">MAPS TPS</h2>
+<div id='map' style='width: 1040px; height: 300px;'></div>
+</div>
+</div>
+</div>
+</div>
 
 <!-- bar chart -->
 <script>

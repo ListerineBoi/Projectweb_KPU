@@ -6,6 +6,8 @@
 <h3 class="text-bold text-light text-center bg-orange">Halaman Follow Up Pengajuan Surat Keluar</h3>
 </br>
 
+<div class="card border-dark">
+<div class="card-body">
 <table class="table table-bordered table-striped">
 	<thead>
 		<tr>
@@ -24,7 +26,8 @@
 			<td>{{$row->nama}}</td>
             <td><div class="col text-center">
 				<a type="button" href="{{route('printpdfK', ['id' => $row->id])}}" class="btn text-center btn-primary">Download template surat Terima</a>
-				<div class="container text-center">
+				<div class="container text-center"> 
+				</br>
   			<!-- Button to Open the Modal -->
 			  @if(Auth::user()->role!=2)
   			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_upload{{$loop->iteration}}">
@@ -72,5 +75,7 @@
             </div></td>
 			</tr>
 			@endforeach
-        </div></table>{{$list->links()}}
+        </div></table>
+</div>
+</div>{{$list->links()}}
 @endsection   

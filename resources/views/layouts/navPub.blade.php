@@ -22,19 +22,19 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
     <li class="nav-item">
-        <a class="nav-link active" href="/Publik/Home">Home</a>
+        <a class="nav-link text-bold {{Request::RouteIs('homePublik')?'active':''}}" href="{{route('homePublik')}}"> <i class="fa fa-home"></i> Home </h4></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" href="/Informasi/TPS">TPS</a>
+        <a class="nav-link {{Request::RouteIs('tps')?'active':''}}" href="{{route('tps')}}"> <i class="fa fa-link"></i> TPS</a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Pengajuan Pindah
+        <a class="nav-link dropdown-toggle {{Request::RouteIs('SMPublik')?'active':''}} {{Request::RouteIs('SKPublik')?'active':''}}" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fa fa-clipboard"></i> Pengajuan Pindah
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="{{route('SMPublik')}}">Pengajuan Masuk</a>
+          <a class="dropdown-item {{Request::RouteIs('SMPublik')?'active':''}}" href="{{route('SMPublik')}}">Pengajuan Masuk</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="{{route('SKPublik')}}">Pengajuan Keluar</a>
+          <a class="dropdown-item {{Request::RouteIs('SKPublik')?'active':''}}" href="{{route('SKPublik')}}">Pengajuan Keluar</a>
         </div>
       </li>
     </ul>
@@ -51,8 +51,14 @@
   <div class="container p-4">
 
   <div class="container p-4">
+  <h5 class="text-uppercase">Hubungi Kami</h5>
     <!-- Section: Social media -->
     <section class="mb-4">
+       <!-- Whatsapp -->
+       <a class="btn btn-outline-light btn-floating m-1" href="#" role="button"
+        ><i class="fa fa-phone"></i
+      ></a>
+
       <!-- Facebook -->
       <a class="btn btn-outline-light btn-floating m-1" href="https://web.facebook.com/kpukotajogja?_rdc=1&_rdr" role="button"
         ><i class="fa fa-facebook"></i
@@ -94,7 +100,8 @@
       <!--Grid row-->
       <div class="row">
         <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+        <a class="navbar-brand" href="/Publik/Home"><img src="/image/logoKPU.png" width="30" height="30" class="d-inline-block align-top" alt="" style=" text-align:justify;width:100%;"></a>
         <h5 class="text-uppercase">Komisi Pemilihan Umum Kota Yogyakarta</h5>
 
         <ul class="list-unstyled mb-0">
@@ -108,35 +115,35 @@
         <!--Grid column-->
 
         <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase">Pengajuan Pindah</h5>
+        <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase"></h5>
 
           <ul class="list-unstyled mb-0">
             <li>
-              <a href="#!" class="text-white">Pindah Masuk</a>
+              <a href="#!" class="text-white"></a>
             </li>
             <li>
-              <a href="#!" class="text-white">Pindah Keluar</a>
+              <a href="#!" class="text-white"></a>
             </li>
           </ul>
         </div>
         <!--Grid column-->
 
         <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
           
-          <h5 href="#!" class="list-unstyled mb-0">TPS</h5>
+          <h5 href="#!" class="list-unstyled mb-0"></h5>
 
           <ul class="list-unstyled mb-0">
             <li>
-              <a href="#!" class="text-white">TPS</a>
+              <a href="#!" class="text-white"></a>
             </li>
           </ul>
         </div>
         <!--Grid column-->
 
         <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
         <h5 class="text-uppercase">Masukan/Kritik</h5>
         <div class="mb-5">
         <textarea class="form-control" id="message-text"></textarea>
@@ -154,7 +161,7 @@
 
   <!-- Copyright -->
   <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-    © 2021 Copyright:
+    © 2021 Copyright :
     <a class="text-white" href="https://kota-yogyakarta.kpu.go.id/">KPU Kota Yogyakarta</a>
   </div>
   <!-- Copyright -->

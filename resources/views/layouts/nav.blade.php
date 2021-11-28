@@ -23,17 +23,18 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link active" href="/TPS/Admin">TPS</a>
+    <a class="nav-link {{Request::routeIs('tpsadmin')?'active':''}}" href="{{route('tpsadmin')}}">
+      <i class="fa fa-link"></i> TPS</a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Pengajuan Pindah
+        <a class="nav-link dropdown-toggle {{Request::routeIs('pilihansm')?'active':''}} {{Request::routeIs('SuratKeluar')?'active':''}}" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fa fa-envelope"></i> Pengajuan Pindah
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           @if(Auth::user()->role!=1)
-          <a class="dropdown-item" href="{{route('SuratMasuk')}}">Pengajuan Masuk</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="{{route('SuratKeluar')}}">Pengajuan Keluar</a>
+          <a class="dropdown-item {{Request::routeIs('SuratMasuk')?'active':''}}" href="{{route('SuratMasuk')}}">Pengajuan Masuk</a>
+          <div class="dropdown-item"></div>
+          <a class="dropdown-item {{Request::routeIs('SuratKeluar')?'active':''}}" href="{{route('SuratKeluar')}}">Pengajuan Keluar</a>
           @else
           <a class="dropdown-item" href="{{route('pilihansm')}}">Pengajuan Masuk</a>
           <div class="dropdown-divider"></div>
@@ -42,23 +43,23 @@
         </div>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          History
+        <a class="nav-link dropdown-toggle {{Request::routeIs('FUMasuk')?'active':''}} {{Request::routeIs('FUKeluar')?'active':''}}" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fa fa-paper-plane"></i> Follow Up
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/Admin/History/Masuk">Pengajuan Masuk</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="/Admin/History/Keluar">Pengajuan Keluar</a>
+          <a class="dropdown-item {{Request::routeIs('FUMasuk')?'active':''}}" href="{{route('FUMasuk')}}">Pengajuan Masuk</a>
+          <div class="dropdown-item"></div>
+          <a class="dropdown-item {{Request::routeIs('FUKeluar')?'active':''}}" href="{{route('FUKeluar')}}">Pengajuan Keluar</a>
         </div>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Follow Up
+        <a class="nav-link dropdown-toggle {{Request::routeIs('HisMasuk')?'active':''}} {{Request::routeIs('HisKeluar')?'active':''}}" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fa fa-history"></i> History
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/Admin/FollowUp/Masuk">Pengajuan Masuk</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="/Admin/FollowUp/Keluar">Pengajuan Keluar</a>
+          <a class="dropdown-item {{Request::routeIs('HisMasuk')?'active':''}}" href="{{route('HisMasuk')}}">Pengajuan Masuk</a>
+          <div class="dropdown-item"></div>
+          <a class="dropdown-item {{Request::routeIs('HisKeluar')?'active':''}}" href="{{route('HisKeluar')}}">Pengajuan Keluar</a>
         </div>
       </li>
     </ul>
@@ -66,7 +67,7 @@
   <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-                            <li class="nav-item active">
+                            <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
@@ -77,7 +78,7 @@
                         @else
                             <li class="nav-item active dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>|
+                                <i class="fa fa-user"></i> {{ Auth::user()->name }} <span class="caret"></span>|
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
@@ -95,22 +96,25 @@
                                 </div>
                             </li>
                         @endguest
-
                     </ul>
 </nav>
 
-<main class="py-4" style="height:100%;width:100%;">
+<main class="py-5 mb-5" style="height:100%;width:100%;">
       @yield('content')
 </main>
 
 <!-- Footer -->
-<footer class="bg-orange text-center text-white" style="auto">
+<footer class="bg-orange text-center text-white" style="auto" >
   <!-- Grid container -->
-  <div class="container p-4">
 
   <div class="container p-4">
     <!-- Section: Social media -->
     <section class="mb-4">
+      <!-- Whatsapp -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#" role="button"
+      ><i class="fa fa-phone"></i
+      ></a>
+
       <!-- Facebook -->
       <a class="btn btn-outline-light btn-floating m-1" href="https://web.facebook.com/kpukotajogja?_rdc=1&_rdr" role="button"
         ><i class="fa fa-facebook"></i
@@ -143,7 +147,7 @@
       <!--Grid row-->
       <div class="row">
         <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <div class="col-12">
           <h5 class="text-uppercase">Komisi Pemilihan Umum Kota Yogyakarta</h5>
 
           <ul class="list-unstyled mb-0">
@@ -154,53 +158,6 @@
             (0274) 556916
             </p>
         </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase text-bold">Pengajuan Surat</h5>
-
-          <ul class="list-unstyled mb-0">
-            <li>
-              <a href="/PengajuanSurat/Masuk" class="text-white">Surat Masuk</a>
-            </li>
-            <li>
-              <a href="/PengajuanSurat/Keluar" class="text-white">Surat Keluar</a>
-            </li>
-          </ul>
-        </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase">History</h5>
-
-          <ul class="list-unstyled mb-0">
-            <li>
-              <a href="#!" class="text-white">Pengajuan Surat Masuk</a>
-            </li>
-            <li>
-              <a href="#!" class="text-white">Pengajuan Surat Keluar</a>
-            </li>
-          </ul>
-        </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase">Follow Up</h5>
-
-          <ul class="list-unstyled mb-0">
-            <li>
-              <a href="#!" class="text-white">Pengajuan Surat Masuk</a>
-            </li>
-            <li>
-              <a href="#!" class="text-white">Pengajuan Surat Keluar</a>
-            </li>
-          </ul>
-        </div>
-        <!--Grid column-->
-      </div>
       <!--Grid row-->
     </section>
     <!-- Section: Links -->
