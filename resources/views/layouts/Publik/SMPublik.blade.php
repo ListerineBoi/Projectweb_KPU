@@ -10,7 +10,9 @@
     <div class="col-md-10">
 	<div class="card border-dark">
       <div class="card-body">
-        <h3 class="text-bold text-light text-center bg-orange">FORMULIR PENGAJUAN PERMOHONAN PINDAH PEMILIH MASUK KOTA YOGYAKARTA</h3>
+	  <div style="text-align:justify;width:100%; background-color:orange; border:1px solid #000100; padding:8px;">
+	  <img src="http://127.0.0.1:8000/image/logokpu.png" style="float:left; width:70px;height:70px;" />
+	    <h3 class="text-bold text-black text-center">FORMULIR PENGAJUAN PERMOHONAN PINDAH PEMILIH MASUK KOTA YOGYAKARTA</h3></div>
         </br>
 		@if (session('status'))
                         <div class="alert alert-success" role="alert">
@@ -44,19 +46,19 @@
 			<div class="form-group row">
 				<label class="control-label col-sm-2" for="nokk">No KK * </label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" name="nokk" placeholder="Masukkan No KK Anda">
+					<input type="text" class="form-control" name="nokk" placeholder="Masukkan No KK">
 				</div>
 			</div>
 			<div class="form-group row">
 				<label class="control-label col-sm-2" for="nik">NIK * </label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" name="nik" placeholder="Masukkan NIK Anda">
+					<input type="text" class="form-control" name="nik" placeholder="Masukkan NIK Sesuai KTP">
 				</div>
 			</div>
             <div class="form-group row">
 				<label class="control-label col-sm-2" for="nik">Nama * </label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" name="nama" placeholder="Masukkan Nama Anda">
+					<input type="text" class="form-control" name="nama" placeholder="Masukkan Nama Sesuai KTP">
 				</div>
 			</div>		
 			<div class="form-group row">

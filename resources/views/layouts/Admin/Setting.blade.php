@@ -101,15 +101,37 @@
 		@endforeach
 </thead>
 <tbody>
-
-
 </tbody>
 </table>
-
 </div>
 </div>
 </div>
 </div>
 </div>
 
+</br>
+
+<div class="container">
+<div class="row h-100 justify-content-center align-items-center bg-light">
+    <div class="col-md-10">
+	<div class="card border-dark">
+      <div class="card-body">
+        <h3 class="text-light text-center bg-orange">Tambah Informasi Tata Cara Pengajuan Publik</h3>
+</br>
+<table class="table table-bordered table-striped">
+	<thead>
+		<tr>
+		<th class="text-center">Tata Cara Pengajuan Pindah Masuk</th>
+		<th class="text-center">Tata Cara Pengajuan Pindah Keluar</th>
+		</tr>
+		<td> <input type="file" class="form-control-file" name="img_info_msk" class="text-center"></br><a type="button" class="btn btn-danger text-center" href="#">Submit</a></td>
+		<td> <input type="file" class="form-control-file" name="img_info_klr" class="text-center"></br><a type="button" class="btn btn-danger text-center" href="#">Submit</a></td> 
+		<tr>
+		</thead>
+		</table>
+</div>
+</div>
+</div>
+</div>
+</div>
 @endsection 

@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 <div class="container">
     <div class="row justify-content-center">
     <div class="col-md-8">
@@ -11,8 +12,9 @@
 </br>
             <div class="card border-black">
                 <div class="card-body">
-                    </br>
-                <h4 class="text-bold text-center">  LOGIN  </h4>
+                    </br> 
+                <h4 class="text-bold text-center"> 
+                <i class="fa fa-key"></i> LOGIN  </h4>
                     </br>
                     <form method="POST" action="{{ route('login') }}">
                         @csrf

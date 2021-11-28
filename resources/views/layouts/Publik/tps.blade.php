@@ -45,24 +45,33 @@
 </div>
 
 
+<div class="col-12">
+<div class="card border-dark">
+      <div class="card-body">
 <figure class="highcharts-figure">
      <div id="bar"></div> <!-- chart -->
     <p class="highcharts-description text-center">
         Grafik pergerakan Surat Masuk dan Surat Keluar pada TPS yang ada di Kota Yogyakarta
     </p>
 </figure>
+</div>
+</div>
 
 </br>
 
+<div class="card border-dark">
+      <div class="card-body">
 <figure class="highcharts-figure">
     <div id="pie"></div>
     <p class="highcharts-description text-center">
     Grafik total Surat Masuk dan Surat Keluar pada TPS yang ada di Kota Yogyakarta
     </p>
 </figure>
+</div>
+</div>
 
 <!-- ////////////////////// -->
-
+</div>
 </div>
 <script>
   Highcharts.chart('bar', {

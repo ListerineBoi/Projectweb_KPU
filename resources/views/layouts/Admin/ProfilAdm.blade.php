@@ -7,6 +7,8 @@
     <div class="col-md-10">
         <h3 class="text-light text-center bg-orange">PROFIL</h3>
 </br>
+<div class="card border-dark">
+      <div class="card-body">
 <table class="table table-bordered text-center">
   <thead>
     <tr>
@@ -25,6 +27,8 @@
     </tr>
   </tbody>
 </table>
+</div>
+</div>
 </div>
 </div>
 </div>

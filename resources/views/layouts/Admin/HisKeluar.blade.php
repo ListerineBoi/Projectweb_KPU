@@ -6,6 +6,8 @@
 <h3 class="text-bold text-light text-center bg-orange">Halaman History Surat Keluar</h3>
 </br>
 
+<div class="card border-dark">
+<div class="card-body">
 <table class="table table-bordered table-striped">
 	<thead>
 		<tr>
@@ -34,6 +36,17 @@
             </div></td>
 		</tr>
 			@endforeach
-</table>
+</table> 
+</div>
+</div>
+
+<div class="card row m-4">
+  <div class="card-body text-center">
+    <h5 class="card-title">Download File Excel</h5>
+    <p class="card-text">Klik tombol untuk mendownload file Excel</p>
+    <a href="#" class="btn btn-primary">Download</a>
+  </div>
+</div>
+</div>
 {{$list->links()}}
 @endsection   
