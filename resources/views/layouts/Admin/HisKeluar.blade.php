@@ -44,7 +44,7 @@
   <div class="card-body text-center">
     <h5 class="card-title">Download File Excel</h5>
     <p class="card-text">Klik tombol untuk mendownload file Excel</p>
-    <a href="#" class="btn btn-primary">Download</a>
+    <a href="{{route('exportP_keluar')}}" class="btn btn-primary">Download</a>
   </div>
 </div>
 </div>

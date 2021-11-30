@@ -48,7 +48,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item {{Request::routeIs('FUMasuk')?'active':''}}" href="{{route('FUMasuk')}}">Pengajuan Masuk</a>
-          <div class="dropdown-item"></div>
+          <div class="dropdown-divider"></div>
           <a class="dropdown-item {{Request::routeIs('FUKeluar')?'active':''}}" href="{{route('FUKeluar')}}">Pengajuan Keluar</a>
         </div>
       </li>
@@ -58,7 +58,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item {{Request::routeIs('HisMasuk')?'active':''}}" href="{{route('HisMasuk')}}">Pengajuan Masuk</a>
-          <div class="dropdown-item"></div>
+          <div class="dropdown-divider"></div>
           <a class="dropdown-item {{Request::routeIs('HisKeluar')?'active':''}}" href="{{route('HisKeluar')}}">Pengajuan Keluar</a>
         </div>
       </li>

@@ -124,8 +124,16 @@
 		<th class="text-center">Tata Cara Pengajuan Pindah Masuk</th>
 		<th class="text-center">Tata Cara Pengajuan Pindah Keluar</th>
 		</tr>
-		<td> <input type="file" class="form-control-file" name="img_info_msk" class="text-center"></br><a type="button" class="btn btn-danger text-center" href="#">Submit</a></td>
-		<td> <input type="file" class="form-control-file" name="img_info_klr" class="text-center"></br><a type="button" class="btn btn-danger text-center" href="#">Submit</a></td> 
+		<form method="post" action="{{route('tatacaraimg1')}}" enctype='multipart/form-data'>
+		@csrf
+		<td> <input type="file" class="form-control-file" name="img_info_msk" class="text-center"></br><button type="submit" class="btn btn-danger" class="text-right" style="float: right;">Save</button></td>
+		
+		</form>
+		<form method="post" action="{{route('tatacaraimg2')}}" enctype='multipart/form-data'>
+		@csrf
+		<td> <input type="file" class="form-control-file" name="img_info_klr" class="text-center"></br><button type="submit" class="btn btn-danger" class="text-right" style="float: right;">Save</button></td> 
+		
+		</form>
 		<tr>
 		</thead>
 		</table>

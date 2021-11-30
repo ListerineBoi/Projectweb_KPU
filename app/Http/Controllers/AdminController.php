@@ -11,9 +11,13 @@ use App\Models\KabKot;
 use App\Models\Keldes;
 use App\Models\Prov;
 use App\Models\User;
+use Illuminate\Support\Facades\Storage;
+use App\Models\tatacara;
 use App\Mail\Diterima;
 use App\Mail\Ditolak;
 use App\Imports\TpsImport;
+use App\Exports\history_keluar_Export;
+use App\Exports\history_masuk_Export;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Mail;
 use Auth;
@@ -740,5 +744,44 @@ class AdminController extends Controller
             'kec_jog' => $request->get('kec_jog') 
         ]);
         return redirect()->route('DetailSM',['id' => $request->get('id')]);
+    }
+
+    public function exportP_keluar() 
+    {
+        return Excel::download(new history_keluar_Export, 'Pengajuan_keluar.xlsx');
+    }
+    public function exportP_masuk() 
+    {
+        return Excel::download(new history_masuk_Export, 'Pengajuan_masuk.xlsx');
+    }
+    public function tatacaraimg1(Request $request)
+    {
+        $this->validate($request, [
+            'img_info_msk' => 'required'      
+        ]);
+            $fullname = $request->file('img_info_msk')->getClientOriginalName();
+            $extn =$request->file('img_info_msk')->getClientOriginalExtension();
+            $final= 'img_info_msk'.'_'.'tatacara'.'_'.time().'.'.$extn;
+            $path = $request->file('img_info_msk')->storeAs('public/tatacara', $final);
+            $del=tatacara::where('id','=', 1)->value('img1');
+            $delpath='public/tatacara/'.$del;
+            Storage::delete($delpath);
+        tatacara::where('id','=', 1)->update(['img1' => $final]);
+        return redirect()->route('Setting');
+    }
+    public function tatacaraimg2(Request $request)
+    {
+        $this->validate($request, [
+            'img_info_klr' => 'required'      
+        ]);
+            $fullname = $request->file('img_info_klr')->getClientOriginalName();
+            $extn =$request->file('img_info_klr')->getClientOriginalExtension();
+            $final= 'img_info_klr'.'_'.'tatacara'.'_'.time().'.'.$extn;
+            $path = $request->file('img_info_klr')->storeAs('public/tatacara', $final);
+            $del=tatacara::where('id','=', 1)->value('img2');
+            $delpath='public/tatacara/'.$del;
+            Storage::delete($delpath);
+        tatacara::where('id','=', 1)->update(['img2' => $final]);
+        return redirect()->route('Setting');
     }
 }
