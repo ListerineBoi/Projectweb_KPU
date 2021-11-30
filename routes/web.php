@@ -43,6 +43,8 @@ Route::get('/Profil/Admin', [App\Http\Controllers\AdminController::class, 'profi
 Route::get('/Setting/Admin', [App\Http\Controllers\AdminController::class, 'setting'])->name('Setting');
 Route::post('/Setting/simpan_Admin', [App\Http\Controllers\AdminController::class, 'saveAdmin'])->name('saveAdmin');
 Route::get('/Setting/del_Admin/{id}', [App\Http\Controllers\AdminController::class, 'deladmin'])->name('deladmin');
+Route::post('/Setting/tatacaraimg1', [App\Http\Controllers\AdminController::class, 'tatacaraimg1'])->name('tatacaraimg1');
+Route::post('/Setting/tatacaraimg2', [App\Http\Controllers\AdminController::class, 'tatacaraimg2'])->name('tatacaraimg2');
 Route::get('/DetailSM/Admin/{id}', [App\Http\Controllers\AdminController::class, 'detailSM'])->name('DetailSM');
 Route::get('/DetailSK/Admin/{id}', [App\Http\Controllers\AdminController::class, 'detailSK'])->name('DetailSK');
 Route::get('/InputTPS/Admin', [App\Http\Controllers\AdminController::class, 'InputTPS'])->name('InputTPS');
@@ -86,3 +88,6 @@ Route::get('/fetch/fetchkabkot', [App\Http\Controllers\FetchController::class, '
 Route::get('/fetch/fetchkec', [App\Http\Controllers\FetchController::class, 'fetchkec'])->name('fetchkec');
 Route::get('/fetch/fetchkeldes', [App\Http\Controllers\FetchController::class, 'fetchkeldes'])->name('fetchkeldes');
 Route::get('/fetch/fetchtps', [App\Http\Controllers\FetchController::class, 'fetchtps'])->name('fetchtps');
+//export//
+Route::get('/Admin/History/Masuk/ex', [App\Http\Controllers\AdminController::class, 'exportP_masuk'])->name('exportP_masuk');
+Route::get('/Admin/FollowUp/Keluar/ex', [App\Http\Controllers\AdminController::class, 'exportP_keluar'])->name('exportP_keluar');

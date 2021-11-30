@@ -90,7 +90,7 @@
 			<div class="form-group row">
 				<label class="control-label col-sm-2" for="nik">Lokasi Kecamatan</label>
 				<div class="col-sm-10">
-				<select class="form-control city selectFilter" name="kec_jog" id="select1_1" dt="fetchkeldes">
+				<select class="form-control city selectFilter" name="kec_jog" id="selecttps1" dt="fetchkeldes">
       			  <option selected>Pilih Kecamatan</option>
 					@foreach($kec as $row)
       			  <option value="{{$row->id}}">{{$row->nama}}</option>
@@ -101,9 +101,14 @@
 			<div class="form-group row">
 				<label class="control-label col-sm-2" for="nik">Lokasi Kelurahan</label>
 				<div class="col-sm-10">
-				<select class="form-control district selectFilter" name="kel_jog" id="select2_2" dt="fetchtps">
-      			  <option selected>Pilih kelurahan</option>
+				<select class="form-control district selectFilter" name="kel_jog" id="selecttps2" dt="fetchidkeldes">
 				  </select>
+  				</div>
+			</div>
+			<div class="form-group row">
+				<label class="control-label col-sm-2" for="nik">Id Kelurahan</label>
+				<div class="col-sm-10">
+				<input type="text" class="form-control" name="jml" id="selecttps3" readonly>
   				</div>
 			</div>
 			<div class="form-group row">
