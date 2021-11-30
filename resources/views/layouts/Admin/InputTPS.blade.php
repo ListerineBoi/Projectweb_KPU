@@ -79,6 +79,31 @@
     
 </br>
 
+<div class="container">
+<div class="row h-100 justify-content-center align-items-center bg-light">
+<div class="col-md-10">
+<div class="card border-dark">
+<div class="card-body text-center">
+<h3 class="text-light text-center bg-orange">Tata Cara Upload File TPS Excel</h3>	
+<h4>1. Kolom tidak menggunakan header</h4>
+</br>
+<h4>2. Koordinat menggunakan format tanpa huruf dan koordinat x dan y dipisahkan dengan koma</h4>
+</br>
+<h4>kolom 1= merupakan id kelurahan</br></br>
+kolom 2=merupakan no TPS</br></br>
+kolom 3=Alamat TPS</br></br>
+Kolom 4=jumlah pemilih tetap</br></br>
+kolom 5 = presentase perkiraan surat yang tersedia</br></br>
+kolom 6 = koordinat</h4></br></br></br>
+<h4>Contoh Excel yang Benar : </h4>
+<img src="/image/contohbenar.jpeg" class="w-100 h-50" title="">
+</div>
+</div>
+</div>
+</div>
+</div>
+</br>
+
 <form method="post" action="{{route('importtps')}}" enctype='multipart/form-data'>
 			@csrf
 <div class="container">

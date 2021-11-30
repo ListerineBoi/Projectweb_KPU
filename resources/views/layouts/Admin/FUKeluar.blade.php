@@ -30,16 +30,17 @@
 				</br>
   			<!-- Button to Open the Modal -->
 			  @if(Auth::user()->role!=2)
-  			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_upload{{$loop->iteration}}">
+  			<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal_upload{{$loop->iteration}}">
 			Konfirmasi & Upload Pdf
   			</button>
 			  @endif
-			  <br>
+</br>
  
   			<div class="modal fade" id="modal_upload{{$loop->iteration}}">
     		<div class="modal-dialog modal-dialog-centered">
       		<div class="modal-content">
       
+			<div class="container text-center">
         	<!-- Ini adalah Bagian Header Modal -->
         	<div class="modal-header">
           	<h4 class="modal-title">Upload File Surat Terima</h4>
@@ -60,6 +61,7 @@
             <div class= "col-sm-12 text-justify">*(Ekstensi PDF, File Maks 5 MB)</div>
           	</div>
         	</div>
+			</div>
         
         <!-- Ini adalah Bagian Footer Modal -->
         <div class="modal-footer">

@@ -46,13 +46,13 @@
 			<div class="form-group row">
 				<label class="control-label col-sm-2" for="nokk">No KK * </label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" name="nokk" placeholder="Masukkan No KK">
+					<input type="text" class="form-control" onkeypress="return event.charCode >= 48 && event.charCode <=57" name="nokk" placeholder="Masukkan No KK">
 				</div>
 			</div>
 			<div class="form-group row">
 				<label class="control-label col-sm-2" for="nik">NIK * </label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" name="nik" placeholder="Masukkan NIK Sesuai KTP">
+					<input type="text" class="form-control" name="nik" onkeypress="return event.charCode >= 48 && event.charCode <=57" placeholder="Masukkan NIK Sesuai KTP">
 				</div>
 			</div>
             <div class="form-group row">
@@ -197,7 +197,7 @@
             <div class="form-group row">
 				<label class="control-label col-sm-2" for="nik">No HP (WA) * </label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" name="nohp" placeholder="Masukkan No Whatsapp Anda">
+					<input type="text" class="form-control" name="nohp" onkeypress="return event.charCode >= 48 && event.charCode <=57" placeholder="Masukkan No Whatsapp Anda">
 				</div>
 			</div>
 			<div class="form-group row">

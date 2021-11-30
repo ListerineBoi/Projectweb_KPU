@@ -1,12 +1,12 @@
 @component('mail::message')
-# Mohon Maaf Pengajuan Pindah Anda Ditolak
+Dear pemilih,</br>
+Mohon Maaf Pengajuan Pindah Anda Ditolak
 
-alasan ditolak
+dikarenakan "alasan ditolak".
+Untuk informasi lebih lanjut silahkan hubungi kontak dibawah ini.
 
-@component('mail::button', ['url' => ''])
-Button Text
-@endcomponent
+(0274) 556916
 
-Thanks,<br>
-{{ config('app.name') }}
+Salam Hangat,</br>
+KPU Kota Yogyakarta
 @endcomponent

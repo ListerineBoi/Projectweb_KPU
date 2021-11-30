@@ -9,22 +9,13 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img class=" w-100 h-50" src="http://127.0.0.1:8000/image/Pleno_KPU.jpeg" alt="First slide">
-      <div class="carousel-caption d-none d-md-block  bg-orange">
-      <h1 style = "font-family:perpetua text-black; ">SELAMAT DATANG DI SIDALIH KPU KOTA YOGYAKARTA</h1>
-      </div>
+      <img class=" w-100 h-50" src="http://127.0.0.1:8000/image/kpu.png" alt="First slide">
     </div>
     <div class="carousel-item">
-      <img class=" w-100 h-50" src="http://127.0.0.1:8000/image/Pleno_KPU.jpeg" alt="Second slide">
-      <div class="carousel-caption d-none d-md-block  bg-orange">
-      <h1 style = "font-family:perpetua text-black; ">SELAMAT DATANG DI SIDALIH KPU KOTA YOGYAKARTA</h1>
-      </div>
+      <img class=" w-100 h-50" src="http://127.0.0.1:8000/image/kpu.png" alt="Second slide">
     </div>
     <div class="carousel-item">
-      <img class=" w-100 h-50" src="http://127.0.0.1:8000/image/Pleno_KPU.jpeg" alt="Third slide">
-      <div class="carousel-caption d-none d-md-block bg-orange">
-      <h1 style = "font-family:perpetua text-black; ">SELAMAT DATANG DI SIDALIH KPU KOTA YOGYAKARTA</h1>
-      </div>
+      <img class=" w-100 h-50" src="http://127.0.0.1:8000/image/kpu.png" alt="Third slide">
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -47,7 +38,7 @@
     <div class="card border-dark">
       <div class="card-body">
         <h5 class="card-title text-bold text-center">Tata Cara Pengajuan Pindah Masuk</h5>
-        <img src="public/tatacara/img_info_klr_tatacara.jpg" class="w-100 h-50" title="">
+        <img src="/storage/tatacara/img_info_msk_tatacara.jpg" class="w-100 h-50" title="">
       </div>
     </div>
   </div>
@@ -56,7 +47,7 @@
     <div class="card border-dark">
       <div class="card-body">
         <h5 class="card-title text-bold text-center">Tata Cara Pengajuan Pindah Keluar</h5>
-        <img src="public/tatacara/img_info_msk_tatacara.jpg" class="w-100 h-50" title="">
+        <img src="/storage/tatacara/img_info_klr_tatacara.jpg" class="w-100 h-50" title="">
       </div>
     </div>
   </div>
