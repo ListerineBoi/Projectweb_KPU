@@ -761,7 +761,7 @@ class AdminController extends Controller
         ]);
             $fullname = $request->file('img_info_msk')->getClientOriginalName();
             $extn =$request->file('img_info_msk')->getClientOriginalExtension();
-            $final= 'img_info_msk'.'_'.'tatacara'.'_'.time().'.'.$extn;
+            $final= 'img_info_msk'.'_'.'tatacara'.'.'.$extn;
             $path = $request->file('img_info_msk')->storeAs('public/tatacara', $final);
             $del=tatacara::where('id','=', 1)->value('img1');
             $delpath='public/tatacara/'.$del;
@@ -776,7 +776,7 @@ class AdminController extends Controller
         ]);
             $fullname = $request->file('img_info_klr')->getClientOriginalName();
             $extn =$request->file('img_info_klr')->getClientOriginalExtension();
-            $final= 'img_info_klr'.'_'.'tatacara'.'_'.time().'.'.$extn;
+            $final= 'img_info_klr'.'_'.'tatacara'.'.'.$extn;
             $path = $request->file('img_info_klr')->storeAs('public/tatacara', $final);
             $del=tatacara::where('id','=', 1)->value('img2');
             $delpath='public/tatacara/'.$del;
