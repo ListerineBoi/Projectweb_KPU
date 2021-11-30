@@ -51,7 +51,7 @@
 <figure class="highcharts-figure">
      <div id="bar"></div> <!-- chart -->
     <p class="highcharts-description text-center">
-        Grafik pergerakan Surat Masuk dan Surat Keluar pada TPS yang ada di Kota Yogyakarta
+        Grafik pergerakan Pengajuan Pindah Masuk dan Pengajuan Pindah Keluar pada TPS yang ada di Kota Yogyakarta
     </p>
 </figure>
 </div>
@@ -64,7 +64,7 @@
 <figure class="highcharts-figure">
     <div id="pie"></div>
     <p class="highcharts-description text-center">
-    Grafik total Surat Masuk dan Surat Keluar pada TPS yang ada di Kota Yogyakarta
+    Grafik total Pengajuan Pindah Masuk dan Pengajuan Pindah Keluar pada TPS yang ada di Kota Yogyakarta
     </p>
 </figure>
 </div>
@@ -79,7 +79,7 @@
         type: 'column'
     },
     title: {
-        text: 'Grafik Surat Masuk dan Surat Keluar KPU Yogyakarta'
+        text: 'Grafik Pengajuan Pindah Masuk dan Pengajuan Pindah Keluar KPU Yogyakarta'
     },
     subtitle: {
         text: ''
@@ -116,7 +116,7 @@
         }
     },
     series: [{
-        name: 'Surat Masuk',
+        name: 'Pengajuan Masuk',
         data: [
             <?php
                 foreach($sumkec as $row2){
@@ -127,7 +127,7 @@
         ]
 
     }, {
-        name: 'Surat Keluar',
+        name: 'Pengajuan Keluar',
         data: [
             <?php
                 foreach($sumkec as $row3){
@@ -152,7 +152,7 @@
         type: 'pie'
     },
     title: {
-        text: 'Total Surat Masuk dan Surat Keluar KPU Yogyakarta'
+        text: 'Total Pengajuan Pindah Masuk dan Pengajuan Keluar KPU Yogyakarta'
     },
     tooltip: {
         pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'

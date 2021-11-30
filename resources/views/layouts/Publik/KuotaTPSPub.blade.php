@@ -50,7 +50,7 @@
 <figure class="highcharts-figure">
      <div id="bar"></div> <!-- chart -->
     <p class="highcharts-description text-center">
-        Grafik pergerakan Surat Masuk dan Surat Keluar pada TPS yang ada di Kota Yogyakarta
+        Grafik pergerakan Pengajuan Pindah Masuk dan Peengajuan Pindah Keluar pada TPS yang ada di Kota Yogyakarta
     </p>
 </figure>
 </div>
@@ -63,7 +63,7 @@
 <figure class="highcharts-figure">
     <div id="pie"></div>
     <p class="highcharts-description text-center">
-    Grafik total Surat Masuk dan Surat Keluar pada TPS yang ada di Kota Yogyakarta
+    Grafik total Pengajuan Pindah Masuk dan Pengajuan Pindah Keluar pada TPS yang ada di Kota Yogyakarta
     </p>
 </figure>
 </div>

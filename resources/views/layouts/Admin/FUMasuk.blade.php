@@ -28,23 +28,25 @@
 				<a type="button" href="{{route('printpdf', ['id' => $row->id])}}" class="btn text-center btn-primary">Download template surat Terima</a>
                 <div class="container text-center">
   			<!-- Button to Open the Modal -->
+			  </br>
 			  @if(Auth::user()->role!=2)
-  			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_upload{{$loop->iteration}}">
+  			<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal_upload{{$loop->iteration}}">
     		Konfirmasi & Upload Pdf
   			</button>
 			  @endif
-			  <br>
+</br>
  
   			<div class="modal fade" id="modal_upload{{$loop->iteration}}">
     		<div class="modal-dialog modal-dialog-centered">
       		<div class="modal-content">
       
+			<div class="container text-center">
         	<!-- Ini adalah Bagian Header Modal -->
         	<div class="modal-header">
           	<h4 class="modal-title">Upload File Surat Terima</h4>
           	<button type="button" class="close" data-dismiss="modal">&times;</button>
         	</div>
-			
+			 
 			<form method="post" action="{{route('verifFuMasuk')}}" enctype='multipart/form-data'>
                 @csrf
         	<!-- Ini adalah Bagian Body Modal -->
@@ -59,6 +61,7 @@
             <div class= "col-sm-12 text-justify">*(Ekstensi PDF, File Maks 5 MB)</div>
           	</div>
         	</div>
+</div>
         
         <!-- Ini adalah Bagian Footer Modal -->
         <div class="modal-footer">

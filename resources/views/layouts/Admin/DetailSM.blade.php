@@ -6,6 +6,7 @@
 <h3 class="text-bold text-light text-center bg-orange">Halaman Detail Pemilih Pengajuan Masuk</h3>
 </br>
 
+<div class="card border-dark">
 <h2 class="text-center"> Detail Informasi Asal Pemilih </h2>
 <table class="table table-bordered table-striped">
 	<thead>
@@ -27,9 +28,11 @@
 		</tr>
 	</thead>
 </table>
+</div>
 
 </br>
 
+<div class="card border-dark">
 <h2 class="text-center"> Detail Informasi Domisili di Yogyakarta </h2>
 <table class="table table-bordered table-striped">
 	<thead>
@@ -53,6 +56,7 @@
 		</tr>
 	</thead>
 </table>
+</div>
 @if(Auth::user()->role!=2)
 <a type="button" href="{{route('editpengajuan', ['id' => $sm->id])}}" class="btn text-center btn-primary">Edit Domisili Jogja</a>
 @endif

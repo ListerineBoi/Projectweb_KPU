@@ -1,12 +1,11 @@
 @component('mail::message')
-# Selamat Pengajuan Pindah Anda Diterima
-
-isi email
+Dear pemilih,
+ Selamat Pengajuan Pindah Anda Diterima, Silahkan download Surat A5 berikut ini.
 
 @component('mail::button', ['url' => ''])
-Button Text
+Download A5
 @endcomponent
 
-Thanks,<br>
-KPU
+Salam Hangat,<br>
+KPU Kota Yogyakarta
 @endcomponent

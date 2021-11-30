@@ -81,11 +81,6 @@
                                 <i class="fa fa-user"></i> {{ Auth::user()->name }} <span class="caret"></span>|
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
                                       <a class="dropdown-item" href="/Profil/Admin">Profil</a>
                                       @if(Auth::user()->role==1)
                                       <a class="dropdown-item" href="/Setting/Admin">Setting</a>
@@ -93,6 +88,11 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
                                 </div>
                             </li>
                         @endguest

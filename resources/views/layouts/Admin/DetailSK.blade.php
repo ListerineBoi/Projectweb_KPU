@@ -2,10 +2,15 @@
 
 @section('content') 
 
+<div class="container">
+<h3 class="text-bold text-light text-center bg-orange">Halaman Detail Pemilih Pengajuan Keluar</h3>
+</br>
+
+<div class="card border-dark">
 <h2 class="text-center"> Detail Informasi Domisili Yogyakarta </h2>
 <table class="table table-bordered table-striped">
 	<thead>
-		<tr>
+		<tr> 
 			<th class="text-center">Kabupaten</th>
 			<th class="text-center">Kecamatan</th>
 			<th class="text-center">Kelurahan</th>
@@ -27,9 +32,10 @@
 		</tr>
 	</thead>
 </table>
-
+</div>
 </br>
 
+<div class="card border-dark">
 <h2 class="text-center"> Detail Informasi Tujuan Pemilih </h2>
 <table class="table table-bordered table-striped">
 	<thead>
@@ -47,7 +53,8 @@
 		</tr>
 	</thead>
 </table>
+</div>
 
 </br>
-            <button type="button" class="btn btn-danger" class="text-right" style="float: right;">Close</button>
+</div>
 @endsection 

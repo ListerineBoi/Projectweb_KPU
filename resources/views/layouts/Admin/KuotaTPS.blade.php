@@ -18,7 +18,7 @@
     <h5 class="card-title">Kecamatan {{$det['kec']}}</h5>
     <h5 class="card-title">Kelurahan {{$det['kel']}}</h5>
   </div>
-</div>
+</div> 
 <div class="row m-2">
 
 
@@ -44,28 +44,44 @@
 
 
 
-</div>
+
 {{$tps->appends(request()->input())->links()}}
 </div>
-</div>
 
+
+<div class="card border-dark">
+      <div class="card-body">
 <figure class="highcharts-figure">
      <div id="bar"></div> <!-- chart -->
     <p class="highcharts-description text-center">
         Grafik pergerakan Surat Masuk dan Surat Keluar pada TPS yang ada di Kota Yogyakarta
     </p>
 </figure>
+</div>
+</div>
 
 </br>
 
+<div class="card border-dark">
+      <div class="card-body">
 <figure class="highcharts-figure">
     <div id="pie"></div>
     <p class="highcharts-description text-center">
     Grafik total Surat Masuk dan Surat Keluar pada TPS yang ada di Kota Yogyakarta
     </p>
 </figure>
+</div>
+</div>
+</br>
 
-<div id='map' class="col-12 align-items-center" style='width: 1400px; height: 300px;'></div>
+<div class="card border-dark">
+      <div class="card-body">
+      <h2 class="text-center text-bold">MAPS TPS</h2>
+<div id='map' class="col-12 align-items-center" style='width: 1060px; height: 300px;'></div>
+</div>
+</div>
+</div>
+</div>
 
 <!-- bar chart -->
 <script>
