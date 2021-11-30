@@ -41,7 +41,7 @@
             <th class="text-center">No HP (WA)</th>
             <th class="text-center">Foto KTP</th>
             <th class="text-center">Foto KK</th>
-		</tr>
+		</tr> 
 		<tr>
 			<td class="text-center">{{$det['kabj']}}</td>
 			<td class="text-center">{{$det['kecj']}}</td>

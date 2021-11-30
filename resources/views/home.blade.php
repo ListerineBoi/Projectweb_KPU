@@ -52,7 +52,7 @@
     </div>
   </div>
   <div class="col-sm-6">
-    <div class="card text-center">
+    <div class="card text-center"> 
     <img class="card-img-top" src="/image/history.png" width="200" height="200"  alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">History</h5>

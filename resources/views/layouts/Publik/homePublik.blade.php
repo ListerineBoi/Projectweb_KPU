@@ -64,7 +64,7 @@
 
 </br>
 
-  <div class="container">
+  <div class="container"> 
   <div class="card border-dark text-center">
       <div class="card-body">
     <p class="lead">Cek Anda sudah terdaftar sebagai pemilih atau belum</p>
@@ -73,6 +73,35 @@
 </div>
 </div>
 </div>
-
 </br>
+
+<div class="container">
+<div class="col-12 align-items-center">
+<div class="row m-2">
+  <div class="col-sm-6 mb-4">
+    <div class="card text-center">
+    <img class="card-img-top" src="/image/rumahtps.jpg" width="200" height="200"  alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">TPS</h5>
+        <p class="card-text">Digunakan untuk melihat, menambah dan mengubah data TPS di tiap Kelurahan di Kota Yogyakarta.</p>
+        <a href="{{route('tpsadmin')}}" class="btn btn-primary {{Request::routeIs('tpsadmin')?'active':''}}">TPS</a>
+      </div>
+    </div>
+  </div>
+</br>
+  <div class="col-sm-6 mb-4">
+    <div class="card text-center">
+    <img class="card-img-top" src="/image/suratpengajuan.png" width="200" height="200"  alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Pengajuan Pindah</h5>
+        <p class="card-text">Untuk melihat, menyetujui/menolak, dan memasukkan data Pengajuan Pindah Masuk atau Keluar Kota Yogykarta.</p>
+        <a href="{{route('pilihansm')}}" class="btn btn-primary {{Request::routeIs('pilihansm')?'active':''}}">Pindah Masuk</a>
+        <a href="{{route('SuratKeluar')}}" class="btn btn-primary {{Request::routeIs('SuratKeluar')?'active':''}}">Pindah Keluar</a>
+      </div>
+    </div>
+  </div>
+</br>
+</div>
+</div>
+</div>
 @endsection   
