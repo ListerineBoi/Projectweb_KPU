@@ -597,15 +597,25 @@ class AdminController extends Controller
         $domisili=array();
         array_push($domisili,['keldes'=> $keldes,'kec'=> $kec,'kabkot'=> $kabkot,'prov'=> $prov,'kec_jog'=> $kec_jog,'kel_jog'=> $kel_jog,'tps_jog'=> $tps_jog]);
         
-        if ($data->kab==3471) {
+        if(($kec=='MERGANGSAN' OR $kec=='KRATON' OR $kec=='MANTRIJERON') AND ($kec_jog=='MERGANGSAN' OR $kec_jog=='KRATON' OR $kec_jog=='MANTRIJERON') ){
             $priv=array(1,1,1,1,1);
+        }elseif (($kec=='PAKUALAMAN' OR $kec=='GONDOMANAN' OR $kec=='NGAMPILAN' OR $kec=='WIROBRAJAN') AND ($kec_jog=='PAKUALAMAN' OR $kec_jog=='GONDOMANAN' OR $kec_jog=='NGAMPILAN' OR $kec=='WIROBRAJAN')) {
+            $priv=array(1,1,1,1,1);
+        }elseif (($kec=='TEGALREJO' OR $kec=='JETIS' OR $kec=='GEDONG TENGEN') AND ($kec_jog=='TEGALREJO' OR $kec_jog=='JETIS' OR $kec_jog=='GEDONGTENGEN')) {
+            $priv=array(1,1,1,1,1);
+        }elseif (($kec=='DANUREJAN' OR $kec=='GONDOKUSUMAN') AND ($kec_jog=='DANUREJAN' OR $kec_jog=='GONDOKUSUMAN')) {
+            $priv=array(1,1,1,1,1);
+        }elseif (($kec=='UMBULHARJO' OR $kec=='KOTAGEDE') AND ($kec_jog=='UMBULHARJO' OR $kec_jog=='KOTAGEDE')) {
+            $priv=array(1,1,1,1,1);
+        }elseif ($data->kab==3471) {
+            $priv=array(1,1,1,1,0);
         }elseif ($data->prov==34) {
             $priv=array(1,1,1,1,0);
         }else{
             $priv=array(0,0,1,0,0);
         }
         $pdf = PDF::loadview('/layouts/Admin/formPrint',compact('data','domisili','priv'))->setpaper('Legal','potrait');
-        //return date("Y-m-d");
+        //return $kec_jog;
         return $pdf->stream($data->nik.'_pindahMasuk');
     }
     public function printpdfK($id)
@@ -637,7 +647,17 @@ class AdminController extends Controller
         $domisili=array();
         array_push($domisili,['keldes'=> $keldes,'kec'=> $kec,'kabkot'=> $kabkot,'prov'=> $prov,'kec_jog'=> $kec_jog,'kel_jog'=> $kel_jog,'tps_jog'=> $tps_jog]);
         
-        if ($data->kab==3471) {
+        if(($kec=='MERGANGSAN' OR $kec=='KERATON' OR $kec=='MANTRIJERON') AND ($kec_jog=='MERGANGSAN' OR $kec_jog=='KERATON' OR $kec_jog=='MANTRIJERON') ){
+            $priv=array(1,1,1,1,1);
+        }elseif (($kec=='PAKUALAMAN' OR $kec=='GONDOMANAN' OR $kec=='NGAMPILAN' OR $kec=='WIROBRAJAN') AND ($kec_jog=='PAKUALAMAN' OR $kec_jog=='GONDOMANAN' OR $kec_jog=='NGAMPILAN' OR $kec=='WIROBRAJAN')) {
+            $priv=array(1,1,1,1,1);
+        }elseif (($kec=='TEGALREJO' OR $kec=='JETIS' OR $kec=='GEDONG TENGEN') AND ($kec_jog=='TEGALREJO' OR $kec_jog=='JETIS' OR $kec_jog=='GEDONGTENGEN')) {
+            $priv=array(1,1,1,1,1);
+        }elseif (($kec=='DANUREJAN' OR $kec=='GONDOKUSUMAN') AND ($kec_jog=='DANUREJAN' OR $kec_jog=='GONDOKUSUMAN')) {
+            $priv=array(1,1,1,1,1);
+        }elseif (($kec=='UMBULHARJO' OR $kec=='KOTAGEDE') AND ($kec_jog=='UMBULHARJO' OR $kec_jog=='KOTAGEDE')) {
+            $priv=array(1,1,1,1,1);
+        }elseif($data->kab==3471) {
             $priv=array(1,1,1,1,0);
         }elseif ($data->prov==34) {
             $priv=array(1,1,1,0,0);
