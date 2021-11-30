@@ -55,7 +55,7 @@
     <!-- Section: Social media -->
     <section class="mb-4">
        <!-- Whatsapp -->
-       <a class="btn btn-outline-light btn-floating m-1" href="#" role="button"
+       <a class="btn btn-outline-light btn-floating m-1" href="085156901792" role="button"
         ><i class="fa fa-phone"></i
       ></a>
 
@@ -144,7 +144,7 @@
 
         <!--Grid column-->
         <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
-        <h5 class="text-uppercase">Masukan/Kritik</h5>
+        <h5 class="text-uppercase">Kritik & Saran</h5>
         <div class="mb-5">
         <textarea class="form-control" id="message-text"></textarea>
         </br>
