@@ -19,6 +19,9 @@
             <th class="text-center">No HP (WA)</th>
             <th class="text-center">Foto KTP</th>
             <th class="text-center">Foto KK</th>
+			@if($sk->surat_acc!=null)
+			<th class="text-center">PDF Terima</th>
+			@endif
 		</tr>
 		<tr>
 			<th class="text-center">{{$det['kabj']}}</th>
@@ -27,8 +30,11 @@
             <th class="text-center">TPS</th>
 			<th class="text-center">{{$sk->email}}</th>
             <th class="text-center">{{$sk->No_hp}}</th>
-            <td class="text-center"><a href="/storage/c1/{{$sk->img_c1}}">{{$sk->img_c1}}</a></td>
-            <td class="text-center"><a href="/storage/ktp/{{$sk->img_ktp}}">{{$sk->img_ktp}}</a></td>
+			<td class="text-center"><a type="button" href="/storage/c1/{{$sk->img_c1}}" class="btn text-center btn-success">Lihat</a></td>
+            <td class="text-center"><a type="button" href="/storage/ktp/{{$sk->img_ktp}}" class="btn text-center btn-success">Lihat</a></td>
+			@if($sk->surat_acc!=null)
+			<td class="text-center"><a type="button" href="/storage/suratFu/{{$sk->surat_acc}}" class="btn text-center btn-success">Lihat</a></td>
+			@endif
 		</tr>
 	</thead>
 </table>

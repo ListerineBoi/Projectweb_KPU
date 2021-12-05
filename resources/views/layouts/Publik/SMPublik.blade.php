@@ -191,7 +191,7 @@
             <div class="form-group row">
 				<label class="control-label col-sm-2" for="nik">E-Mail * </label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" name="email" placeholder="Masukkan E-Mail Anda">
+					<input type="email" class="form-control" name="email" placeholder="Masukkan E-Mail Anda">
 				</div>
 			</div>
             <div class="form-group row">

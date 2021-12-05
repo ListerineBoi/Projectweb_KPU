@@ -84,21 +84,12 @@
       
         	<!-- Ini adalah Bagian Header Modal -->
         	<div class="modal-header">
-          	<h4 class="modal-title">Alasan Ditolak</h4>
-          	<button type="button" class="close" data-dismiss="modal">&times;</button>
+				Tolak Pengajuan
         	</div>
         
         	<!-- Ini adalah Bagian Body Modal -->
         	<div class="modal-body">
-        
-          <div class="mb-3">
-            <label for="recipient-name" class="col-form-label">Email:</label>
-            <input type="text" class="form-control" id="recipient-name">
-          </div>
-          <div class="mb-3">
-            <label for="message-text" class="col-form-label">Alasan:</label>
-            <textarea class="form-control" id="message-text"></textarea>
-          </div>
+			Yakin akan ditolak?.
        
         </div>
         

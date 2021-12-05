@@ -2,7 +2,7 @@
 Dear pemilih,
  Selamat Pengajuan Pindah Anda Diterima, Silahkan download Surat A5 berikut ini.
 
-@component('mail::button', ['url' => ''])
+@component('mail::button', ['url' => $fulllink])
 Download A5
 @endcomponent
 

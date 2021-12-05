@@ -38,7 +38,7 @@
     <div class="card border-dark">
       <div class="card-body">
         <h5 class="card-title text-bold text-center">Tata Cara Pengajuan Pindah Masuk</h5>
-        <img src="/storage/tatacara/img_info_msk_tatacara.jpg" class="w-100 h-50" title="">
+        <img src="/storage/tatacara/{{DB::table("tatacara")->value('img1')}}" class="w-100 h-500" title="">
       </div>
     </div>
   </div>
@@ -47,7 +47,7 @@
     <div class="card border-dark">
       <div class="card-body">
         <h5 class="card-title text-bold text-center">Tata Cara Pengajuan Pindah Keluar</h5>
-        <img src="/storage/tatacara/img_info_klr_tatacara.jpg" class="w-100 h-50" title="">
+        <img src="/storage/tatacara/{{DB::table("tatacara")->value('img2')}}" class="w-100 h-500" title="">
       </div>
     </div>
   </div>

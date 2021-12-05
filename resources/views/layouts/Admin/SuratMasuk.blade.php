@@ -102,21 +102,13 @@
       
         	<!-- Ini adalah Bagian Header Modal -->
         	<div class="modal-header">
-          	<h4 class="modal-title">Alasan Ditolak</h4>
+          	<h4 class="modal-title">Tolak Pengajuan</h4>
           	<button type="button" class="close" data-dismiss="modal">&times;</button>
         	</div>
-			<form method="post" action="{{route('verif')}}" enctype='multipart/form-data'>
-                @csrf
-				<input type="hidden" name="id" value="{{$row->id}}">
-			<input type="hidden" name="type" value=1>
 
         	<!-- Ini adalah Bagian Body Modal -->
         	<div class="modal-body">
-          <div class="mb-3">
-		  
-            <label for="message-text" class="col-form-label">Alasan:</label>
-            <textarea class="form-control" id="message-text"></textarea>
-          </div>
+			Yakin akan ditolak?.
 
         </div>
         

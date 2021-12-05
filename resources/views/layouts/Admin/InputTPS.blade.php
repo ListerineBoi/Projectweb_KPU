@@ -96,7 +96,7 @@ Kolom 4=jumlah pemilih tetap</br></br>
 kolom 5 = presentase perkiraan surat yang tersedia</br></br>
 kolom 6 = koordinat</h4></br></br></br>
 <h4>Contoh Excel yang Benar : </h4>
-<img src="/image/contohbenar.jpeg" class="w-100 h-50" title="">
+<img src="/image/contohbenar.jpeg" class="w-100 h-20" title="">
 </div>
 </div>
 </div>

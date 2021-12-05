@@ -44,6 +44,9 @@
             <th class="text-center">No HP (WA)</th>
             <th class="text-center">Foto KTP</th>
             <th class="text-center">Foto KK</th>
+			@if($sm->surat_acc!=null)
+			<th class="text-center">PDF Terima</th>
+			@endif
 		</tr> 
 		<tr>
 			<td class="text-center">{{$det['kabj']}}</td>
@@ -51,8 +54,11 @@
 			<td class="text-center">{{$det['kelj']}}</td>
 			<td class="text-center">{{$sm->email}}</td>
             <td class="text-center">{{$sm->No_hp}}</td>
-            <td class="text-center"><a href="/storage/c1/{{$sm->img_c1}}">{{$sm->img_c1}}</a></td>
-            <td class="text-center"><a href="/storage/ktp/{{$sm->img_ktp}}">{{$sm->img_ktp}}</a></td>
+            <td class="text-center"><a type="button" href="/storage/c1/{{$sm->img_c1}}" class="btn text-center btn-success">Lihat</a></td>
+            <td class="text-center"><a type="button" href="/storage/ktp/{{$sm->img_ktp}}" class="btn text-center btn-success">Lihat</a></td>
+			@if($sm->surat_acc!=null)
+			<td class="text-center"><a type="button" href="/storage/suratFu/{{$sm->surat_acc}}" class="btn text-center btn-success">Lihat</a></td>
+			@endif
 		</tr>
 	</thead>
 </table>

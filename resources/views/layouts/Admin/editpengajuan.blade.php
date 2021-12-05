@@ -10,7 +10,7 @@
   <div class="card-body text-center">
   <form method="post" action="{{route('saveeditpengajuan')}}">
 	  @csrf
-    <h5 class="card-title">Data Pengajuan Masuk</h5>
+    <h5 class="card-title">Edit Kecamatan & Kelurahan</h5>
 	<input type="hidden" class="form-control" name="id" value="{{$id}}">
     <div class="form-group row m-2">
 				<div class="col md-3 mb-2">

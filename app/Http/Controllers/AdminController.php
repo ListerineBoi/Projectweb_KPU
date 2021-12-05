@@ -664,7 +664,7 @@ class AdminController extends Controller
         }else{
             $priv=array(0,0,1,0,0);
         }
-        $pdf = PDF::loadview('/layouts/Admin/formPrint',compact('data','domisili','priv'))->setpaper('Legal','potrait');
+        $pdf = PDF::loadview('/layouts/Admin/formPrintK',compact('data','domisili','priv'))->setpaper('Legal','potrait');
         //return date("Y-m-d");
         return $pdf->stream($data->nik.'_pindahKeluar');
     }
@@ -680,7 +680,9 @@ class AdminController extends Controller
         SuratM::where('id', $request->get('id'))->update(['status' => 1,'surat_acc' => $final]);
         $tps=SuratM::where('id', $request->get('id'))->value('tps_jog');
         Tps::where('id', $tps)->increment('jml_masuk');
-        Mail::to(SuratM::where('id', $request->get('id'))->value('email'))->send(new Diterima());
+        $link=SuratM::where('id', $request->get('id'))->value('surat_acc');
+        $fulllink='http://127.0.0.1:8000/storage/suratFu/'.$link;
+        Mail::to(SuratM::where('id', $request->get('id'))->value('email'))->send(new Diterima($fulllink));
         return redirect()->route('FUMasuk');
     }
     public function verifFuKeluar(Request $request)
@@ -696,7 +698,9 @@ class AdminController extends Controller
         SuratK::where('id', $request->get('id'))->update(['status' => 1,'surat_acc' => $final]);
         $tps=SuratK::where('id', $request->get('id'))->value('tps_jog');
         Tps::where('id', $tps)->increment('jml_keluar');
-        Mail::to(SuratK::where('id', $request->get('id'))->value('email'))->send(new Diterima());
+        $link=SuratK::where('id', $request->get('id'))->value('surat_acc');
+        $fulllink='http://127.0.0.1:8000/storage/suratFu/'.$link;
+        Mail::to(SuratK::where('id', $request->get('id'))->value('email'))->send(new Diterima($fulllink));
         return redirect()->route('FUKeluar');
     }
     public function savetps(Request $request)

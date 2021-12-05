@@ -16,9 +16,10 @@ class Diterima extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public $fulllink;
+    public function __construct($fulllink)
     {
-        //
+        $this->fulllink =$fulllink;
     }
 
     /**
