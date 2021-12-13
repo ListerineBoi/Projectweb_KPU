@@ -95,7 +95,10 @@
     		Tolak
   			</button>
 			  @endif
- 
+			<form method="post" action="{{route('verif')}}" enctype='multipart/form-data'>
+				@csrf
+				<input type="hidden" name="id" value="{{$row->id}}">
+			<input type="hidden" name="type" value=1>
   			<div class="modal fade" id="modal_tolak{{$loop->iteration}}">
     		<div class="modal-dialog modal-dialog-centered">
       		<div class="modal-content">
