@@ -14,6 +14,12 @@ $dis2.on( 'change', function() {
         $('#select2_2').prop('selectedIndex',0);
         $("#select2_2").attr('disabled', true);
     }else if(this.value=='0'){
+        $("#select1_1").attr('disabled', false);
         $("#select2_2").attr('disabled', false);
+    }else if(this.value=='3'){
+        $('#select1_1').prop('selectedIndex',0);
+        $('#select2_2').prop('selectedIndex',0);
+        $("#select1_1").attr('disabled', true);
+        $("#select2_2").attr('disabled', true);
     }
 } ).trigger( 'change' );

@@ -57,7 +57,7 @@ class AdminController extends Controller
         $lok=Auth::user()->lokasi;
         $role=Auth::user()->role;
         $kec=Kecamatan::where('kabkot','=', 3471)->get();
-        if($role==1){
+        if($role==1 or $role==3){
             $list=SuratM::where([
                 ['status','=',0],
                 ['kel_jog','=',$request->kel_jog]
@@ -334,10 +334,17 @@ class AdminController extends Controller
             'nama' => 'required',
             'email' => 'required',
             'pass' => 'required',
-            'role' => 'required',
-            'kec_jog' => 'required'  
+            'role' => 'required', 
         ]);
-        if ($request->kel_jog != null) {
+        if ($request->role==3) {
+            $user= new User([
+                'name' => $request->nama,
+                'email' => $request->email,
+                'password' => Hash::make($request->pass),
+                'role' => $request->role
+                
+            ]);
+        }elseif($request->kel_jog != null) {
             $user= new User([
                 'name' => $request->nama,
                 'email' => $request->email,
@@ -345,8 +352,8 @@ class AdminController extends Controller
                 'role' => $request->role,
                 'lokasi' => $request->kel_jog
             ]);
-        }
-        else {
+            
+        }else {
             $user= new User([
                 'name' => $request->nama,
                 'email' => $request->email,
@@ -448,7 +455,7 @@ class AdminController extends Controller
         $lok=Auth::user()->lokasi;
         $role=Auth::user()->role;
         $tps=Tps::all();
-        if($role==1){
+        if($role==1 or $role==3){
             $list=SuratM::where([
                 ['status','!=',0]
             ])->paginate(10);

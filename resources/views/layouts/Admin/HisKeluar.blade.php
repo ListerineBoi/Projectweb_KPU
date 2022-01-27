@@ -38,6 +38,8 @@
 			@endforeach
 </table> 
 </div>
+</br>
+{{$list->links()}}
 </div>
 
 <div class="card row m-4">
@@ -47,6 +49,7 @@
     <a href="{{route('exportP_keluar')}}" class="btn btn-primary">Download</a>
   </div>
 </div>
+
 </div>
-{{$list->links()}}
+
 @endsection   

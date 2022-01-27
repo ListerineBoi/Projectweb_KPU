@@ -36,6 +36,7 @@
 				<select class="form-control" id="dis2" name="role">
 				<option  value="0">Mengelola</option>
 				<option  value="2" selected>Melihat</option>
+				<option  value="3" selected>Sub-Admin Kota</option>
 				</select>
 				</div>
 			</div>
@@ -95,7 +96,7 @@
 			<td class="text-center">{{$row->name}}</td>
 			<td class="text-center">{{$row->email}}</td>
             <td class="text-center">{{$row->lokasi}}</td>
-			<td class="text-center">@if($row->role==1)Admin Utama @elseif($row->role==0)Admin Kelurahan @else Admin Kecamatan @endif</td>
+			<td class="text-center">@if($row->role==1)Admin Utama @elseif($row->role==0) Admin Kelurahan @elseif($row->role==3) Subadmin Kota @else Admin Kecamatan @endif</td>
 			<td class="text-center"><a type="button" class="btn btn-danger" href="{{route('deladmin', ['id' => $row->id])}}">Delete</a></td>
 		</tr>
 		@endforeach

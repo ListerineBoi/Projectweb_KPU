@@ -64,7 +64,9 @@
 </table>
 </div>
 @if(Auth::user()->role!=2)
+@if($sm->status != 1)
 <a type="button" href="{{route('editpengajuan', ['id' => $sm->id])}}" class="btn text-center btn-primary">Edit Domisili Jogja</a>
+@endif
 @endif
 </br>
 </div>

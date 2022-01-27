@@ -63,7 +63,6 @@
 			
 				<div class="col-sm-10">
 				<select class="form-control district selectFilter" name="tps_jog" id="select2_2">
-      			  <option selected>Pilih TPS...</option>
 					@if(Auth::user()->role !=2)
 					@foreach($tps as $tp)
 					<option selected value="{{$tp->id}}">{{$tp->nama}} {{$tp->alamat}}</option>

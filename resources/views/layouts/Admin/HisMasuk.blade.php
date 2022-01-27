@@ -43,6 +43,8 @@
 </div>
 </div>
 </br>
+{{$list->links()}}
+</br>
 
 <div class="card row m-4">
   <div class="card-body text-center">
@@ -51,7 +53,8 @@
     <a href="{{route('exportP_masuk')}}" class="btn btn-primary">Download</a>
   </div>
 </div>
+
 </div>
 
-	{{$list->links()}}
+
 @endsection   

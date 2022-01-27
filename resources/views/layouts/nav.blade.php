@@ -31,11 +31,11 @@
         <i class="fa fa-envelope"></i> Pengajuan Pindah
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          @if(Auth::user()->role!=1)
+          @if(Auth::user()->role==0 || Auth::user()->role==2) 
           <a class="dropdown-item {{Request::routeIs('SuratMasuk')?'active':''}}" href="{{route('SuratMasuk')}}">Pengajuan Masuk</a>
           <div class="dropdown-item"></div>
           <a class="dropdown-item {{Request::routeIs('SuratKeluar')?'active':''}}" href="{{route('SuratKeluar')}}">Pengajuan Keluar</a>
-          @else
+          @elseif(Auth::user()->role==1 || Auth::user()->role==3)
           <a class="dropdown-item" href="{{route('pilihansm')}}">Pengajuan Masuk</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="{{route('SuratKeluar')}}">Pengajuan Keluar</a>
