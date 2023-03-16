@@ -75,7 +75,7 @@
       <div class="card-body">
         <h5 class="card-title">TPS</h5>
         <p class="card-text">Digunakan untuk melihat, menambah dan mengubah data TPS di tiap Kelurahan di Kota Yogyakarta.</p>
-        <a href="{{route('tpsadmin')}}" class="btn btn-primary {{Request::routeIs('tpsadmin')?'active':''}}">TPS</a>
+        <a href="{{route('tps')}}" class="btn btn-primary {{Request::routeIs('tpsadmin')?'active':''}}">TPS</a>
       </div>
     </div>
   </div>

@@ -63,17 +63,18 @@ class PublikController extends Controller
                 $sumMAll=$sumMAll+$sumM;
                 $sumKAll=$sumKAll+$sumK;
             }
-            array_push($sumkec,['sumM'=> $sumMAll,'sumK'=> $sumKAll]);
+            array_push($sumkec,['sumM'=> $sumMAll,'sumK'=> $sumKAll]); 
         }
-        
+        //return $sumkec;
 
         foreach ($tps as $row) {
             $sumM=$sumM+$row->jml_masuk;
             $sumK=$sumK+$row->jml_keluar;
             
         }
-        //return $sumkec;
+        //return $tps1;
         return view('/layouts/Publik/tps',compact('tps','kec','sumM','sumK','sumkec'));
+        
     }
 
     public function tcp()
